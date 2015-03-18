@@ -1,0 +1,11 @@
+#{extends 'main.html' /}
+#{set title:'Restaurant - Show List' /}
+	
+#{set title:'restaurant-record' /}
+
+<div style="margin-bottom:10px;"><img src="/public/images/title_date.jpg" / style="margin-right:5px"><img src="/public/images/title_iss.jpg" /></div>
+#{list restaurant_records, as:'restaurant_record'}
+	<div id="news_list">
+          <div id="news_title">${restaurant_record?.habit}</div>
+    </div>
+#{/list}

@@ -1,0 +1,218 @@
+<style type="text/css">
+.index {
+	overflow: hidden;
+}
+</style>
+#{extends 'main.html' /}
+#{set title:'馥蘭朵烏來渡假酒店 Volando Urai Spring SPA Resort' /}
+<!-- Refine slider starts -->
+<link rel="stylesheet" href="css/default.css">
+<script type="text/javascript" src="/public/javascripts/exeImage.js"></script>
+
+<style type="text/css">
+		#lighterbox0{
+			opacity:		1;
+		} 
+		#lighterbox1, #lighterbox2, #lighterbox3, #lighterbox4, #lighterbox5, #lighterbox6, #lighterbox7, #lighterbox8, #lighterbox9 {
+			opacity:		1;
+			width:		160px;
+			height:		150px;
+			overflow:	hidden;
+		} 
+</style>
+<script src="http://www.dreamhome.com.tw/escounter/counter.asp?name=rog0512&dir=1"></script>
+<script type="text/javascript">
+
+		$(function(){
+				$('#lighterbox1').hover(
+					function(){
+						$(this).stop().animate({opacity: .5 }, 2000);
+						$('#lighterbox0').animate({opacity: 0 }, 0);
+						$('#lighterbox0').stop().animate({opacity: 1 }, 2000);
+					} ,
+					function(){ 
+						$(this).stop().animate({opacity: 1 }, 1000);
+					}
+				);
+				$('#lighterbox2').hover(function(){$(this).stop().animate({opacity: .5 }, 2000);$('#lighterbox0').animate({opacity: 0 }, 0);$('#lighterbox0').stop().animate({opacity: 1 }, 2000);} ,function(){ $(this).stop().animate({opacity: 1 }, 1000);});
+				$('#lighterbox3').hover(function(){$(this).stop().animate({opacity: .5 }, 2000);$('#lighterbox0').animate({opacity: 0 }, 0);$('#lighterbox0').stop().animate({opacity: 1 }, 2000);} ,function(){ $(this).stop().animate({opacity: 1 }, 1000);});
+				$('#lighterbox4').hover(function(){$(this).stop().animate({opacity: .5 }, 2000);$('#lighterbox0').animate({opacity: 0 }, 0);$('#lighterbox0').stop().animate({opacity: 1 }, 2000);} ,function(){ $(this).stop().animate({opacity: 1 }, 1000);});
+				$('#lighterbox5').hover(function(){$(this).stop().animate({opacity: .5 }, 2000);$('#lighterbox0').animate({opacity: 0 }, 0);$('#lighterbox0').stop().animate({opacity: 1 }, 2000);} ,function(){ $(this).stop().animate({opacity: 1 }, 1000);});
+				$('#lighterbox6').hover(function(){$(this).stop().animate({opacity: .5 }, 2000);$('#lighterbox0').animate({opacity: 0 }, 0);$('#lighterbox0').stop().animate({opacity: 1 }, 2000);} ,function(){ $(this).stop().animate({opacity: 1 }, 1000);});
+				$('#lighterbox7').hover(function(){$(this).stop().animate({opacity: .5 }, 2000);$('#lighterbox0').animate({opacity: 0 }, 0);$('#lighterbox0').stop().animate({opacity: 1 }, 2000);} ,function(){ $(this).stop().animate({opacity: 1 }, 1000);});
+				$('#lighterbox8').hover(function(){$(this).stop().animate({opacity: .5 }, 2000);$('#lighterbox0').animate({opacity: 0 }, 0);$('#lighterbox0').stop().animate({opacity: 1 }, 2000);} ,function(){ $(this).stop().animate({opacity: 1 }, 1000);});
+				$('#lighterbox9').hover(function(){$(this).stop().animate({opacity: .5 }, 2000);$('#lighterbox0').animate({opacity: 0 }, 0);$('#lighterbox0').stop().animate({opacity: 1 }, 2000);} ,function(){ $(this).stop().animate({opacity: 1 }, 1000);})
+				
+		});
+</script>
+
+
+<audio controls autoplay>
+  <source src="/public/music/index.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div class=index style="min-height:inherit">
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+      <tr>
+        <td>
+                <div id='index_header'>
+                		<div id='index_header_menu'  class="style2">
+                              <a href="http://www.springparkhotel.com.tw/en/00home/home.asp"><img src="/public/images/index/option-1-japan.png" width="65" height="16" /></a>
+                              <a href="http://www.springparkhotel.com.tw/jp/00home/home.asp"><img src="/public/images/index/option-2-japan.png" width="45" height="16" /></a>
+                              <a href="http://www.springparkhotel.com.tw/ch/00home/home.asp"><img src="/public/images/index/option-3-schinese.png" width="34" height="16" /></a>
+                              <img src="/public/images/index/option-vline.png" width="11" height="16" />
+                              
+
+			      #{if session.user}
+				${userName}, good day | <a href="/application/logout">logout</a>
+			      #{/if}
+			      #{else}
+				      <a href="@{Application.login}"><img src="/public/images/index/option-4-member.png" width="60" height="16" /></a>
+		                      <a href="@{Application.register}"><img src="/public/images/index/option-5-new.png" width="73" height="16" /></a> 
+				      <!--<a style="height: 16px; position: relative; top: -4px; left: 3px;" href="javascript: facebookLogin();">Facebook登入</a>-->                   		
+			      #{/else}
+			     </div>
+                         <div id='index_header_logo'>
+                        		<img src="/public/images/index/logo.png" width="160" height="93" />
+                        		<a href="http://www.relaischateaux.com/en/" target="_blank"><img src="/public/images/index/logo-rel-1.png" /></a>
+                        </div>
+                </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td rowspan="3">
+            	<div id=index_content_main>
+                		<div id=index_content_main_keyword><img src="/public/images/index/keyword/keyword01.png" name="keyword" width="270" height="80" id="keyword" /></div>
+                        <div id=index_content_main_pic>
+                        		<div id="lighterbox0"><img src="/public/images/index/01.jpg" name="mainpic" width="600" height="450" id="mainpic" /><div>
+                        <div>
+                        <div id=index_content_main_shadow><img src="/public/images/index/shadow.png" width="600" height="450" /></div>
+                        
+            	</div>
+            </td>
+            <td width="160">
+            		<div id="lighterbox1">
+                    		<a href="/Pages/about">
+                            		<img src="/public/images/index/s/01.jpg" onmouseover="MM_swapImage('mainpic','','/public/images/index/01.jpg','keyword','','/public/images/index/keyword/keyword01.png',1)" />
+                            </a>
+                    <div>
+            </td>
+            <td width="160">
+                    <div id="lighterbox2">
+                    		<a href="/Announce/listAll/">
+                            		<img src="/public/images/index/s/02.jpg" onmouseover="MM_swapImage('mainpic','','/public/images/index/02.jpg','keyword','','/public/images/index/keyword/keyword02.png',1)" />
+                            </a>
+                    <div>
+            </td>
+            <td width="160">
+                    <div id="lighterbox3">
+                    		<a href="/Project/listAll/">
+                            		<img src="/public/images/index/s/03.jpg" onmouseover="MM_swapImage('mainpic','','/public/images/index/03.jpg','keyword','','/public/images/index/keyword/keyword03.png',1)" />
+                            </a>
+                    <div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                    <div id="lighterbox4">
+                    		<a href="@{Application.listrooms}">
+                            <img src="/public/images/index/s/04.jpg" onmouseover="MM_swapImage('mainpic','','/public/images/index/04.jpg','keyword','','/public/images/index/keyword/keyword04.png',1)" />
+                    		</a>
+                    <div>
+            </td>
+            <td>
+                    <div id="lighterbox5">
+                    		<a href="/Application/listhotsprings">
+                           		 <img src="/public/images/index/s/05.jpg" onmouseover="MM_swapImage('mainpic','','/public/images/index/05.jpg','keyword','','/public/images/index/keyword/keyword05.png',1)" />
+                            </a>
+                    <div>
+            </td>
+            <td>
+                    <div id="lighterbox6">
+                    		<a href="/Pages/catering">
+                            		<img src="/public/images/index/s/06.jpg" onmouseover="MM_swapImage('mainpic','','/public/images/index/06.jpg','keyword','','/public/images/index/keyword/keyword06.png',1)" />
+                            </a>
+                    <div>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+                    <div id="lighterbox7">
+                    		<a href="/Pages/spa">
+                            		<img src="/public/images/index/s/07.jpg" onmouseover="MM_swapImage('mainpic','','/public/images/index/07.jpg','keyword','','/public/images/index/keyword/keyword07.png',1)" />
+                            </a>
+                    <div>
+            </td>
+            <td>
+                    <div id="lighterbox8">
+                    		<a href="/Pages/meeting">
+                            		<img src="/public/images/index/s/08.jpg" onmouseover="MM_swapImage('mainpic','','/public/images/index/08.jpg','keyword','','/public/images/index/keyword/keyword08.png',1)" />
+                            </a>
+                    <div>
+            </td>
+            <td>
+                    <div id="lighterbox9">
+                    		<a href="/Information/list/traffic">
+                            		<img src="/public/images/index/s/09.jpg" onmouseover="MM_swapImage('mainpic','','/public/images/index/09.jpg','keyword','','/public/images/index/keyword/keyword09.png',1)" />
+                            </a>
+                    <div>
+            </td>
+          </tr>
+          
+        </table>
+        
+        </td>
+      </tr>
+      <tr>
+        <td height="150" align="left" valign="top">
+	 <div id=index_footer>
+        	<div id=index_footer_music>
+                    <!--
+                    <a href="javascript:SetMusicStatus()">
+                    <img id="music_img"  src="images/index/icon-music-on.png" name="Image18" width="42" height="16" border="0"/>
+                    </a>
+                    -->
+            </div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="60" align="left" valign="middle">
+                        <!-- <img src="/public/images/index/logo-rel-2.png" /> -->
+                    <a href="http://www.tripadvisor.com.tw/Hotel_Review-g1432365-d596993-Reviews-Volando_Urai_Spring_SPA_Resort-Xinbei.html" target="_blank"><img src="/public/images/index/logo-rel-3.jpg" width="57" height="56" /></a></td>
+                <td align="left" valign="middle">
+                		<span class="style3">
+                                Volando Urai Spring Spa & Resort&nbsp;&nbsp;Reservation Line : (02)2661-6555&nbsp;&nbsp;Fax Line  : (02)2661-6559&nbsp;&nbsp;Email：
+                        <a href="mailto:fo@volandourai.com.tw">fo@volandourai.com.tw</a> &nbsp;233新北市烏來區新烏路五段176號&nbsp;  
+                      </span>
+           			  <span class="font-GRAY-SuperTiny">©2013 VOLANDO ALL RIGHTS RESERVED</span><br />
+           			  <a href="/Application/downloadapp">APP download</a> | <span class="font-GRAY-SuperTiny">Recommend use Google Chrome browser and 1280 x 720px resolution above </span>
+               </td>
+               <td width="160" valign="middle" style="text-align:center;">
+			                      
+			<a href="https://www.facebook.com/taiwan.volando" target="_blank" onmouseover="MM_swapImage('Image22','','/public/images/index/bt_fb_t.jpeg',1)" onmouseout="MM_swapImgRestore()"><img src="/public/images/index/bt_fb_t.jpeg" name="Image22" width="20" height="20" border="0" id="Image22" />
+                       </a>&nbsp;&nbsp;
+                       <a href="https://maps.google.com.tw/maps?q=馥蘭朵&amp;hl=zh-TW&amp;ie=UTF8&amp;ll=24.869734,121.547713&amp;spn=0.030058,0.042529&amp;sll=24.870007,121.548057&amp;sspn=0.030058,0.042529&amp;brcurrent=3,0x346808e8b57b1149:0xcde259054fa552a0,0,0x345d5538b0b6645f:0x5aa90dfa6620edc0&amp;t=m&amp;z=15&amp;iwloc=B" target="_blank" onmouseover="MM_swapImage('Image23','','/public/images/index/bt_map_t.jpeg',1)" onmouseout="MM_swapImgRestore()"><img src="/public/images/index/bt_map_t.jpeg" name="Image23" width="82" height="20" border="0" id="Image23" />&nbsp;&nbsp;
+                       </a>
+			
+               </td>
+              </tr><tr><p></p></tr>
+            </table>
+         </div>        
+	
+        </td>
+      </tr>
+   </table>
+    </td>
+  </tr>
+</table>
+</div>
+
+

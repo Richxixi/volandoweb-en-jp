@@ -1,0 +1,95 @@
+
+#{extends 'main_admin.html' /}
+#{set title:'Dashboard - Restaurant Manager' /}<!-- Main bar -->
+  	<div class="mainbar">
+
+      <!-- Page heading -->
+      <div class="page-head">
+        <h2 class="pull-left"><i class="icon-table"></i> 開房管理</h2>
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+          <a href="index.html"><i class="icon-home"></i> Home</a> 
+          <!-- Divider -->
+          <span class="divider">/</span> 
+          <a href="#" class="bread-current"> 開房管理</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+      </div>
+      <!-- Page heading ends -->
+
+	    <!-- Matter -->
+
+	    <div class="matter">
+        <div class="container-fluid">
+
+          <!-- Table -->
+
+            <div class="row-fluid">
+
+              <div class="span12">
+                <div class="widget">
+
+                <div class="widget-head">
+                  <div class="pull-left">Records</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+
+                  <div class="widget-content">
+
+                    <table class="table table-striped table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>日期</th>
+                        
+                          <th>價格</th>
+                          <th>房間數</th>
+			　<th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+						
+						#{list items:capacities, as:'capacity'}
+                        <tr>
+                          <td>${capacity.id}</td>
+
+                          <td><input type="text" class="form-control view" id="firstname" name="firstname" value="${capacity.room_date}"></td>
+                          <td><input type="text" class="form-control view" id="firstname" name="firstname" value="${capacity.prize}"></td>
+                          <td><input type="text" class="form-control view" id="firstname" name="firstname" value="${capacity.capicity}"></td>
+			 
+                        </tr>
+                        #{/list}
+                       
+                      </tbody>
+                    </table>
+
+                    <div class="widget-foot">
+
+                      
+                      <div class="clearfix"></div> 
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+		  </div>
+
+		<!-- Matter ends -->
+
+    </div>
+
+   <!-- Mainbar ends -->

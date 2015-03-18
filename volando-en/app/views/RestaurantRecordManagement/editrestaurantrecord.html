@@ -1,0 +1,69 @@
+#{extends 'main.html' /}
+#{set title:'Restaurant - Edit Record' /}
+<link rel="stylesheet" href="/public/machome/style/bootstrap-datetimepicker.min.css">
+<script src="/public/machome/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+      $('#datepicker').datepicker();
+    </script>
+
+<!-- Page heading starts -->
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>Restaurants</h2>
+        <h4>booking your date</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+<div class="content">
+  <div class="container">
+    <div class="row">
+		<div class="span12">
+			<div class="formy well">
+             #{form @updaterestaurntrecordbyID(id), enctype:'multipart/form-data'}
+			<label for="idlabel">Restaurant Record ID:  </label><label for="myid">${restaurant_record?.id}</label>
+			
+            <div class="well"><label>1. 餐廳資訊</label>
+				<div class="well"><label>餐廳名稱：</label><label>${restaurant?.name}</label></div>
+				<div class="well"><label>營業時間：</label><label>${restaurant?.time}</label></div>
+				<div class="well"><label>人數：</label><label>${restaurant?.seat_num}</label></div>
+				<div class="well"><label>介紹：</label><labels>${restaurant?.description}</label></div>
+				<input type="hidden" name="restaurant_id" placeholder="地址" value = ${restaurant.id}>
+			
+            </div>
+			<div class="well"><label>2. 選擇日期</label>
+			    <div class="input-append date" id="datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+    				<input class="span2" size="16" type="text"  name= "order_date" value="${restaurant_record.order_date == null ? '' :restaurant_record.order_date}" placeholder ="yyyy-MM-dd">
+    			</div>
+			</div>
+			
+            <div class="well"><label>3. 訂位資料</label>
+            			<label>Member ID:	${user.name} </label>
+                    	<input type="text" id="email" placeholder="Email" value = ${user.email}>
+                    	<input type="text" id="address" placeholder="地址" value = ${user.address}>
+                    	<input type="text" id="phone" placeholder="電話" value = ${user.phone}><br />
+                    	<label>用餐人數: </label><input class="span2" size="8" type="text"  name= "person_number" value="${restaurant_record.person_number == null ? '' :restaurant_record.person_number}" placeholder ="2">
+			    		<label>用餐習慣: </label><input class="span2" size="8" type="text"  name= "habit" value="${restaurant_record.habit == null ? '' :restaurant_record.habit}" placeholder ="">
+			    		<label>隨行成員: </label><input class="span2" size="8" type="text"  name= "members" value="${restaurant_record.members == null ? '' :restaurant_record.members}" placeholder =""><br />
+                    	<input type="text" id="pay_approach" name="pay_approach" value="${restaurant_record.pay_approach == null ? '' :restaurant_record.pay_approach}" placeholder="付款方式">
+                    	<input type="text" id="VAT" name="VAT" value="${restaurant_record.VAT == null ? '' :restaurant_record.VAT}" placeholder="統一編號">
+                    	<input type="text" id="other_requirement" name="other_requirement" value="${restaurant_record.other_requirement == null ? '' :restaurant_record.other_requirement}" placeholder="特別需求">
+            			<input type="text" id="communicate_time" name="communicate_time" value="${restaurant_record.communicate_time == null ? '' :restaurant_record.communicate_time}" placeholder="聯絡時間">			
+			<div class="well"><label>4. 館內最新資訊</label>
+			</div>
+			<div class="center"><button class="btn btn-primary" type="submit" name="submit">Submit</button></div>
+			#{/form}
+			
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

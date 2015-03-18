@@ -1,0 +1,15 @@
+# Application dependencies
+
+require:
+    - play
+    - play -> secure
+    - play -> crud
+    - play -> fbgraph 0.4
+    - posapi_mac_j_npg -> posapi_mac_j_npg
+repositories: 
+    - provided: 
+        type:       local 
+        descriptor: "${application.path}/../[module]/conf/dependencies.yml"
+        artifact:   "${application.path}/jar/[module].jar"
+        contains: 
+            - posapi_mac_j_npg

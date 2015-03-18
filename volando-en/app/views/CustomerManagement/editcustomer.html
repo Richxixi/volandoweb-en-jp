@@ -1,0 +1,32 @@
+#{extends 'main_admin.html' /}
+#{set title:'Dashboard - Post' /}<!-- Main bar -->
+	<div class="mainbar">                   
+			#{form @updatecustomerbyID(id), enctype:'multipart/form-data'}
+			<label for="idlabel">Customer ID:  </label><label for="myid">${cus?.id}</label><br />
+			<span class="text_s_tw color_blue">Email : </span>
+			<input type="text" name="email" value="${cus.email == null ? '' : cus.email}" class="span8" style="height: 30px;"><br/>
+			
+			<br>
+			<span class="text_s_tw color_blue">Name : </span>
+			<input type="text" name="name" value="${cus.name == null ? '' : cus.name}" class="span8" style="height: 30px;"><br/>
+			<br>
+			<span class="text_s_tw color_blue">Address : </span>
+			<input type="text" name="address" value="${cus.address == null ? '' : cus.address}" class="span8" style="height: 30px;"><br/>
+			<br>
+			
+			<span class="text_s_tw color_blue">Country : </span>
+			<input type="text" name="country" value="${cus.country == null ? '' : cus.country}" class="span8" style="height: 30px;"><br/>
+			<br>
+			<span class="text_s_tw color_blue">Phone : </span>
+			<input type="text" name="phone" value="${cus.phone == null ? '' : cus.phone}" class="span8" style="height: 30px;"><br/>
+			<br>
+			<span class="text_s_tw color_blue">gender : </span>
+			<input type="text" name="gender" value="${cus.gender == null ? '' : cus.gender}" class="span8" style="height: 30px;"><br/>
+			<br>
+			<span class="text_s_tw color_blue">Birth Day : </span>
+			<input type="text" name="birthday" value="${cus.birthday == null ? '' : cus.birthday}" class="span8" style="height: 30px;"><br/>
+			<br>
+			<div class="center"><input type="submit" name="submit" value="Submit" style="width:120px; height:32px; margin-top:30px"></div>
+			#{/form}
+	</div>
+

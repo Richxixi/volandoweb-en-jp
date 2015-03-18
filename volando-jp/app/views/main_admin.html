@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="x-ua-compatible" content="ie=10"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="${_response_encoding}">
+  <!-- Title and other stuffs -->
+  <title>#{get 'title' /}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+
+  <!-- Stylesheets -->
+  <link href="/public/macui/style/bootstrap.css" rel="stylesheet">
+  <!-- Font awesome icon -->
+  <link rel="stylesheet" href="/public/macui/style/font-awesome.css"> 
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="i/public/macui/style/jquery-ui.css"> 
+  <!-- Calendar -->
+  <link rel="stylesheet" href="/public/macui/style/fullcalendar.css">
+  <!-- prettyPhoto -->
+  <link rel="stylesheet" href="/public/macui/style/prettyPhoto.css">   
+  <!-- Star rating -->
+  <link rel="stylesheet" href="/public/macui/style/rateit.css">
+  <!-- Date picker -->
+  <link rel="stylesheet" href="/public/macui/style/bootstrap-datetimepicker.min.css">
+  <!-- CLEditor -->
+  <link rel="stylesheet" href="/public/macui/style/jquery.cleditor.css"> 
+  <!-- Uniform -->
+  <link rel="stylesheet" href="/public/macui/style/uniform.default.css"> 
+  <!-- Bootstrap toggle -->
+  <link rel="stylesheet" href="/public/macui/style/bootstrap-toggle-buttons.css">
+  <!-- Main stylesheet -->
+  <link href="/public/macui/style/style.css" rel="stylesheet">
+  <!-- Widgets stylesheet -->
+  <link href="/public/macui/style/widgets.css" rel="stylesheet">   
+  <!-- Responsive style (from Bootstrap) -->
+  <link href="/public/macui/style/bootstrap-responsive.css" rel="stylesheet">
+
+  <!-- HTML5 Support for IE -->
+  <!--[if lt IE 9]>
+  <script src="/public/macui/js/html5shim.js"></script>
+  <![endif]-->
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/public/macui/img/favicon/favicon.png">
+
+  
+	<!-- JS -->
+	<script src="/public/macui/js/jquery.js"></script> <!-- jQuery -->
+	<script src="/public/macui/js/jquery-migrate-1.2.1.js"></script> <!-- jQuery -->	
+	<script src="/public/macui/js/bootstrap.js"></script> <!-- Bootstrap -->
+	<script src="/public/macui/js/jquery-ui-1.9.2.custom.min.js"></script> <!-- jQuery UI -->
+	<script src="/public/macui/js/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
+	<script src="/public/macui/js/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
+	<script src="/public/macui/js/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
+	<script src="/public/macui/js/jquery.cleditor.min.js"></script> <!-- CLEditor -->
+	<script src="/public/macui/js/jquery.cleditor.extimage.js"></script> <!-- CLEditor Image Uploader-->
+	<script src="/public/macui/js/jquery.form.min.js"></script>
+
+	<!-- jQuery Flot -->
+	<script src="/public/macui/js/excanvas.min.js"></script>
+	<script src="/public/macui/js/jquery.flot.js"></script>
+	<script src="/public/macui/js/jquery.flot.resize.js"></script>
+	<script src="/public/macui/js/jquery.flot.pie.js"></script>
+	<script src="/public/macui/js/jquery.flot.stack.js"></script>
+
+	<!-- jQuery Notification - Noty -->
+	<script src="/public/macui/js/jquery.noty.js"></script> <!-- jQuery Notify -->
+	<script src="/public/macui/js/themes/default.js"></script> <!-- jQuery Notify -->
+	<script src="/public/macui/js/layouts/bottom.js"></script> <!-- jQuery Notify -->
+	<script src="/public/macui/js/layouts/topRight.js"></script> <!-- jQuery Notify -->
+	<script src="/public/macui/js/layouts/top.js"></script> <!-- jQuery Notify -->
+	<!-- jQuery Notification ends -->
+
+	<script src="/public/macui/js/sparklines.js"></script> <!-- Sparklines -->
+	
+	<script src="/public/macui/js/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
+	<script src="/public/macui/js/jquery.uniform.min.js"></script> <!-- jQuery Uniform -->
+	<script src="/public/macui/js/jquery.toggle.buttons.js"></script> <!-- Bootstrap Toggle -->
+	<script src="/public/macui/js/filter.js"></script> <!-- Filter for support page -->
+	<script src="/public/macui/js/custom.js"></script> <!-- Custom codes -->
+	<script src="/public/macui/js/charts.js"></script> <!-- Custom codes -->
+	
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <!-- Menu button for smallar screens -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span>Menu</span>
+      </a>
+      <!-- Site name for smallar screens -->
+      <a href="/admin" class="brand hidden-desktop">MacBeath</a>
+
+      <!-- Navigation starts -->
+      <div class="nav-collapse collapse">        
+       
+
+       
+
+        <!-- Links -->
+        <ul class="nav pull-right">
+          <li class="dropdown pull-right">            
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <i class="icon-user"></i> Admin <b class="caret"></b>              
+            </a>
+            
+            <!-- Dropdown menu -->
+            <ul class="dropdown-menu">
+              <li><a href="/"><i class="icon-cogs"></i> Home</a></li>
+              <li><a href="/admin/profile"><i class="icon-user"></i> Profile</a></li>
+              <li><a href="/logout"><i class="icon-off"></i> Logout</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Header starts -->
+  <header>
+    <div class="container-fluid">
+      <div class="row-fluid">
+
+        <!-- Logo section -->
+        <div class="span4">
+          <!-- Logo. -->
+          <div class="logo">
+            <h1><a href="/admin">Volando<span class="bold">Admin</span></a></h1>
+            <p class="meta">Designed by IM JUST 2013</p>
+          </div>
+          <!-- Logo ends -->
+        </div>
+
+        <!-- Button section -->
+        <div class="span4">
+
+          <!-- Buttons -->
+          <ul class="nav nav-pills">
+
+            <!-- Comment button with number of latest comments count -->
+            <li class="dropdown dropdown-big">
+              <!--<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                <i class="icon-comments"></i> Chats <span   class="badge badge-info">6</span> 
+              </a>-->
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <!-- Heading - h5 -->
+                    <h5><i class="icon-comments"></i> Chats</h5>
+                    <!-- Use hr tag to add border -->
+                    <hr />
+                  </li>
+                  <li>
+                    <!-- List item heading h6 -->
+                    <h6><a href="#">Hi :)</a> <span class="label label-warning pull-right">10:42</span></h6>
+                    <div class="clearfix"></div>
+                    <hr />
+                  </li>
+                  <li>
+                    <h6><a href="#">How are you?</a> <span class="label label-warning pull-right">20:42</span></h6>
+                    <div class="clearfix"></div>
+                    <hr />
+                  </li>
+                  <li>
+                    <h6><a href="#">What are you doing?</a> <span class="label label-warning pull-right">14:42</span></h6>
+                    <div class="clearfix"></div>
+                    <hr />
+                  </li>                  
+                  <li>
+                    <div class="drop-foot">
+                      <a href="#">View All</a>
+                    </div>
+                  </li>                                    
+                </ul>
+            </li>
+
+            <!-- Message button with number of latest messages count-->
+            <li class="dropdown dropdown-big">
+              <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                <i class="icon-envelope-alt"></i> Inbox <span class="badge badge-important">${guestbooks_size}</span> 
+              </a>
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <!-- Heading - h5 -->
+                    <h5><i class="icon-envelope-alt"></i> Messages</h5>
+                    <!-- Use hr tag to add border -->
+                    <hr />
+                  </li>
+		  #{if guestbooks}
+	                  #{list items:guestbooks, as:'guestbooks'}
+		                  <li>
+		                    <!-- List item heading h6-->
+		                    <h6><a href="#">${guestbooks.content}</a>  #{if guestbooks.view != true}<span style="color: red">new</span>#{/if}</h6>
+		                    <p>
+					#{if guestbooks.deviceType == 'pc'}				
+						FROM ${guestbooks.email}
+					#{/if}
+					#{elseif guestbooks.deviceType == 'mobile'}
+						FROM APP				
+					#{/elseif}
+				    </p>
+				    <div class="clearfix"></div>
+		                    <hr />
+		                  </li>
+	                  #{/list}
+		  
+                  #{/if}
+		  #{else}
+			<li>		
+			<p>no unsolved problem.</p>
+		  	<div class="clearfix"></div>
+		        <hr />
+		        </li>
+	          #{/else}                  
+  
+                  <li>
+                    <div class="drop-foot">
+                      <a href="/GuestbookManagement/list">View All</a>
+                    </div>
+                  </li>                                    
+                </ul>
+            </li>
+
+            <!-- Members button with number of latest members count -->
+            <li class="dropdown dropdown-big">
+              <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                <i class="icon-user"></i> Users <span   class="badge badge-success">${users_size}</span> 
+              </a>
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <!-- Heading - h5 -->
+                    <h5><i class="icon-user"></i> Users</h5>
+                    <!-- Use hr tag to add border -->
+                    <hr />
+                  </li>
+                  #{if users}
+	                  #{list items:users, as:'user'}
+		                  <li>
+		                    <!-- List item heading h6-->
+		                    <h6><a href="#">${user.name}</a> <span class="label label-warning pull-right">Free</span></h6>
+		                    <div class="clearfix"></div>
+		                    <hr />
+		                  </li>
+	                  #{/list}
+                  #{/if}
+                    <div class="drop-foot">
+                      <a href="/crud/users">View All</a>
+                    </div>
+                  </li>                                    
+                </ul>
+            </li> 
+
+          </ul>
+
+        </div>
+
+        <!-- Data section -->
+
+        <div class="span4">
+          <div class="header-data">
+
+            <!-- Traffic data -->
+            <div class="hdata">
+              <div class="mcol-left">
+                <!-- Icon with red background -->
+                <i class="icon-signal bred"></i> 
+              </div>
+              <div class="mcol-right">
+                <!-- Number of Rooms -->
+                <p><a href="/RoomManagement/records">${rooms_size}</a> <em>客房</em></p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+            <!-- Members data -->
+            <div class="hdata">
+              <div class="mcol-left">
+                <!-- Icon with blue background -->
+                <i class="icon-user bblue"></i> 
+              </div>
+              <div class="mcol-right">
+                <!-- Number of Users -->
+                <p><a href="/HotspringManagement/records">${hotspring_size}</a> <em>湯屋</em></p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+            <!-- revenue data -->
+            <div class="hdata">
+              <div class="mcol-left">
+                <!-- Icon with green background -->
+                <i class="icon-money bgreen"></i> 
+              </div>
+              <div class="mcol-right">
+                <!-- Number of Restaurants -->
+                <p><a href="/RestaurantManagement/records">${restaurants_size}</a> <em>餐廳</em></p>
+              </div>
+              <div class="clearfix"></div>
+            </div>                        
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+<!-- Header ends -->
+
+<!-- Main content starts -->
+
+<div class="content">
+
+  	<!-- Sidebar -->
+  	<div class="sidebar">
+      	<div class="sidebar-dropdown"><a href="#">Navigation</a></div>
+
+      	<!--- Sidebar navigation -->
+      	<!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
+      	<ul id="nav">
+        	<!-- Main menu with font awesome icon -->
+	        <li><a href="/admin" class="open"><i class="icon-home"></i> Dashboard</a>
+	          <!-- Sub menu markup 
+	          <ul>
+	            <li><a href="#">Submenu #1</a></li>
+	            <li><a href="#">Submenu #2</a></li>
+	            <li><a href="#">Submenu #3</a></li>
+	          </ul>-->
+	    <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> 關於馥蘭朵  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+            <ul>
+  		     <!--   <li><a href="/PageManagement/springprice/editInfo">溫泉價目表</a></li> -->
+	    	  	<li><a href="/PageManagement/editLifeTime">生活儀式時刻表</a></li>
+	      		<li><a href="/ArtsManagement/list/1">藝品介紹</a></li>
+            </ul>
+          </li>
+	    	</li>
+	    	 <li class="has_sub"><a href="#"><i class="icon-file-alt"></i>  最新訊息  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+            <ul>
+              <li><a href="/AnnounceManagement/add">新增訊息</a></li>
+              <li><a href="/AnnounceManagement/list">訊息內容管理</a></li>
+            </ul>
+          </li>
+          <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> 住宿  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+            <ul>
+              <li><a href="/RoomManagement/addroom">新增房型</a></li>
+              <li><a href="/RoomManagement/records">房型管理</a></li>
+      <!--        <li><a href="/RoomManagement/listRecords">訂單管理</a></li> -->
+              <li><a href="/PageManagement/roomprice/editInfo">住宿價目表</a></li>
+              <li><a href="/RoomCapacityManagement/listRooms">開房</a></li>
+            </ul>
+          </li> 
+          <!--<li class="has_sub"><a href="#"><i class="icon-file-alt"></i> 餐廳管理  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+            <ul>
+              <li><a href="/RestaurantManagement/addrestaurant">新增餐廳</a></li>
+              <li><a href="/RestaurantManagement/records">餐廳管理</a></li>
+              <li><a href="/MealSetManagement/addmealset">新增套餐</a></li>
+              <li><a href="/MealSetManagement/records">套餐管理</a></li>
+              <li><a href="/RestaurantManagement/listRecords">訂單管理</a></li>
+            </ul>
+          </li>-->
+          <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> 溫泉  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+            <ul>
+              <li><a href="/HotspringManagement/addhotspring">新增溫泉</a></li>
+              <li><a href="/HotspringManagement/records">溫泉管理</a></li>
+            </ul>
+          </li>
+          <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> 餐飲  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+            <ul>
+              <li><a href="/PageManagement/cateringAbu/editInfo">ABU餐廳</a></li>
+	      <li><a href="/PageManagement/cateringSiliq/editInfo">Siliq餐廳</a></li>
+            </ul>
+          </li>
+          <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> SPA  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+            <ul>
+	      <li><a href="/PageManagement/dasha/editInfo">關於dasha</a></li>
+        	<li><a href="/PageManagement/spaCourse/editInfo">溫泉芳香課程</a></li>
+	      <li><a href="/PageManagement/spaAddOn/editInfo">加值課程</a></li>
+	   <!--   <li><a href="/PageManagement/spaPress/editInfo">抒壓課程</a></li>  -->
+	      <li><a href="/PageManagement/spaVip/editInfo">VIP招募</a></li>
+            </ul>
+          </li>
+          <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> 會議  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+          <ul>
+              <li><a href="/MeetingManagement/add">新增會議</a></li>
+              <li><a href="/MeetingManagement/list">會議內容管理</a></li>
+            </ul>
+            
+          </li>
+          <!--<li class="has_sub"><a href="#"><i class="icon-file-alt"></i> 湯屋管理  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+            <ul>
+              <li><a href="/HotspringManagement/addhotspring">新增湯屋</a></li>
+              <li><a href="/HotspringManagement/records">湯屋管理</a></li>
+              <li><a href="#">訂單管理</a></li>
+            </ul>
+          </li>-->
+            <!-- <li class="has_sub"><a href="#"><i class="icon-file-alt"></i> 交通管理  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+               <ul>
+                 <li><a href="/TrafficManagement/addtraffic">新增接駁車資訊</a></li>
+                 <li><a href="/TrafficManagement/records">接駁車管理</a></li>
+                 <li><a href="#">訂單管理</a></li>
+               </ul>
+             </li>-->
+	  <li class="has_sub"><a href="#"><i class="icon-file-alt"></i>  優惠專案  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+            <ul>
+              <li><a href="/ProjectManagement/add">新增優惠專案</a></li>
+              <li><a href="/ProjectManagement/list">專案內容管理</a></li>
+            </ul>
+          </li>
+      <li class="has_sub"><a href="#"><i class="icon-file-alt"></i>  客服  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+            <ul>
+              <li><a href="/InformationManagement/add">新增客服訊息</a></li>
+              <li><a href="/InformationManagement/list">訊息內容管理</a></li>
+            </ul>
+          </li>
+	  <li class="has_sub"><a href="#"><i class="icon-file-alt"></i>  意見反應  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+            <ul>
+              <li><a href="/GuestbookManagement/list">意見列表管理</a></li>
+            </ul>
+          </li>
+            
+        <li class="has_sub"><a href="#"><i class="icon-file-alt"></i>  瀏覽記錄  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+                <ul>
+		            <li><a href="/CRMRecords">瀏覽記錄列表</a></li>
+                    <li><a href="/CRMExport">Export</a></li>
+
+                </ul>
+            </li>
+
+            <li class="has_sub"><a href="#"><i class="icon-file-alt"></i>  會員記錄  <span class="pull-right"><i class="icon-chevron-right"></i></span></a>
+                <ul>
+                    <li><a href="/MemberRecords">瀏覽記錄列表</a></li>
+                    <li><a href="/MemberExport">Export</a></li>
+
+                </ul>
+            </li>
+
+
+      	</ul>
+  	</div>
+
+  	<!-- Sidebar ends -->
+  	
+        #{doLayout /}
+        
+    <div class="clearfix"></div>
+
+</div>
+<!-- Content ends -->
+
+<!-- Footer starts -->
+<footer>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+            <!-- Copyright info -->
+            <p class="copy">Copyright &copy; 2013 | <a href="#">Volando Urai Spring SPA Resort</a> </p>
+      </div>
+    </div>
+  </div>
+</footer> 	
+
+<!-- Footer ends -->
+
+<!-- Scroll to top -->
+<span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span> 
+
+<!-- Script for this page -->
+<script type="text/javascript">
+$(function () {
+
+    /* Bar Chart starts */
+/*
+    var d1 = [];
+    for (var i = 0; i <= 20; i += 1)
+        d1.push([i, parseInt(Math.random() * 30)]);
+
+    var d2 = [];
+    for (var i = 0; i <= 20; i += 1)
+        d2.push([i, parseInt(Math.random() * 30)]);
+
+
+    var stack = 0, bars = true, lines = false, steps = false;
+    
+    function plotWithOptions() {
+        $.plot($("#bar-chart"), [ d1, d2 ], {
+            series: {
+                stack: stack,
+                lines: { show: lines, fill: true, steps: steps },
+                bars: { show: bars, barWidth: 0.8 }
+            },
+            grid: {
+                borderWidth: 0, hoverable: true, color: "#777"
+            },
+            colors: ["#ff6c24", "#ff2424"],
+            bars: {
+                  show: true,
+                  lineWidth: 0,
+                  fill: true,
+                  fillColor: { colors: [ { opacity: 0.9 }, { opacity: 0.8 } ] }
+            }
+        });
+    }
+
+    plotWithOptions();
+    
+    $(".stackControls input").click(function (e) {
+        e.preventDefault();
+        stack = $(this).val() == "With stacking" ? true : null;
+        plotWithOptions();
+    });
+    $(".graphControls input").click(function (e) {
+        e.preventDefault();
+        bars = $(this).val().indexOf("Bars") != -1;
+        lines = $(this).val().indexOf("Lines") != -1;
+        steps = $(this).val().indexOf("steps") != -1;
+        plotWithOptions();
+    });
+*/
+    /* Bar chart ends */
+
+});
+
+
+/* Curve chart starts */
+/*
+$(function () {
+    var sin = [], cos = [];
+    for (var i = 0; i < 14; i += 0.5) {
+        sin.push([i, Math.sin(i)]);
+        cos.push([i, Math.cos(i)]);
+    }
+
+    var plot = $.plot($("#curve-chart"),
+           [ { data: sin, label: "sin(x)"}, { data: cos, label: "cos(x)" } ], {
+               series: {
+                   lines: { show: true, fill: true},
+                   points: { show: true }
+               },
+               grid: { hoverable: true, clickable: true, borderWidth:0 },
+               yaxis: { min: -1.2, max: 1.2 },
+               colors: ["#1eafed", "#1eafed"]
+             });
+
+    function showTooltip(x, y, contents) {
+        $('<div id="tooltip">' + contents + '</div>').css( {
+            position: 'absolute',
+            display: 'none',
+            top: y + 5,
+            left: x + 5,
+            border: '1px solid #000',
+            padding: '2px 8px',
+            color: '#ccc',
+            'background-color': '#000',
+            opacity: 0.9
+        }).appendTo("body").fadeIn(200);
+    }
+
+    var previousPoint = null;
+    $("#curve-chart").bind("plothover", function (event, pos, item) {
+        $("#x").text(pos.x.toFixed(2));
+        $("#y").text(pos.y.toFixed(2));
+
+        if ($("#enableTooltip:checked").length > 0) {
+            if (item) {
+                if (previousPoint != item.dataIndex) {
+                    previousPoint = item.dataIndex;
+                    
+                    $("#tooltip").remove();
+                    var x = item.datapoint[0].toFixed(2),
+                        y = item.datapoint[1].toFixed(2);
+                    
+                    showTooltip(item.pageX, item.pageY, 
+                                item.series.label + " of " + x + " = " + y);
+                }
+            }
+            else {
+                $("#tooltip").remove();
+                previousPoint = null;            
+            }
+        }
+    }); 
+
+    $("#curve-chart").bind("plotclick", function (event, pos, item) {
+        if (item) {
+            $("#clickdata").text("You clicked point " + item.dataIndex + " in " + item.series.label + ".");
+            plot.highlight(item.series, item.datapoint);
+        }
+    });
+
+});*/
+
+/* Curve chart ends */
+</script>
+
+</body>
+</html>

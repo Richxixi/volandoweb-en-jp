@@ -1,0 +1,68 @@
+#{extends 'main.html' /}
+#{set title:'Membership - Edit User' /}
+<style type="text/css">
+@import url("../../../public/machome/style/style.css");
+</style>
+#{form @doUpload(id, email, password, username, name, phone, address, gender), enctype:'multipart/form-data'}
+
+<div align="center">
+<div style="width:800px;">
+ <div class="page-head">
+  <div class="container">
+        <div class="text_l center"><h2>編輯個人資料</h2></div>
+        <div class="dashed2"></div>
+        <div id="profile" class="center">
+            <div>
+                <div class="text_m inline_block_top" style="line-height: 35px">
+                    <label>Email <input class="span3" type="text" value = "${user?.email}" name="email"/></label><br>
+                    <label>會員密碼 <input class="span3" type="password" value = "${user?.password}" name="password"/></label><br>
+                    <label>暱稱 <input class="span3" type="text" value = "${user?.username}" name="username"/></label><br>
+                    <label>姓 <input class="span3" type="text" value = "${user?.last_name}" name="last_name"/></label>
+                    <label>名 <input class="span3" type="text" value = "${user?.name}" name="name"/></label><br>
+                    <label>國籍 <input class="span3" type="text" value = "${user?.nationality}" name="nationality"/></label><br>
+                    <label>身份證字號 <input class="span3" type="text" value = "${user?.visa_no}" name="visa_no"/></label><br>
+                    <label>生日 <input class="span3" type="text" value = "${user?.birth_day}" name="birth_day"/></label><br>
+                    <label>電話 <input class="span3" type="text" value = "${user?.phone}" name="phone"/></label><br>
+                    <label>手機 <input class="span3" type="text" value = "${user?.cellphone}" name="cellphone"/></label><br>
+                    <label>縣/市 <input class="span3" type="text" value = "${user?.city}" name="city"/></label><br>
+                    <label>地址 <input class="span3" type="text" value = "${user?.address}" name="address"/></label><br>
+
+                    <div id="myGender" class="btn-group" data-toggle="buttons-radio">
+                            <button type="button" class='btn #{if user?.gender == "boy"}active #{/if}'>男生</button>
+                            <button type="button" class='btn #{if user?.gender == "girl"}active #{/if}'>女生</button>
+                    </div>
+                </div>
+           </div>
+        </div>
+        
+        <script language="javascript">
+			function submitSetting(obj){
+				
+				if($("#myGender .active").html() == "男生"){
+					$("input[name=gender]").val("boy");
+				}
+				else if($("#myGender .active").html() == "女生"){
+					$("input[name=gender]").val("girl");
+				}
+				
+				obj.form.submit();
+			}
+		</script>
+		
+    <div class="center">
+        <button type="button" class="btn btn-large" onClick="submitSetting(this)" style="margin-right: 50px;"><span class="text_l">儲存資料</span></button>
+        <button type="button" class="btn btn-large" onClick="location.href='/'"><span class="text_l">稍候再填</span></button>
+    </div>
+        
+    </div>
+
+
+</div>
+</div>
+</div>
+
+#{/form}
+
+
+
+

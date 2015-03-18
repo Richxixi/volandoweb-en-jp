@@ -1,0 +1,180 @@
+#{extends 'main.html' /}
+#{set title:'馥蘭朵烏來渡假酒店 Volando Urai Spring SPA Resort - 專案優惠' /}
+<style type="text/css">
+.style_title { font-size: 14pt; -webkit-text-size-adjust:none;  color: #C6002F;}
+.news-items {
+	margin: 0px 10px 10px 0px;
+	padding: 0px 10px 30px 0px;
+	width: 100%;
+	text-align:left;
+	position:relative;
+}
+.items {
+	margin: 0px 0px 15px 0px;
+	padding: 0px 0px 30px 0px;
+	width: 490px;
+	float:left;
+}
+.new-items-icon {
+	width:	55px;
+	height:	55px;
+	position:absolute;
+	left:-60px;
+}
+
+.news-content-text-block{
+	width:					100%;
+	padding:				10px;
+	text-align:				justify;
+	margin-top:			10px;
+}
+.block2 {
+	margin: 0px auto;
+	padding: 10px;
+	text-align: left;
+	width: 100%;
+	height:auto;
+	height:700px;
+}
+</style>
+<script type="text/javascript">
+
+    //ImgD:要放图片的img元素，onload时传参可用this
+
+    //h:img元素的高度，像素
+
+    //w:img元素的宽度，像素
+    function autosize(ImgD, h, w) {
+        var image = new Image();
+        image.src = ImgD.src;
+        if (image.width < w && image.height < h) {
+            ImgD.width = image.width;
+            ImgD.height = image.height;
+        }
+        else {
+            if (w / h <= image.width / image.height) {
+                ImgD.width = w;
+                ImgD.height = w * (image.height / image.width);
+            }
+            else {
+                ImgD.width = h * (image.width / image.height);
+                ImgD.height = h;
+            }
+        }
+
+    }
+</script>
+<script type="text/javascript" src="/public/javascripts/exeImage.js"></script>
+
+<script type=text/javascript>
+ function show_hiddendiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='block';
+ 	document.getElementById(strHref).href='javascript:hidden_showdiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+	//alert("11111");
+ 	//document.getElementById("_strSpan").innerHTML="隐藏部分";
+ }
+ function hidden_showdiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='none';
+ 	document.getElementById(strHref).href='javascript:show_hiddendiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+	//alert("22222");
+ 	//document.getElementById("_strSpan").innerHTML="显示全部";
+ }
+ </script> 
+
+<script type="text/javascript">
+
+function SetInnerHtml(bt){
+	
+	document.getElementById("bt1").style.opacity = .5;
+	document.getElementById("bt2").style.opacity = .5;
+	document.getElementById("bt3").style.opacity = .5;
+	document.getElementById("bt4").style.opacity = .5;
+	document.getElementById("bt"+bt).style.opacity = 1;
+	
+	switch(bt){
+		case 2:
+			$.get("/Project/project/2",function(data){$("#mainText").html(data);}); 
+			break;
+		case 3:
+			$.get("/Project/project/3",function(data){$("#mainText").html(data);}); 
+			break;
+		case 4:
+			$.get("/Project/project/4",function(data){$("#mainText").html(data);}); 
+			break;
+		default://case 1
+			$.get("/Project/project/1",function(data){$("#mainText").html(data);}); 
+	   		break;
+	}
+}
+
+$(document).ready(function(){
+	
+	SetInnerHtml(1);
+
+	
+});
+
+</script>
+
+      #{if category == "meeting"}
+        <div class="block-borderless" style="height:220px; margin-bottom:10px; background-image:url(/public/images/project/header_03.jpg);"></div>
+    #{/if}
+    #{elseif category == "mi"}
+    <div class="block-borderless" style="height:220px; margin-bottom:10px; background-image:url(/public/images/project/header_01.jpg);"></div>
+    #{/elseif}
+    #{elseif  category == "hotspring"}
+    <div class="block-borderless" style="height:220px; margin-bottom:10px; background-image:url(/public/images/project/header_04.jpg);"></div>
+    #{/elseif}
+    #{else category == "hotel"}
+    <div class="block-borderless" style="height:220px; margin-bottom:10px; background-image:url(/public/images/project/header_02.jpg);"></div>
+    #{/else}
+
+<!--<div id="contents">-->
+
+	<div class="block">
+            <div class="block2">
+					<div class="items" style="width:230px; height:400px;">
+					  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+					    <tr>
+					      	<td id="bt1"  align="left" valign="bottom">
+                   		  				<img src="/public/images/line-v.png" width="12" height="23" />
+                                      <a href="javascript:SetInnerHtml(1)">                                      <img src="/public/images/project/t-1.gif" width="200" height="28"/></a>
+                                </td>
+				        </tr> <tr>
+                        <td height="32" align="left" valign="bottom">&nbsp;</td>
+                        </tr><tr>
+					      		<td id="bt2" align="left" valign="bottom">
+                          				<img src="/public/images/line-v.png" width="12" height="23" /><a href="javascript:SetInnerHtml(2)">
+                                        <img src="/public/images/project/t-2.gif" width="200" height="28"/></a>
+                                </td>
+				        </tr><tr>
+        
+			<td height="32" align="left" valign="bottom">&nbsp;</td>
+                        </tr><tr>
+                        		<td id="bt3" align="left" valign="bottom">
+                          				<img src="/public/images/line-v.png" width="12" height="23" /><a href="javascript:SetInnerHtml(3)"><img src="/public/images/project/t-5.gif" width="200" height="28"/></a>
+                                </td>
+				        </tr>                        
+			<tr> <td height="32" align="left" valign="bottom">&nbsp;</td>
+                        </tr><tr>
+                        		<td id="bt4" align="left" valign="bottom">
+                          				<img src="/public/images/line-v.png" width="12" height="23" /><a href="javascript:SetInnerHtml(4)"><img src="/public/images/project/t-6.gif" width="200" height="28"/></a>
+                                </td>
+				        </tr>
+			
+
+				      </table>
+                      
+					</div> 
+                    
+                    <div id="mainText" class="items" ><!--發佈主文區-->
+
+                    
+    <!--發佈主文區 -->                
+                    </div>                    
+                    
+            </div><!--eof block2-->
+	</div>
+    <div class="main-footer-block"></div>
+<!--</div>-->
+

@@ -1,0 +1,81 @@
+#{extends 'main_mobile.html' /}
+#{set title:'手機客服回應' /}
+<link rel="stylesheet" href="/public/machome/style/bootstrap-datetimepicker.min.css">
+<script src="/public/machome/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+      $('#datepicker').datepicker();
+    </script>
+
+<!-- Page heading starts -->
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>#{if language=='zh-tw'}客戶服務#{/if}#{if language=='en'}Customer Service#{/if}</h2>
+        <h4>
+		#{if language=='zh-tw'}關於您的#{/if}#{if language=='en'}About your#{/if}
+		#{if guestbook?.guestBookType == 'qa'}#{if language=='zh-tw'}問答#{/if}#{if language=='en'}Q&A#{/if}#{/if}
+		#{elseif guestbook?.guestBookType == 'hotel'}#{if language=='zh-tw'}住房問題#{/if}#{if language=='en'}Room#{/if}#{/elseif}
+		#{elseif guestbook?.guestBookType == 'spa'}#{if language=='zh-tw'}溫泉問題#{/if}#{if language=='en'}Hot spring#{/if}#{/elseif}
+		#{elseif guestbook?.guestBookType == 'traffic'}#{if language=='zh-tw'}交通#{/if}#{if language=='en'}Traffic#{/if}#{/elseif}
+		#{elseif guestbook?.guestBookType == 'tour'}#{if language=='zh-tw'}觀光#{/if}#{if language=='en'}Tour#{/if}#{/elseif}
+		#{elseif guestbook?.guestBookType == 'comment'}#{if language=='zh-tw'}意見#{/if}#{if language=='en'}Comments#{/if}#{/elseif}
+		#{elseif guestbook?.guestBookType == 'device'}#{if language=='zh-tw'}設備租借#{/if}#{if language=='en'}Equipment#{/if}#{/elseif}
+		#{if language=='zh-tw'}留言( 編號：${guestbook?.id} ) 已經送出，我們將盡快與您聯繫，謝謝。#{/if}#{if language=='en'}comment ( No: ${guestbook?.id} ) has been sent out, we'll get back to you soon, thanks!#{/if}
+	</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+<div class="content">
+  <div class="container">
+    <div class="row">
+		<div class="span12">
+			<div class="formy">
+			
+			<div class="well"><label>#{if language=='zh-tw'}連絡人 #{/if}#{if language=='en'}Contact Person #{/if}<span style="color: red">*</span>: ${guestbook?.name}</label>
+			</div>
+			#{if guestbook?.deviceType == 'pc'}
+
+			<div class="well"><label>#{if language=='zh-tw'}聯絡Email #{/if}#{if language=='en'}Email #{/if}<span style="color: red">*</span>: ${guestbook?.email}</label>
+			</div>
+
+			<div class="well"><label>#{if language=='zh-tw'}聯絡電話: #{/if}#{if language=='en'}Contact No: #{/if}${guestbook?.phone}</label>
+			</div>
+
+			#{/if}			
+
+			<div class="well"><label>#{if language=='zh-tw'}意見內容 #{/if}#{if language=='en'}Comments #{/if}<span style="color: red">*</span></label>
+				${guestbook?.content}	    
+			</div>
+
+
+			<div class="well"><label>#{if language=='zh-tw'}客服回覆 #{/if}#{if language=='en'}Hotel Feedback #{/if}</label>
+				#{if record}
+				  #{list items:record, as:'record'}			
+					<div class="well">
+					   <p>${record.content}</p>
+					   <p>${record.email} (${record.create_time})</p>
+					</div>
+				  #{/list}
+				#{/if}       
+			</div>			
+
+			<div class="center">#{a @Application.mobileHome(lang=language)}<button class="btn" type="button">#{if language=='zh-tw'}回首頁#{/if}#{if language=='en'}Home#{/if}</button>#{/a}</div>
+			
+			
+				</div>
+			</div>
+
+			  
+			
+		</div>
+	</div>
+	</div>
+</div>

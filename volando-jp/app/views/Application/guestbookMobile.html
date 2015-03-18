@@ -1,0 +1,53 @@
+#{extends 'main_mobile.html' /}
+#{set title:'服務台' /}
+<link rel="stylesheet" href="/public/machome/style/bootstrap-datetimepicker.min.css">
+<script src="/public/machome/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+      $('#datepicker').datepicker();
+    </script>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+<div class="content">
+  <div class="container">
+    <div class="row">
+		<div class="span12">
+			<div class="formy">
+            		 #{form @guestbookForm(), enctype:'multipart/form-data'}
+			
+			<div class="well"><label>#{if language=='zh-tw'}1. 連絡人 #{/if}#{if language=='en'}1. Contact Person #{/if}<span style="color: red">*</span></label>
+			    <input class="span3" size="100" type="text"  name= "name" value="" placeholder ="#{if language=='zh-tw'}填寫您的大名方便我們稱呼您#{/if}#{if language=='en'}Please fill in your name#{/if}" />
+			</div>
+
+			<div class="well"><label>#{if language=='zh-tw'}2. 意見分類 #{/if}#{if language=='en'}Issue Type#{/if}<span style="color: red">*</span></label>
+				#{select 'type', value:'', id:'select1'}
+					#{option 'device'}#{if language=='zh-tw'}設備租借#{/if}#{if language=='en'}Equipment#{/if}#{/option}
+					#{option 'hotel'}#{if language=='zh-tw'}住房問題#{/if}#{if language=='en'}Room#{/if}#{/option}
+					#{option 'spa'}#{if language=='zh-tw'}溫泉問題#{/if}#{if language=='en'}Hot spring#{/if}#{/option}
+					#{option 'restaurant'}#{if language=='zh-tw'}餐飲問題#{/if}#{if language=='en'}Restaurant#{/if}#{/option}
+					#{option 'traffic'}#{if language=='zh-tw'}交通問題#{/if}#{if language=='en'}Traffic#{/if}#{/option}
+				#{/select}
+			</div>
+
+			<div class="well"><label>#{if language=='zh-tw'}3. 意見內容 #{/if}#{if language=='en'}Your comments#{/if}<span style="color: red">*</span></label>
+				<textarea style="width: 250px; height: 150px;" name="content"></textarea>			    
+			</div>
+
+			
+			<input class="span3" type="hidden"  name= "device" value="mobile" placeholder ="" />			
+			<input class="span3" type="hidden"  name= "lang" value="zh_TW" placeholder ="" />
+			<input class="span3" type="hidden"  name= "email" value="${user?.email}" placeholder ="" />
+		<!--	<div class="center"><button class="btn btn-primary span3" type="submit" name="submit">#{if language=='zh-tw'}送出#{/if}#{if language=='en'}Submit#{/if}</button>#{a @Application.mobileHome(lang=language)}<button class="btn" type="button">#{if language=='zh-tw'}回首頁#{/if}#{if language=='en'}Home#{/if}</button>#{/a}</div> -->
+		            <div class="center"><button class="btn btn-primary span3" type="submit" name="submit">#{if language=='zh-tw'}送出#{/if}#{if language=='en'}Submit#{/if}</button>#{a @Application.mobileHome(lang=language)}<button class="btn" type="button">#{if language=='zh-tw'}回首頁#{/if}#{if language=='en'}Home#{/if}</button>#{/a}</div>
+	
+			#{/form}
+			
+				</div>
+			</div>
+		
+			</div>
+		</div>
+	</div>
+</div>

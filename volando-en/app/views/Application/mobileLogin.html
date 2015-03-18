@@ -1,0 +1,60 @@
+#{extends 'main_mobile.html' /}
+#{set title:'Login' /}
+ <div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+
+      #{if language=='zh-tw'}
+        <h2>會員登入</h2>
+      #{/if}
+      #{if language=='en'}
+      	<h2>User Login</h2>
+      #{/if}
+        		#{a @Application.mobileLogin(lang='zh-tw')}<button>中文</button>#{/a}#{a @Application.mobileLogin(lang='en')}<button>English</button>#{/a}
+                  #{form @loginFormMobile(password, email, language), enctype:'multipart/form-data'}
+                    <!-- Registration form starts -->
+                                      
+                                            
+                                          <!-- Email -->
+                                          <div class="control-group">
+                                            <label class="control-label" for="email">Email</label>
+                                            <div class="controls">
+                                              <input name="email" type="text" class="span6" id="email" placeholder="帳號">
+                                            </div>
+                                          </div>
+                                          <!-- Select box -->
+                                            
+                                          <!-- Password -->
+                                          <div class="control-group">
+                                          #{if language=='zh-tw'}
+                                            <label class="control-label" for="password">密碼</label>
+                                          #{/if}
+                                            #{if language=='en'}
+                                            <label class="control-label" for="password">Password</label>
+                                            #{/if}
+                                            <div class="controls">
+                                              <input name="password" type="password" class="span6" id="password">
+                                            </div>
+                                          </div>
+					  
+                                          <!-- Accept box and button s-->
+                                          <div class="control-group">
+                                            <div class="controls">
+                                             #{if language=='zh-tw'}
+                                              <button type="submit" class="btn">登入</button>
+                                              <button type="reset" class="btn">取消</button>
+                                             #{/if}
+                                             #{if language=='en'}
+                                              <button type="submit" class="btn">Login</button>
+                                              <button type="reset" class="btn">Cancel</button>
+                                             #{/if}
+                                            </div>
+                                          </div>
+                 #{/form}
+ 
+      </div>
+    </div>
+  </div> 
+</div>
+	

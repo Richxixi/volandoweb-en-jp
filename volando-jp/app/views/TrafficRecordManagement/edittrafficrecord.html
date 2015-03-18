@@ -1,0 +1,56 @@
+#{extends 'main.html' /}
+#{set title:'Restaurant - Edit Record' /}
+<link rel="stylesheet" href="/public/machome/style/bootstrap-datetimepicker.min.css">
+<script src="/public/machome/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+      $('#datepicker').datepicker();
+    </script>
+
+<!-- Page heading starts -->
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>Traffic</h2>
+        <h4>booking your date</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+<div class="content">
+  <div class="container">
+    <div class="row">
+		<div class="span12">
+			<div class="formy well">
+             #{form @updatetrafficrecordbyID(id), enctype:'multipart/form-data'}
+			<label for="idlabel">Traffic Record ID:  </label><label for="myid">${traffic_record?.id}</label>
+			
+            <div class="well"><label>1. 交通資訊</label>
+            	<div class="well"><label>交通車時間：</label><label>${traffic?.time}</label></div>
+				<div class="well"><label>交通車起點：</label><label>${traffic?.start_point}</label></div>
+				<div class="well"><label>交通車終點：</label><label>${traffic?.end_point}</label></div>
+				<div class="well"><label>剩餘人數：</label><label>${traffic?.seat_num}</label></div>
+				<input type="hidden" name="traffic_id" placeholder="地址" value = ${traffic.id}>
+            </div>			
+            <div class="well"><label>3. 訂位資料</label>
+            			<label>Member ID:	${user.name} </label>
+                    	<input type="text" id="email" placeholder="Email" value = ${user.email}>
+                    	<input type="text" id="address" placeholder="地址" value = ${user.address}>
+                    	<input type="text" id="phone" placeholder="電話" value = ${user.phone}><br />
+                    	<label>預定人數: </label><input class="span2" size="8" type="text"  name= "person_number" value="${traffic_record.person_number == null ? '' :traffic_record.person_number}" placeholder ="2">			
+			<div class="well"><label>4. 館內最新資訊</label>
+			</div>
+			<div class="center"><button class="btn btn-primary" type="submit" name="submit">Submit</button></div>
+			#{/form}
+			
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

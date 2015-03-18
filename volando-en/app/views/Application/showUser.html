@@ -1,0 +1,38 @@
+#{extends 'main.html' /}
+#{set title:'Membership - Show User' /}
+<style type="text/css">
+@import url("../../../public/machome/style/style.css");
+</style>
+<!-- Page content starts -->
+
+<div align="center">
+<div style="width:800px;">
+ <div class="page-head">
+  <div class="container">
+                    <!-- Name with the job detail-->
+                    #{if user}
+                     <h2>${user.name} <span class="rsmall"></h2>
+                     <!-- Small intro para -->
+                     <div class="bor"></div>
+                     <!-- Resume -->
+                        
+                        <div class="clearfix"></div>
+
+							<div class="row">
+                                 <div class="span2">
+                                  <!-- title -->
+                                    <h4>Email</h4>            
+                                    <h5>${user.email}</h5>                
+                                 </div>
+                              </div>                     
+                     #{/if}
+                     <div class="bor"></div>
+                     <h4>您已完成註冊，謝謝！</h4>
+                     <button type="button" class="btn btn-large" onClick="location.href='/'"><span class="text_l">回首頁</span></button>
+                  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Page content ends -->

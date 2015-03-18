@@ -1,0 +1,101 @@
+#{extends 'main_admin.html' /}
+#{set title:'頁面管理 - 生活儀式時刻表' /}<!-- Main bar -->
+  	<div class="mainbar">
+
+      <!-- Page heading -->
+      <div class="page-head">
+        <h2 class="pull-left"><i class="icon-home"></i> 頁面管理</h2>
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+          <a href="/admin"><i class="icon-home"></i> Home</a>
+          <span class="divider">/</span> 
+          <a href="#" class="bread-current">生活儀式時刻表</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+      </div>
+      <!-- Page heading ends -->
+
+
+	    <!-- Matter -->
+	 #{form  @editLifeTimeForm(), enctype:'multipart/form-data', id:'myForm'}
+	    <div class="matter">
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span8">
+
+		<script type="text/javascript">
+		      $(document).ready(function() {
+			
+
+		      });
+		</script>	      
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">
+			時刻對應表
+		  </div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+			<input type="text" name="time1" value="${life.lifetime1}" class="span6" style="height: 30px;" >
+			<input type="text" name="time2" value="${life.lifetime2}" class="span6" style="height: 30px;" >
+			<input type="text" name="time3" value="${life.lifetime3}" class="span6" style="height: 30px;" >
+			<input type="text" name="time4" value="${life.lifetime4}" class="span6" style="height: 30px;" >			
+			<input type="text" name="time5" value="${life.lifetime5}" class="span6" style="height: 30px;" >                    
+			<input type="text" name="time6" value="${life.lifetime6}" class="span6" style="height: 30px;" >
+			<input type="text" name="time7" value="${life.lifetime7}" class="span6" style="height: 30px;" >
+                  </div>
+                  <div class="widget-foot">
+                    <!--Word Count : 205-->
+                  </div>
+                </div>
+              </div>  
+      
+            </div>
+
+            <!-- post sidebar -->
+
+            <div class="span4">
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">管理區</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+                    <form>
+                      <button class="btn btn-info" onClick="$('#myForm').submit();">儲存</button>
+                    </form>
+
+                  </div>
+                  <div class="widget-foot">
+                    <!-- Footer goes here -->
+                  </div>
+                </div>
+              </div>  
+
+            </div>
+
+          </div>
+        </div>
+		  </div>
+		#{/form}
+		<!-- Matter ends -->
+
+    </div>
+
+   <!-- Mainbar ends -->

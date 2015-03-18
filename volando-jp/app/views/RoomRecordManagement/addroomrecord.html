@@ -1,0 +1,46 @@
+#{extends 'main.html' /}
+#{set title:'直接訂房 - 訂房填寫' /}
+
+<script type="text/javascript">
+	$(document).ready(function() {      
+		$('#dp3').datepicker();
+	});
+</script>
+
+<!-- Page heading starts -->
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>直接訂房 </h2>
+        <h4>請選擇房型</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+<div class="content">
+  <div class="container">
+    <div class="row">
+		<div class="span12">
+			<div class="formy well">
+            <div class="well"><label>3. 房型資訊</label>
+                <label>選擇房型：</label>
+               <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+               		<option value="#">Select Rooms</option>
+	                #{list rooms, as:'room'}
+	                	<option value="/RoomRecordManagement/${room.id}/addroomrecord">${room?.name}</option>
+					#{/list}
+				</select>
+				 
+				
+                </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

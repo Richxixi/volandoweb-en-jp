@@ -1,0 +1,57 @@
+#{extends 'main.html' /}
+#{set title:'Traffic - Edit Traffic Info' /}
+<link rel="stylesheet" href="/public/machome/style/bootstrap-datetimepicker.min.css">
+<script src="/public/machome/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+      $('#datepicker').datepicker();
+    </script>
+
+<!-- Page heading starts -->
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>Traffics</h2>
+        <h4>Editing Traffics</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+<div class="content">
+  <div class="container">
+    <div class="row">
+		<div class="span12">
+			<div class="formy well">
+             #{form @updatetrafficbyID(id), enctype:'multipart/form-data'}
+			<form>
+			<label for="idlabel">1. 接駁車編號:  </label><label for="myid">${traffic?.id}</label>
+			<input type="hidden" name="name" value = "接駁車">
+			<div class="well"><label>發車日期與時間</label>
+			    <div class="input-append date" id="datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+    				<input class="span2" size="16" type="text"  name= "time" value="${traffic.time == null ? '' :updatetrafficbyID}" placeholder ="yyyy-MM-dd HH:mm">
+    			</div>
+			</div>
+			<div class="well"><label>2. 起訖點資訊</label>
+			    <label>起點：</label><input class="span2" size="8" type="text"  name= "start_point" value="${traffic.start_point == null ? '' :traffic.start_point}" placeholder ="新店">
+			    <label>終點: </label><input class="span2" size="8" type="text"  name= "end_point" value="${traffic.end_point == null ? '' :traffic.end_point}" placeholder ="烏來">
+			</div>
+			<div class="well"><label>3. 座位資訊</label>
+			    <label>一般位：</label><input class="span2" size="8" type="text"  name= "seat_num" value="${traffic.seat_num == null ? '' :traffic.seat_num}" placeholder ="5">
+			    <label>保留位: </label><input class="span2" size="8" type="text"  name= "reserved_number" value="${traffic.reserved_number == null ? '' :traffic.reserved_number}" placeholder ="5">
+			</div>
+			
+			<div class="center"><button class="btn btn-primary" type="submit" name="submit">Submit</button></div>
+			</form>
+			#{/form}
+			
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

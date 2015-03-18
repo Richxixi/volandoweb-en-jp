@@ -1,0 +1,104 @@
+#{extends 'main_admin.html' /}
+#{set title:'Dashboard - VolandoAdmin' /}
+<!-- Main bar -->
+  	<div class="mainbar">
+      
+	    <!-- Page heading -->
+	    <div class="page-head">
+	      <h2 class="pull-left"><i class="icon-home"></i> Dashboard</h2>
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+          <a href="/"><i class="icon-home"></i> Home</a> 
+          <!-- Divider -->
+          <span class="divider">/</span> 
+          <a href="#" class="bread-current">Dashboard</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+	    </div>
+	    <!-- Page heading ends -->
+
+
+
+	    <!-- Matter -->
+
+	    <div class="matter">
+        <div class="container-fluid">
+
+          <div class="row-fluid">
+            <!-- Recent Comments -->
+            <div class="span12">
+              <!-- Widget -->
+              <div class="widget">
+                <!-- Widget title -->
+                <div class="widget-head">
+                  <div class="pull-left">顧客訊息</div>
+                  <div class="widget-icons pull-right">
+                    <a href="javascript: void(0);" class="wminimize"><i class="icon-chevron-up" onClick="$(this).parents('.widget').find('.widget-content').toggle('500');"></i></a> 
+                    <a href="javascript: void(0);" class="wclose"><i class="icon-remove" onClick="$(this).parents('.widget').hide('500');"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+		
+		<script type="text/javascript">
+			function deleteConfirm(id){
+				if(confirm("您確定要永久刪除此客服？")){
+					location.href="/GuestbookManagement/"+ id + "/delete";		
+				}
+			}
+		</script>
+
+                <div class="widget-content">
+                  <!-- Widget content -->
+                  <div class="padd">
+
+                    <ul class="recent">
+
+		      #{if dash_guestbook}
+	                  #{list items:dash_guestbook, as:'guestbook'}
+		              <li>
+		                <div class="recent-content">
+		                  <div class="recent-meta">Posted on ${guestbook?.create_time.format('yyyy-MM-dd hh:mm:ss')} By ${guestbook?.name}</div>
+		                  <div>
+					No.${guestbook.id} : ${guestbook?.content}
+		                  </div>
+
+		                  <div class="btn-group">
+		                    <!--<button class="btn btn-mini"><i class="icon-ok"></i> </button>-->
+		                    <button class="btn btn-mini" onClick="location.href='GuestbookManagement/${guestbook?.id}/show'"><i class="icon-pencil"></i> </button>
+		                    <button class="btn btn-mini" onClick="deleteConfirm(${guestbook.id})"><i class="icon-remove"></i> </button>
+		                  </div>
+					<!--
+		                  <button class="btn btn-mini btn-danger pull-right">Spam</button>
+				-->
+		                  <div class="clearfix"></div>
+		                </div>
+		              </li>
+			#{/list}
+                    #{/if}
+
+                    </ul>
+
+                  </div>
+                  <!-- Widget footer -->
+                  <div class="widget-foot">
+                    
+                    
+                  </div>
+                </div>  
+
+              </div> 
+
+            </div>
+          </div>
+
+        </div>
+		  </div>
+
+		<!-- Matter ends -->
+
+    </div>
+
+   <!-- Mainbar ends -->

@@ -1,0 +1,91 @@
+#{extends 'main.html' /}
+#{set title:'Membership - Show User' /}
+
+<!-- Page heading starts -->
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>User Profile</h2>
+        <h4>show me here</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+
+<div class="content resume">
+  <div class="container">
+    <div class="row">
+
+        <div class="span12">
+                    <!-- Name with the job detail-->
+                    #{if user}
+                     <h2>${user.name} <span class="rsmall"></h2>
+                     <!-- Small intro para -->
+                     <div class="bor"></div>
+                     <!-- Resume -->
+                        
+                        <div class="clearfix"></div>
+
+                           <!-- About -->
+                           <div class="rblock">
+                              <div class="row">
+                                 <div class="span2">
+                                  <!-- title -->
+                                    <h4>Email</h4>                            
+                                 </div>
+                                 <div class="span10">
+                                    <div class="rinfo">
+                                      <!-- Email -->
+                                       <h5>${user.email}</h5>
+                                       <!-- Social media icons -->
+                                                 <div class="social">
+                                                      <a href="#"><i class="icon-facebook facebook"></i></a>
+                                                 </div>  
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           
+                           <!-- Address -->
+                           <div class="rblock">
+                              <div class="row">
+                                 <div class="span3">
+                                    <h4>Address</h4>                            
+                                 </div>
+                                 <div class="span9">
+                                    <div class="rinfo">
+                                       <!-- Title -->
+                                       <h5>${user.address}</h5>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+
+                           <!-- Identity -->
+                           <div class="rblock">
+                              <div class="row">
+                                 <div class="span2">
+                                    <h4>Identity</h4>                            
+                                 </div>
+                                 <div class="span10">
+                                    <div class="rinfo">
+                                       <!-- Title -->
+                                       <h5>VIP</h5>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>                           
+                     #{/if}
+                  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Page content ends -->

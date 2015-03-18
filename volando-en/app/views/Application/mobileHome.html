@@ -1,0 +1,14 @@
+#{extends 'main_mobile.html' /}
+#{set title:'Home' /}
+<link rel="stylesheet" href="/public/machome/style/bootstrap-datetimepicker.min.css">
+
+<!-- Page content starts -->
+  <div class="container">
+    <div class="row">
+    	<img src="/public/images/volando_hotspring.png" /><br>
+    	<table width="100%"><td width="50%">#{a @Application.guestbookMobile(lang=language)}#{if language=='zh-tw'}<img src="/public/images/phone.jpg" />#{/if}#{if language=='en'}<img src="/public/images/icn_comments.png" />#{/if}#{/a}</td>
+    <!--	<td width="50%" align="right">#{a @Application.guestbookList(lang=language, device='mobile')}#{if language=='zh-tw'}<img src="/public/images/calendar.jpg" />#{/if}#{if language=='en'}<img src="/public/images/icn_feedbacks.png" />#{/if}#{/a}</td></table> -->
+                <td width="50%" align="right">#{a @Application.guestbookList(lang=language, device='mobile')}#{if language=='zh-tw'}<img src="/public/images/calendar.jpg" />#{/if}#{if language=='en'}<img src="/public/images/icn_feedbacks.png" />#{/if}#{/a}</td></table>
+
+    </div>
+	</div>

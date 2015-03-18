@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="http://59.124.125.45/public/javascripts/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="http://59.124.125.45/public/javascripts/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="http://59.124.125.45/public/javascripts/jquery.touchwipe.1.1.1.js"></script>
+<script type="text/javascript" src="http://59.124.125.45/public/javascripts/touchShift.js"></script>
+<script type="text/javascript">
+
+    //ImgD:要放图片的img元素，onload时传参可用this
+
+    //h:img元素的高度，像素
+
+    //w:img元素的宽度，像素
+    function autosize(ImgD, h, w) {
+        var image = new Image();
+        image.src = ImgD.src;
+        if (image.width < w && image.height < h) {
+            ImgD.width = image.width;
+            ImgD.height = image.height;
+        }
+        else {
+            if (w / h <= image.width / image.height) {
+                ImgD.width = w;
+                ImgD.height = w * (image.height / image.width);
+            }
+            else {
+                ImgD.width = h * (image.width / image.height);
+                ImgD.height = h;
+            }
+        }
+
+    }
+</script>
+<script type="text/javascript">
+		
+		count=1;
+		max_count=7;
+		var myplace = new Array();
+		myplace[0] = "長條桌+VIPs 54人";
+		myplace[1] = "U-Shape 54人";
+		myplace[2] = "U-Shape 30+18人";
+		myplace[3] = "教室型45人";
+		myplace[4] = "分組34人";
+		myplace[5] = "長條桌（橫）72-90人";
+		myplace[6] = "BMW長條桌（直）72-90人";
+		
+		
+		function init(){
+				document.getElementById('device-text').innerHTML=myplace[0];
+		}
+		
+		$(function(){
+				$('#prev').click(
+					function(){
+						if(count==1) count=max_count; else count--;
+						$("#device-text").text( myplace[count-1] );
+
+					} 
+				);
+		});
+		$(function(){
+				$('#next').click(
+					function(){
+						if(count==max_count) count=1; else count++;
+						$("#device-text").text( myplace[count-1] );
+
+					} 
+				);
+		});
+</script>
+<style>
+body {
+	margin:0;
+	padding:0;
+	background:white;
+	font-size: 10pt;
+	line-height: 24px;
+	FONT-FAMILY: arial;
+	-webkit-text-size-adjust:none;
+}
+#wrap {
+	position:relative;
+	width:600px;
+	height:500px;
+	margin:0 auto;
+	overflow:hidden;
+}
+#imagegallery {
+	width:600px;
+	height:500px;
+	background:#fff;
+	margin:0 auto;
+	margin-top:20px;
+	overflow:hidden;
+	text-align:center;
+}
+#imagegallery a {
+	text-decoration:none;
+	color:#333333;
+}
+#nav {
+	width:600px;
+	height:50px;
+	position:absolute;
+	bottom:75px;
+	z-index:100;
+}
+#nav a {
+	display:block;
+	line-height:60px;
+	width:60px;
+	background:rgba(0,0,0,0.4);
+	text-align:center;
+	text-decoration:none;
+	font-size:21px;
+	color:#fff;
+	font-family:Arial, Helvetica, sans-serif;
+	border-radius: 17px;
+}
+#prev {
+	float:left;
+	margin-left:-15px;
+}
+#next {
+	float:right;
+	margin-right:-15px;
+}
+</style>
+</head>
+
+<body onload="init()">
+<div style="width:600px; height:500px; text-align:center;">
+<div id="wrap">
+  <div id="imagegallery"> 
+      <!--<img src="/public/images/meeting/intro/device_1.jpg">-->
+      <img src="/public/images/meeting/intro/device_2.jpg" onload="autosize(this,600  ,500);">
+      <img src="/public/images/meeting/intro/device_3.jpg" onload="autosize(this,600  ,500);">
+      <img src="/public/images/meeting/intro/device_4.jpg" onload="autosize(this,600  ,500);">
+      <img src="/public/images/meeting/intro/device_5.jpg" onload="autosize(this,600  ,500);">
+      <img src="/public/images/meeting/intro/device_6.jpg" onload="autosize(this,600  ,500);">
+      <img src="/public/images/meeting/intro/device_7.jpg" onload="autosize(this,600  ,500);">
+      <img src="/public/images/meeting/intro/device_8.jpg" onload="autosize(this,600  ,500);">
+   </div>
+  <div id="nav"><a id="prev" href="#"><</a> <a id="next" href="#">></a></div>
+</div>
+<div id="device-text"></div>
+</div>
+</body>
+</html>

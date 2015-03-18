@@ -1,0 +1,172 @@
+#{extends 'main_admin.html' /}
+#{set title:'藝廊管理 - 作品編輯' /}<!-- Main bar -->
+  	<div class="mainbar">
+
+      <!-- Page heading -->
+      <div class="page-head">
+        <h2 class="pull-left"><i class="icon-home"></i> 作品編輯</h2>
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+          <a href="/admin"><i class="icon-home"></i> Home</a>
+	  <span class="divider">/</span>  
+	  <a href="/ArtsManagement/listAll/${art?.type}">藝廊管理</a>          
+	<!-- Divider -->
+          <span class="divider">/</span> 
+          <a href="#" class="bread-current">作品編輯</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+      </div>
+      <!-- Page heading ends -->
+
+	<script language="javascript">
+	    var now_image_id;
+	    $(document).ready(function() { 	
+		$('#imageform').ajaxForm( {
+		    beforeSubmit: function() {
+			$(this).addClass('loading');
+			$('#uploadBox' + now_image_id).html('<div id="progressOverlay"><div class="progress progress-striped"><div class="bar" id="progressBar" style="width: 0%;">0%</div></div></div>');
+		    },
+		    uploadProgress: function ( event, position, total, percentComplete ) {
+			if (percentComplete == 100) {
+			    $('#progressBar').css('width',percentComplete+'%').html('圖片上傳完成');
+			} else {
+			    $('#progressBar').css('width',percentComplete+'%').html(percentComplete+'%');
+			}
+		    },
+		    success : function ( html ) {
+			//Your Custom JS Code Here
+			content = "<img style='width: 200px;' src='" + html + "' />";	
+			$('#uploadBox'+now_image_id).html(content);
+			$('#pic_location'+now_image_id).val(html);
+		    }
+		});
+	    }); 
+	</script>
+	<form id="imageform" method="post" enctype="multipart/form-data" action="/Application/uploader/images">
+	    <input type="file" class="hide" name="imageName" id="photoimg" onchange="$(this.form).submit();"/>
+	</form>
+
+
+
+	    <!-- Matter -->
+	
+	    <div class="matter">
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span8">
+
+		<script type="text/javascript">
+		      $(document).ready(function() {
+			
+		      });
+		</script>	      
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">作品編號 ${art?.id} 編輯</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+                     #{form  @updateArtByID(id), enctype:'multipart/form-data', id:'myForm'}
+		            <input name="name" type="text" class="span8" placeholder="作品標題" value="${art?.name}" />
+		            <br />
+			    <input name="size" type="text" class="span8" placeholder="作品尺寸" value="${art?.size}" />
+		            <br />
+			    <input name="price" type="text" class="span8" placeholder="作品價格" value="${art?.price}" />
+		            <br />
+		            
+				<!--<button class="btn"><i class="icon-paper-clip"></i> 新增圖片</button>-->
+			    <div>
+					#{if art.pic_location != "" && art.pic_location != null}
+						<div id="oldImageBox" style="margin-bottom: 10px;">
+							<label>已上傳之圖片</label>								
+							<img style="width: 200px" src="${art.pic_location == null ? '' : art.pic_location}" />
+						</div>							    	
+					#{/if}
+					    							    
+			
+					<button class="btn" type="button" onClick="now_image_id=' ';$('#photoimg').click();">
+						上傳圖片
+					</button>
+					<input type="hidden" name="pic_location" id="pic_location" value="${art.pic_location == null ? '' : art.pic_location}" />
+					<div style="margin-top: 10px;" id="uploadBox">
+				
+					</div>
+			
+			    </div>                    
+			
+		 	#{/form}
+                  </div>
+                  <div class="widget-foot">
+                    <!--Word Count : 205-->
+                  </div>
+                </div>
+              </div>  
+      
+            </div>
+
+            <!-- post sidebar -->
+
+            <div class="span4">
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">分類與標籤</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+
+                    <form>
+
+                      <h6>作品作者</h6>
+                      
+                     
+		      <p>#{if art?.type == "1"}朱銘#{/if}#{elseif art?.type == "2"}吳宗霖#{/elseif}#{elseif art?.type == "3"}安迪沃和#{/elseif}</p>
+		      <hr />
+
+                     
+                      <button type="button" class="btn btn-info" onClick="$('#myForm').submit();">儲存</button>
+                      <button type="button" class="btn btn-danger" onClick="deleteConfirm(${art?.id})">刪除作品</button>
+
+                    </form>
+
+		    <script type="text/javascript">
+			function deleteConfirm(id){
+				if(confirm("您確定要永久刪除此資料？")){
+					location.href="/ArtsManagement/"+ id + "/deleteRecord";		
+				}
+			}
+		</script>	
+
+
+                  </div>
+                  <div class="widget-foot">
+                    <!-- Footer goes here -->
+                  </div>
+                </div>
+              </div>  
+
+            </div>
+
+          </div>
+        </div>
+		  </div>
+		
+		<!-- Matter ends -->
+
+    </div>
+
+   <!-- Mainbar ends -->

@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="${_response_encoding}">
+  <!-- Title and other stuffs -->
+  <title>${title}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+<!--<script type="text/javascript">
+var isChrome = navigator.userAgent.toLowerCase().match(/chrome/) != null;
+if (!isChrome) {
+        alert('建議使用Chrome瀏覽器觀看完整網站內容');
+}
+</script> --> 
+
+ <script type="text/javascript" src="/public/javascripts/jquery-1.9.1.min.js"></script>
+
+
+
+  <script src="/public/macui/js/jquery-ui-1.10.3.custom.min.js"></script> <!-- jQuery  --> 
+  <link rel="stylesheet" href="/public/machome/style/bootstrap-datetimepicker.min.css">
+  <script src="/public/machome/js/bootstrap-datepicker.js"></script>
+  
+
+
+ 
+  <!-- Pretty Photo -->
+  <link href="/public/machome/style/prettyPhoto.css" rel="stylesheet">
+  <!-- Flex slider -->
+  <link href="/public/machome/style/flexslider.css" rel="stylesheet">
+  <!-- Font awesome icon -->
+  <link rel="stylesheet" href="/public/machome/style/font-awesome.css">
+  <!-- Parallax slider -->
+  <link rel="stylesheet" href="/public/machome/style/slider.css">
+  <!-- Refind slider -->
+  <link rel="stylesheet" href="/public/machome/style/refineslide.css">  
+  <!-- Main stylesheet -->
+  <!--<link href="/public/machome/style/style.css" rel="stylesheet">-->
+  <!-- Stylesheet for Color -->
+  <!--<link href="/public/machome/style/orange.css" rel="stylesheet">-->
+  <!-- Responsive style (from Bootstrap) -->
+  <link href="/public/machome/style/bootstrap-responsive.css" rel="stylesheet">
+  <!-- UI Design -->
+  <link href="/public/stylesheets/default.css" rel="stylesheet" >  
+
+
+  <!-- HTML5 Support for IE -->
+  <!--[if lt IE 9]>
+  <script src="/public/machome/js/html5shim.js"></script>
+  <![endif]-->
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/public/machome/img/favicon/favicon.png">
+  
+<div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<script>
+    FB.init({appId: '144385262420365', status: true, cookie: true, xfbml : true});
+
+    function facebookLogin() {
+        // get current login status from facebook.com
+        FB.getLoginStatus(function(response) {
+            if (response.status == "connected") {
+                // logged in and connected user, someone you know
+                window.location = "@{Application.facebookLogin()}";
+            } else {
+                //window.location = "@{Secure.logout()}";
+            }
+        });
+    }
+</script>
+
+
+<!-- dreamweaver function -->
+<script type="text/javascript">
+		function MM_preloadImages() { //v3.0
+		  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+			var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+			if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+		}
+		
+		function MM_swapImgRestore() { //v3.0
+		  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+		}
+		
+		function MM_findObj(n, d) { //v4.01
+		  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+			d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+		  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+		  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+		  if(!x && d.getElementById) x=d.getElementById(n); return x;
+		}
+		
+		function MM_swapImage() { //v3.0  
+		  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+		   if ((x=MM_findObj(a[i]))!=null){
+			   document.MM_sr[j++]=x;
+			   if(!x.oSrc)
+					x.oSrc=x.src;
+				x.src=a[i+2];
+			}
+			
+		}
+</script>
+
+<style type="text/css">
+.headeroption:not([class*=""])  {
+	width:			100%;
+	height:			32px;
+	top:				0px;
+	left: 0px;
+	margin: 0px;
+	background:	#c50a2d;
+	position:		fixed;
+	z-index:		9990;
+	_position: absolute ;
+	-webkit-transform: translateZ(0);
+}
+</style>
+
+</head>
+
+<body>
+
+#{if !template_type || template_type > 0}
+	<!--<nav id="head" >
+	<div class="wrap">
+		<div id="menu-option" class="style1">
+		    <a class="option-block" href="/Pages/about">關於馥蘭朵</a>
+		    <a class="option-block" href="/Announce/listAll/">最新訊息</a>
+		    <a class="option-block" href="@{Application.listrooms}">住宿</a>
+		    <a class="option-block" href="@{Application.listhotsprings}">溫泉</a>
+		    <a class="option-block" href="/Pages/catering">餐飲</a>
+		    <a class="option-block" href="/Pages/spa">SPA</a>
+		    <a class="option-block" href="/Pages/meeting">會議</a>
+		    <a class="option-block" href="/Information/list/traffic">實用訊息</a>
+		    <a class="option-block" href="/Project/listAll/">專案優惠</a>
+		</div>
+	</div>
+	</nav>-->
+
+	<div id="headeroption" class="headeroption" style="display:block; left:0px; top:0px"><div id="link_menu">
+		<div id="menu-option" class="style1">
+		     <a class="option-block" href="/Pages/about">關於馥蘭朵</a>
+		     <a class="option-block" href="/Announce/listAll/">最新訊息</a>
+		     <a class="option-block" href="@{Application.listrooms}">住宿</a>
+		     <a class="option-block" href="@{Application.listhotsprings}">溫泉</a>
+		     <a class="option-block" href="/Pages/catering">餐飲</a>
+		     <a class="option-block" href="/Pages/spa">SPA</a>
+		     <a class="option-block" href="/Pages/meeting">會議</a>
+		     <a class="option-block" href="/Project/listAll/">優惠專案</a>
+		     <a class="option-block" href="/Information/list/traffic">客服</a>
+             <a class="option-block" href="https://www.springparkhotel.com.tw/order_room/index.asp" target="new">線上訂房</a>
+		</div>
+	</div></div>
+#{/if}
+	
+
+
+#{if template_type && template_type == 1}
+	<script type="text/javascript" src="/public/javascripts/shrine_index2.js"></script>
+	
+	<div id="box">
+	<dfn style="position:absolute; right:30px; bottom:-7px; z-index:5"><img src="/public/images/title.png" alt="Valando" width="506" height="170"></dfn>
+	</div>
+#{/if}
+#{elseif template_type && template_type == 2}
+	<script type="text/javascript" src="/public/javascripts/jquery.slideshow.js"></script>
+	<script type="text/javascript" src="/public/javascripts/shrine_index.js"></script>
+		
+	
+	<div id="box">
+	<dfn style="position:absolute; right:30px; bottom:-7px; z-index:5"><img src="/public/images/title.png" alt="Valando" width="506" height="170"></dfn>
+	</div>
+
+#{/elseif}
+
+
+#{elseif template_type && template_type == 4}
+	<script type="text/javascript" src="/public/javascripts/jquery.slideshow.js"></script>
+	<script type="text/javascript" src="/public/javascripts/shrine_catering.js"></script>
+		
+	
+	<div id="box">
+	<dfn style="position:absolute; right:30px; bottom:-7px; z-index:5"><img src="/public/images/title.png" alt="Valando" width="506" height="170"></dfn>
+	</div>
+
+#{/elseif}
+
+
+#{elseif template_type && template_type == 5}
+	<script type="text/javascript" src="/public/javascripts/jquery.slideshow.js"></script>
+	<script type="text/javascript" src="/public/javascripts/shrine_room.js"></script>
+		
+	
+	<div id="box">
+	<dfn style="position:absolute; right:30px; bottom:-7px; z-index:5"><img src="/public/images/title.png" alt="Valando" width="506" height="170"></dfn>
+	</div>
+
+#{/elseif}
+
+#{elseif template_type && template_type == 6}
+	<script type="text/javascript" src="/public/javascripts/jquery.slideshow.js"></script>
+	<script type="text/javascript" src="/public/javascripts/shrine_spa.js"></script>
+		
+	
+	<div id="box">
+	<dfn style="position:absolute; right:30px; bottom:-7px; z-index:5"><img src="/public/images/title.png" alt="Valando" width="506" height="170"></dfn>
+	</div>
+
+#{/elseif}
+
+#{elseif template_type && template_type == 7}
+	<script type="text/javascript" src="/public/javascripts/jquery.slideshow.js"></script>
+	<script type="text/javascript" src="/public/javascripts/shrine_news.js"></script>
+		
+	
+	<div id="box">
+	<dfn style="position:absolute; right:30px; bottom:-7px; z-index:5"><img src="/public/images/title.png" alt="Valando" width="506" height="170"></dfn>
+	</div>
+
+#{/elseif}
+
+#{elseif template_type && template_type == 8}
+	<script type="text/javascript" src="/public/javascripts/jquery.slideshow.js"></script>
+	<script type="text/javascript" src="/public/javascripts/shrine_project.js"></script>
+		
+	
+	<div id="box">
+	<dfn style="position:absolute; right:30px; bottom:-7px; z-index:5"><img src="/public/images/title.png" alt="Valando" width="506" height="170"></dfn>
+	</div>
+
+#{/elseif}
+
+#{elseif template_type && template_type == 9}
+	<script type="text/javascript" src="/public/javascripts/jquery.slideshow.js"></script>
+	<script type="text/javascript" src="/public/javascripts/shrine_meeting.js"></script>
+		
+	
+	<div id="box">
+	<dfn style="position:absolute; right:30px; bottom:-7px; z-index:5"><img src="/public/images/title.png" alt="Valando" width="506" height="170"></dfn>
+	</div>
+
+#{/elseif}
+
+#{elseif template_type && template_type == 10}
+	<script type="text/javascript" src="/public/javascripts/jquery.slideshow.js"></script>
+	<script type="text/javascript" src="/public/javascripts/shrine_spring.js"></script>
+		
+	
+	<div id="box">
+	<dfn style="position:absolute; right:30px; bottom:-7px; z-index:5"><img src="/public/images/title.png" alt="Valando" width="506" height="170"></dfn>
+	</div>
+
+#{/elseif}
+
+
+#{elseif template_type && template_type == 11}
+	<script type="text/javascript" src="/public/javascripts/jquery.slideshow.js"></script>
+	<script type="text/javascript" src="/public/javascripts/shrine_about.js"></script>
+		
+	
+	<div id="box">
+	<dfn style="position:absolute; right:30px; bottom:-7px; z-index:5"><img src="/public/images/title.png" alt="Valando" width="506" height="170"></dfn>
+	</div>
+
+#{/elseif}
+
+#{if !template_type || template_type > 0}
+	<script type="text/javascript" src="/public/javascripts/shrine_detail.js"></script>
+
+#{/if}
+
+
+
+
+  	<div id="contents" style="min-height: 738px">
+        	#{doLayout /}
+	</div>
+    <!-- Footer starts -->
+	#{if !template_type || template_type > 0}
+		<footer>
+		      
+			<div class="block-footer">
+				<div class="leftfloat" style="margin-left:0px;">
+						  <img src="/public/images/copyright4.png" width="258" height="40" style="margin-top:8px;">
+					</div>
+		
+				 <span class="style3 " style="top:8px; left:43px; z-index:0; width:700px; position:absolute; text-align:left;">  
+					<!--<span id="link_contact"></span>-->
+
+			&copy;2013 VOLANDO ALL RIGHTS RESERVED 馥蘭朵烏來渡假酒店&nbsp;&nbsp;訂房專線 : (02)2661-6555&nbsp;&nbsp;傳真專線 : (02)2661-6559&nbsp;&nbsp;<br />
+			</span>
+
+			<span class="style3 " style="top:20px; left:43px; z-index:0; width:600px; position:absolute; text-align:left;">  
+			Email：<a href="mailto:fo@volandourai.com.tw">fo@volandourai.com.tw</a> &nbsp;233新北市烏來區新烏路五段176號&nbsp;
+					<a href="https://maps.google.com.tw/maps?q=馥蘭朵&amp;hl=zh-TW&amp;ie=UTF8&amp;ll=24.869734,121.547713&amp;spn=0.030058,0.042529&amp;sll=24.870007,121.548057&amp;sspn=0.030058,0.042529&amp;brcurrent=3,0x346808e8b57b1149:0xcde259054fa552a0,0,0x345d5538b0b6645f:0x5aa90dfa6620edc0&amp;t=m&amp;z=15&amp;iwloc=B" target="_blank"><img src="/public/images/index/icon-map.png" width="17" height="22" />&nbsp;GoogleMAP</a>&nbsp;&nbsp;
+					<a href="https://www.facebook.com/taiwan.volando" target="_blank"><img src="/public/images/index/icon-facebook.png" width="22" height="22" /> </a>
+
+				
+					</span>
+		
+					<div class="rightfloat" style="margin-right:0px;">
+						  <a href="javascript:history.back()"><img src="/public/images/b2index.png" width="54" height="40"></a>
+						  <a href="/"><img src="/public/images/b2pre.png" width="54" height="40"></a>
+					</div>
+			</div>
+            
+		</footer>		
+	#{/if}
+<!-- Footer ends -->
+<div style="background-color:#FFF">
+            <script src="http://www.dreamhome.com.tw/escounter/counter.asp?name=volando&dir=1"></script>
+            </div>
+<!--<script src="http://www.dreamhome.com.tw/escounter/counter.asp?name=rog0512&dir=1"></script> -->
+<!-- JS -->
+<script src="/public/machome/js/bootstrap.js"></script> <!-- Bootstrap -->
+<script src="/public/machome/js/jquery.isotope.js"></script> <!-- Isotope -->
+<script src="/public/machome/js/jquery.prettyPhoto.js"></script> <!-- Pretty Photo -->
+<script src="/public/machome/js/filter.js"></script> <!-- Filter for support page -->
+<script src="/public/machome/js/jquery.tweet.js"></script> <!-- Twitter -->
+<script src="/public/machome/js/jquery.flexslider-min.js"></script> <!-- Flex slider -->
+<script src="/public/machome/js/jquery.cslider.js"></script> <!-- Parallax Slider -->
+<script src="/public/machome/js/modernizr.custom.28468.js"></script> <!-- Parallax slider extra -->
+
+<script src="/public/machome/js/jquery.carouFredSel-6.1.0-packed.js"></script> <!-- Carousel for recent posts -->
+<script src="/public/machome/js/jquery.refineslide.min.js"></script> <!-- Refind slider -->
+<script src="/public/machome/js/custom.js"></script> <!-- Custom codes -->
+
+</body>
+</html>

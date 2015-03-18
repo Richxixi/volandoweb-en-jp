@@ -1,0 +1,90 @@
+#{extends 'main.html' /}
+#{set title:'Traffic - Show Info' /}
+
+<!-- Page heading starts -->
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>Register</h2>
+        <h4>something goes here</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+
+<div class="content">
+  <div class="container">
+    <div class="row">
+
+                <!-- Form -->
+                <div class="span12">
+                  <div class="formy well">
+                    <!-- Title -->
+                     <h4 class="title">Traffic</h4>
+                                  <div class="form">
+                                      <!-- Register form (not working)-->
+                                      <form class="form-horizontal">
+                                          <!-- Name -->
+                                          #{if traffic}
+                                          <div class="control-group">
+                                            <label class="control-label" for="name">接駁車編號：</label>
+                                            <div class="controls">
+                                              <span>${traffic.name}</span>
+                                            </div>
+                                          </div>   
+                                          <div class="control-group">
+                                            <label class="control-label" for="name">接駁車座位：</label>
+                                            <div class="controls">
+                                              <span>${traffic.seat_num}</span>
+                                            </div>
+                                          </div>   
+                                          <div class="control-group">
+                                            <label class="control-label" for="name">接駁車保留位：</label>
+                                            <div class="controls">
+                                              <span>${traffic.reserved_number}</span>
+                                            </div>
+                                          </div>   
+                                          <div class="control-group">
+                                            <label class="control-label" for="name">接駁車時間：</label>
+                                            <div class="controls">
+                                              <span>${traffic.time}</span>
+                                            </div>
+                                          </div>    
+                                          <div class="control-group">
+                                            <label class="control-label" for="name">接駁車起點：</label>
+                                            <div class="controls">
+                                              <span>${traffic.start_point}</span>
+                                            </div>
+                                          </div>
+                                          <div class="control-group">
+                                            <label class="control-label" for="name">接駁車終點：</label>
+                                            <div class="controls">
+                                              <span>${traffic.end_point}</span>
+                                            </div>
+                                          </div>
+                                          
+                                          </div> 
+                                          
+                                          <!-- Buttons -->
+                                          <div class="form-actions">
+                                             <!-- Buttons -->
+                                            <button type="submit" class="btn">Edit</button>
+                                          </div>
+                                          #{/if}
+                                      </form>
+                                             Already have an Account? <a href="/login">Login</a>
+                                    </div> 
+                                  </div>
+
+                </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page content ends -->

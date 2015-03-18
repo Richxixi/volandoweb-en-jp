@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>馥蘭朵烏來渡假酒店 Volando Urai Spring SPA Resort</title>
+<link rel="stylesheet" href="css/mobile.css">
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+
+<script type=text/javascript>
+ function show_hiddendiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='block';
+ 	document.getElementById(strHref).href='javascript:hidden_showdiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+ }
+ function hidden_showdiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='none';
+ 	document.getElementById(strHref).href='javascript:show_hiddendiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+ }
+ </script>
+
+<script type="text/javascript">
+$.get("link_header.html",function(data){$("#link_header").html(data);});   
+$.get("link_footer.html",function(data){$("#link_footer").html(data);});   
+</script>
+</head>
+<body>
+
+<div id="mobile">
+
+        <div id="link_header"></div>
+        
+		<div id="content-white">
+                <div class="font-DGRAY-Normal">
+                        <p>親愛的貴賓 您好<br />
+                        為提供更優質衛生之環境，馥蘭朵烏來預計於09/25(三)進行例行性水塔清潔工程。<br />
+                        住宿貴賓於09/24(二)凌晨23:59至09/25(三)08:59暫停供水。<br />
+                        09/25(三)大浴場/個人湯屋營業時間更改至09:00開放。<br />
+                        期間不便之處，敬請見諒!<br />
+                        馥蘭朵烏來渡假酒店</p>
+                        <p>Dear Guests,<br />
+                        For the purpose of providing a better sanitary environment.<br />
+                        Volando propose to process the water storage maintenance construction on Wednesday, 25th September.<br />
+                        Water will be suspended in hotel area from 23:59, 24th September to 08:59, 25th September.<br />
+                        The opening hour of public pool and bathhouse will be alternated to 9:00, 25th September.<br />
+                        We apologize for any inconvenience caused.</p>
+                        <p>Volando Urai Spring Spa &amp; Resort</p>
+                        <p>&lt;お知らせ&gt;<br />
+                        お客様へ</p>
+                </div>
+  		</div>
+        
+        <!--<div id="link_footer"></div>-->
+
+</div>
+
+</body>
+</html>

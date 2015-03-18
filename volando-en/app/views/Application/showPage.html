@@ -1,0 +1,23 @@
+#{extends 'main.html' /}
+
+#{if category == "art"}馥藝廊#{/if} 
+#{elseif category == "spatime"}療程表#{/elseif}
+#{elseif category == "buycourse"}加購課程#{/elseif}
+#{elseif category == "roomprice"}
+	#{set title:'馥蘭朵烏來渡假酒店 Volando Urai Spring SPA Resort - 馥蘭朵套房' /}
+#{/elseif}
+
+
+<!-- Page content starts -->
+<div class="block-borderless" style="height:220px; margin-bottom:10px; background-image:url(/public/images/room/price/IMG_8385.jpg);"></div>
+     <div class="block">
+					
+
+		#{if page}
+		     	<div>${page?.content.raw()}</div>
+		#{/if}
+		#{else}
+			目前建構中。
+		#{/else}
+      </div>  
+</div> 

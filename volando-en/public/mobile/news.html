@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>馥蘭朵烏來渡假酒店 Volando Urai Spring SPA Resort</title>
+<link rel="stylesheet" href="css/mobile.css">
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+
+<script type=text/javascript>
+ function show_hiddendiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='block';
+ 	document.getElementById(strHref).href='javascript:hidden_showdiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+ }
+ function hidden_showdiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='none';
+ 	document.getElementById(strHref).href='javascript:show_hiddendiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+ }
+ </script>
+
+<script type="text/javascript">
+$.get("link_header.html",function(data){$("#link_header").html(data);});   
+$.get("link_footer.html",function(data){$("#link_footer").html(data);});   
+</script>
+</head>
+<body>
+
+<div id="mobile">
+
+        <div id="link_header"></div>
+        
+		<div id="content-gray">
+        
+                <div class="option-block">
+                  		<table width="100%" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td>
+                                      <img class="middle" src="images/line-v-50.png"/>
+                                      <span class="font-Default-Big">館內公告</span>
+                                </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                        <span class="style_RED" >
+                                        <a href="news_announce_01.html">【公告更新】9/25(三)水塔清潔工程 </a></span>
+                                        <br />
+                                        <span class="style_RED" >
+                                        <a href="news_announce_02.html">【公告】9月起 大浴場每週四08:00-12:00維修保養不開放 </a></span>
+                              </td>
+                            </tr>
+                        </table>
+          		</div>
+                <div class="v-block"></div>
+                <div class="option-block">
+                  		<table width="100%" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td>
+                                      <img class="middle" src="images/line-v-50.png" width="12" height="50"/>
+                                      <span class="font-Default-Big">活動訊息</span>
+                                </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                        <span class="style_RED" >
+                                        <a href="news_activity_01.html">『享湯祭‧抗漲優惠』 </a></span>
+                                        <br />
+                                        <span class="style_RED" >
+                                        <a href="news_activity_02.html">【公告】9月起 大浴場每週四08:00-12:00維修保養不開放 </a></span>                     
+                              </td>
+                            </tr>
+                        </table>
+                </div>
+                <div class="v-block"></div>
+                <div class="option-block">
+                  		<table width="100%" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td>
+                                      <img class="middle" src="images/line-v-50.png" width="12" height="50"/>媒體推薦</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                        <span class="style_RED" >
+                                        <a href="news_media_01.html">公視"台灣心動線"馥蘭朵TV報導~ </a></span>
+                                        <br />
+                                        <span class="style_RED" >
+                                        <a href="news_media_02.html">中天「夢想驛站」馥蘭朵米靈岸湖畔音樂劇報導~</a></span>                     
+                              </td>
+                            </tr>
+                        </table>
+                </div>
+                           
+        <br /><br /><br />
+        </div>
+        
+        <!--<div id="link_footer"></div>-->
+
+</div>
+
+</body>
+</html>

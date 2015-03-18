@@ -1,0 +1,275 @@
+#{extends 'main_admin.html' /}
+#{set title:'客房管理 - 客房編輯' /}
+<!-- Main bar -->
+  	<div class="mainbar">
+
+      <!-- Page heading -->
+      <div class="page-head">
+        <h2 class="pull-left"><i class="icon-home"></i> 客房編輯</h2>
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+          <a href="/"><i class="icon-home"></i> Home</a>
+	  <span class="divider">/</span>  
+	  <a href="/InformationManagement/list">客房管理</a>          
+	<!-- Divider -->
+          <span class="divider">/</span> 
+          <a href="#" class="bread-current">客房編輯</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+      </div>
+      <!-- Page heading ends -->
+
+	<script language="javascript">
+	    var now_image_id;
+	    $(document).ready(function() { 	
+		$('#imageform').ajaxForm( {
+		    beforeSubmit: function() {
+			$(this).addClass('loading');
+			$('#uploadBox' + +now_image_id).html('<div id="progressOverlay"><div class="progress progress-striped"><div class="bar" id="progressBar" style="width: 0%;">0%</div></div></div>');
+		    },
+		    uploadProgress: function ( event, position, total, percentComplete ) {
+			if (percentComplete == 100) {
+			    $('#progressBar').css('width',percentComplete+'%').html('圖片上傳完成');
+			} else {
+			    $('#progressBar').css('width',percentComplete+'%').html(percentComplete+'%');
+			}
+		    },
+		    success : function ( html ) {
+			//Your Custom JS Code Here
+			content = "<img style='width: 200px;' src='" + html + "' />";	
+			$('#uploadBox'+now_image_id).html(content);
+			$('#pic_location'+now_image_id).val(html);
+		    }
+		});
+	    }); 
+	</script>
+	<form id="imageform" method="post" enctype="multipart/form-data" action="/Application/uploader/images">
+	    <input type="file" class="hide" name="imageName" id="photoimg" onchange="$(this.form).submit();"/>
+	</form>
+
+	    <!-- Matter -->
+	
+	    <div class="matter">
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span8">
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">客房編號: ${room?.id} 編輯</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+                    #{form @updateroombyID(id), enctype:'multipart/form-data'}
+                    	<div><label>客房名稱 :</label>
+							 <input type="text" name="name" value="${room.name == null ? '' : room.name}" class="span8" style="height: 30px;"><br/>
+						</div>
+						<div><label>英文名稱 :</label>
+							 <input type="text" name="name_en" value="${room.name_en == null ? '' : room.name_en}" class="span8" style="height: 30px;"><br/>
+						</div>
+						<div><label>客房使用人數:</label>
+							<input type="text" name="person_num" value="${room.person_num == null ? '' : room.person_num}" class="span8" style="height: 30px;"><br/>
+						</div>
+						<div><label>客房封面:</label>
+							    
+							#{if room.pic_location != "" && room.pic_location != null}
+							<div id="oldImageBox" style="margin-bottom: 10px;">
+								<label>已上傳之圖片</label>								
+								<img style="width: 200px" src="${room.pic_location == null ? '' : room.pic_location}" />
+							</div>							    	
+							#{/if}
+							    							    
+						
+							<button class="btn" type="button" onClick="now_image_id='' ;$('#photoimg').click();">
+								上傳圖片
+							</button>
+							<input type="hidden" name="pic_location" id="pic_location" value="${room.pic_location == null ? '' : room.pic_location}" />
+							<div style="margin-top: 10px;" id="uploadBox">
+							
+							</div>
+						</div>
+
+						<style>
+							.innerImageBlock{
+								width: 200px;
+								height: 200px;
+								float: left;
+								margin: 10px;
+							}
+						</style>
+
+						<div style="height: 440px;"><label>內頁圖:</label>
+							<div class="innerImageBlock">
+								#{if room.pic_location4 != "" && room.pic_location4 != null}
+								<div id="oldImageBox" style="margin-bottom: 10px;">
+									<label>已上傳之圖片</label>								
+									<img style="width: 200px" src="${room.pic_location4 == null ? '' : room.pic_location4}" />
+								</div>							    	
+								#{/if}
+								    							    
+						
+								<button class="btn" type="button" onClick="now_image_id='4'; $('#photoimg').click();">
+									上傳內頁1
+								</button>
+								<input type="hidden" name="pic_location4" id="pic_location4" value="${room.pic_location4 == null ? '' : room.pic_location4}" />
+								<div style="margin-top: 10px;" id="uploadBox4">
+							
+								</div>
+							</div>
+
+							<div class="innerImageBlock">
+								#{if room.pic_location5 != "" && room.pic_location5 != null}
+								<div id="oldImageBox" style="margin-bottom: 10px;">
+									<label>已上傳之圖片</label>								
+									<img style="width: 200px" src="${room.pic_location5 == null ? '' : room.pic_location5}" />
+								</div>							    	
+								#{/if}
+								    							    
+						
+								<button class="btn" type="button" onClick="now_image_id='5'; $('#photoimg').click();">
+									上傳內頁2
+								</button>
+								<input type="hidden" name="pic_location5" id="pic_location5" value="${room.pic_location5 == null ? '' : room.pic_location5}" />
+								<div style="margin-top: 10px;" id="uploadBox5">
+							
+								</div>
+							</div>
+
+							<div class="innerImageBlock">
+								#{if room.pic_location6 != "" && room.pic_location6 != null}
+								<div id="oldImageBox" style="margin-bottom: 10px;">
+									<label>已上傳之圖片</label>								
+									<img style="width: 200px" src="${room.pic_location6 == null ? '' : room.pic_location6}" />
+								</div>							    	
+								#{/if}
+								    							    
+						
+								<button class="btn" type="button" onClick="now_image_id='6'; $('#photoimg').click();">
+									上傳內頁3
+								</button>
+								<input type="hidden" name="pic_location6" id="pic_location6" value="${room.pic_location6 == null ? '' : room.pic_location6}" />
+								<div style="margin-top: 10px;" id="uploadBox6">
+							
+								</div>
+							</div>
+
+							<div class="innerImageBlock">
+								#{if room.pic_location7 != "" && room.pic_location7 != null}
+								<div id="oldImageBox" style="margin-bottom: 10px;">
+									<label>已上傳之圖片</label>								
+									<img style="width: 200px" src="${room.pic_location6 == null ? '' : room.pic_location6}" />
+								</div>							    	
+								#{/if}
+								    							    
+						
+								<button class="btn" type="button" onClick="now_image_id='7'; $('#photoimg').click();">
+									上傳內頁4
+								</button>
+								<input type="hidden" name="pic_location7" id="pic_location7" value="${room.pic_location7 == null ? '' : room.pic_location7}" />
+								<div style="margin-top: 10px;" id="uploadBox7">
+							
+								</div>
+							</div>
+
+							<div class="innerImageBlock">
+								#{if room.pic_location8 != "" && room.pic_location8 != null}
+								<div id="oldImageBox" style="margin-bottom: 10px;">
+									<label>已上傳之圖片</label>								
+									<img style="width: 200px" src="${room.pic_location8 == null ? '' : room.pic_location8}" />
+								</div>							    	
+								#{/if}
+								    							    
+						
+								<button class="btn" type="button" onClick="now_image_id='8'; $('#photoimg').click();">
+									上傳內頁5
+								</button>
+								<input type="hidden" name="pic_location8" id="pic_location8" value="${room.pic_location8 == null ? '' : room.pic_location8}" />
+								<div style="margin-top: 10px;" id="uploadBox8">
+							
+								</div>
+							</div>
+
+							<div class="innerImageBlock">
+								#{if room.pic_location9 != "" && room.pic_location9 != null}
+								<div id="oldImageBox" style="margin-bottom: 10px;">
+									<label>已上傳之圖片</label>								
+									<img style="width: 200px" src="${room.pic_location9 == null ? '' : room.pic_location9}" />
+								</div>							    	
+								#{/if}
+								    							    
+						
+								<button class="btn" type="button" onClick="now_image_id='9'; $('#photoimg').click();">
+									上傳內頁6
+								</button>
+								<input type="hidden" name="pic_location9" id="pic_location9" value="${room.pic_location9 == null ? '' : room.pic_location9}" />
+								<div style="margin-top: 10px;" id="uploadBox9">
+							
+								</div>
+							</div>
+
+							
+						</div>
+						<div class="innerImageBlock">
+                        <label>客房結構:</label>
+							#{if room.pic_location3 != "" && room.pic_location3 != null}
+							<div id="oldImageBox" style="margin-bottom: 10px;">
+								<label>已上傳之圖片</label>								
+								<img style="width: 200px" src="${room.pic_location3 == null ? '' : room.pic_location3}" />
+							</div>							    	
+							#{/if}
+							    							    
+						
+							<button class="btn" type="button" onClick="now_image_id='3'; $('#photoimg').click();">
+								上傳圖片
+							</button>
+							<input type="hidden" name="pic_location3" id="pic_location3" value="${room.pic_location3 == null ? '' : room.pic_location3}" />
+                            </div>
+							<div style="margin-top: 10px;" id="uploadBox3">
+							
+							</div>
+
+</div>
+ <div class="clearfix"></div>
+                </div>
+						<div><label>客房平日價格:</label>
+							<input type="text" name="prize_day" value="${room.prize_day == null ? '' : room.prize_day}" class="span8" style="height: 30px;"><br/>
+						</div>
+						<div><label>客房假日價格:</label>
+							<input type="text" name="prize_holigy" value="${room.prize_holigy == null ? '' : room.prize_holigy}" class="span8" style="height: 30px;"><br/>
+						</div>
+						<div><label>客房坪數:</label>
+							<input type="text" name="size" value="${room.size == null ? '' : room.size}" class="span8" style="height: 30px;"><br/>
+						</div>
+						<div><label>床型:</label>
+							<input type="text" name="bad_type" value="${room.bad_type == null ? '' : room.bad_type}" class="span8" style="height: 30px;"><br/>
+						</div>
+						<div><label>客房描述 :</label>
+							<textarea id="description" style="width: 500px; height: 100px;" name="description">${room?.description}</textarea>
+						</div>
+						
+						<div class="center"><input type="submit" name="submit" value="Submit" style="width:120px; height:32px; margin-top:30px"></div>
+					#{/form}
+                   			
+                  </div>
+                  <div class="widget-foot">
+                    <!--Word Count : 205-->
+                  </div>
+                </div>
+              </div>  
+            </div>
+		<!-- Matter ends -->
+
+    </div>
+</div>
+</div>
+</div>
+   <!-- Mainbar ends -->
+

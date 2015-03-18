@@ -1,0 +1,128 @@
+#{extends 'main.html' /}
+#{set title: hot?.name /}
+<script type="text/javascript">
+
+    //ImgD:要放图片的img元素，onload时传参可用this
+
+    //h:img元素的高度，像素
+
+    //w:img元素的宽度，像素
+    function autosize(ImgD, w, h) {
+        var image = new Image();
+        image.src = ImgD.src;
+        if (image.width < w && image.height < h) {
+            ImgD.width = image.width;
+            ImgD.height = image.height;
+        }
+        else {
+            if ((w / h) <= (image.width / image.height)) {
+                ImgD.width = w;
+                ImgD.height = w * (image.height / image.width);
+            }
+            else {
+                ImgD.width = h * (image.width / image.height);
+                ImgD.height = h;
+            }
+        }
+
+    }
+</script>
+
+<div id="contents">
+	<div class="block">
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="left" valign="top">
+              <table width="1000" border="0" align="center" cellpadding="5" cellspacing="0">
+                <tr>
+                  <td width="800" align="left" valign="top">
+                          <div id="photo-gallery">
+                                   
+				    <div id="photo-gallery-main">
+					 #{if hot.pic_location2 != "" && hot.pic_location2 != null}
+						<img id="photo_main" src="${hot.pic_location2}" onload="autosize(this,800,600)">
+				    	 #{/if}
+				    </div>
+                                    
+				      #{if hot.pic_location2 != "" && hot.pic_location2 != null}
+				    	<div id="photo-gallery-1"><a href="#"><img src="${hot.pic_location2}" width="119" height="82" onmouseover="MM_swapImage('photo_main','','${hot.pic_location2}',0)"></a></div>
+                                    #{/if} 
+
+				    #{if hot.pic_location3 != "" && hot.pic_location3 != null}
+				    	<div id="photo-gallery-2"><a href="#"><img src="${hot.pic_location3}" width="119" height="82" onmouseover="MM_swapImage('photo_main','','${hot.pic_location3}',0)"></a></div>
+                                    #{/if} 
+
+				    #{if hot.pic_location4 != "" && hot.pic_location4 != null}
+				    	<div id="photo-gallery-3"><a href="#"><img src="${hot.pic_location4}" width="119" height="82" onmouseover="MM_swapImage('photo_main','','${hot.pic_location4}',0)"></a></div>
+			            #{/if}                                    
+
+				    #{if hot.pic_location5 != "" && hot.pic_location5 != null}
+				    	<div id="photo-gallery-4"><a href="#"><img src="${hot.pic_location5}" width="119" height="82" onmouseover="MM_swapImage('photo_main','','${hot.pic_location5}',0)"></a></div>
+                                    #{/if} 
+
+				    #{if hot.pic_location6 != "" && hot.pic_location6 != null}
+				    	<div id="photo-gallery-5"><a href="#"><img src="${hot.pic_location6}" width="119" height="82" onmouseover="MM_swapImage('photo_main','','${hot.pic_location6}',0)"></a></div>
+                                    #{/if} 
+
+				    #{if hot.pic_location7 != "" && hot.pic_location7 != null}
+				    	<div id="photo-gallery-6"><a href="#"><img src="${hot.pic_location7}" width="119" height="82" onmouseover="MM_swapImage('photo_main','','${hot.pic_location7}',0)"></a></div>
+                                    #{/if} 
+
+
+				  
+				</div>			
+
+                  </td>
+                  <td width="200" valign="middle"><font size="+2" style="font-weight:bold">${hot?.name}</font><br /><br />
+                    <table width="250ps" border="0" cellspacing="0" cellpadding="3">
+                      <tr>
+                        <!-- <td><span class="font-GRAY-Tiny">${hot?.description}</td> -->
+                        <td><span class="font-GRAY-Tiny">${descriptionEncrypt.raw()}</td>
+
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                      <tr>
+                        <td height="120">&nbsp;</td>
+                      </tr>
+                    </table>                    <br />                    </td>
+                </tr>
+                <tr>
+                  <td colspan="2" align="left" valign="middle"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td height="20" align="right" valign="middle">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="left" valign="bottom"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="15%" valign="top"><span class="font-Default-Big">${hot?.name}</span></td>
+                          <td width="35%" valign="top">
+                          <span class="font-Default-Tiny">${hot?.prize_day}<br />
+                         ${hot?.prize_holigy}<br />
+                          ${hot?.prize_day2}<br />
+                          ${hot?.prize_day3}<br />
+                          </span></td>
+                       <!--   <td width="50%" valign="top"><span class="font-GRAY-Tiny">1. 冬季(十~三月)夏季(四~九月)<br />
+                            2. 大浴場為男/女裸湯，恕不接待12歲以下孩童。<br />
+                            3. 每次入場時限為四小時。<br />
+                            4. 可使用設施包含：<br />
+                          &nbsp;&nbsp;&nbsp;                            露天溫泉、室內冷／熱水池、SPA水療池、烤箱、蒸氣室、寄物櫃、休息區、梳妝區</span></td> -->
+                                                    <td width="50%" valign="top"><span class="font-GRAY-Tiny">${informationEncrypt.raw()}</span></td>
+
+                        </tr>
+                      </table></td>
+                    </tr>
+                  </table></td>
+                </tr>
+                <tr>
+                  <td colspan="2" align="right" valign="middle"><img src="/public/images/line-v.png" alt="" width="12" height="23" /> <a href="/Application/listhotsprings"> <img src="/public/images/spring/t-otherspring.gif" alt="" width="71" height="28"/> </a></td>
+                </tr>
+              </table>
+              </td>
+          </tr>
+        </table>
+	</div>
+</div>
+
+
+

@@ -1,0 +1,109 @@
+#{extends 'main.html' /}
+#{set title:'Room - Show Record' /}
+
+<!-- Page heading starts -->
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>Register</h2>
+        <h4>something goes here</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+
+<div class="content">
+  <div class="container">
+    <div class="row">
+
+                <!-- Form -->
+                <div class="span12">
+                  <div class="formy well">
+                    <!-- Title -->
+                     <h4 class="title">Booking Record</h4>
+                                  <div class="form">
+                                      <!-- Register form (not working)-->
+                                      <form class="form-horizontal">
+                                          <!-- Name -->
+                                          #{if room_record}
+                                          <div class="control-group">
+                                            <label class="control-label" for="name">Room ID</label>
+                                            <div class="controls">
+                                              <span>${room_record.room_id}</span>
+                                            </div>
+                                          </div>   
+                                          <!-- Email -->
+                                          <div class="control-group">
+                                            <label class="control-label" for="email">Email</label>
+                                            <div class="controls">
+                                              <span>${room_record.customer_email}</span>
+                                            </div>
+                                          </div>                                         
+                                          <!-- Personal Number -->
+                                          <div class="control-group">
+                                            <label class="control-label" for="personalnum">Personal Number</label>
+                                            <div class="controls">
+                                              <span>${room_record.person_number}</span>
+                                            </div>
+                                          </div>
+                                          <!-- Check In -->
+                                          <div class="control-group">
+                                            <label class="control-label" for="checkin">Check In Date</label>
+                                            <div class="controls">
+                                              <span>${room_record.checkin_date}</span>
+                                            </div>
+                                          </div>
+                                          <!-- Check Out -->
+                                          <div class="control-group">
+                                            <label class="control-label" for="checkout">Check Out Date</label>
+                                            <div class="controls">
+                                              <span>${room_record.checkout_date}</span>
+                                            </div>
+                                          </div>
+                                          <!-- Other Requirements -->
+                                          <div class="control-group">
+                                            <label class="control-label" for="requirement">Other Requirements</label>
+                                            <div class="controls">
+                                              <span>${room_record.other_requirement}</span>
+                                            </div>
+                                          </div>
+                                          <!-- Restaurant Record -->
+                                          <div class="control-group">
+                                            <label class="control-label" for="requirement">Restaurant ID :</label>
+                                            <div class="controls">
+                                              <span>${restaurant_record.id}</span>
+                                            </div>
+                                          </div>
+                                          <div class="control-group">
+                                             <label class="control-label" for="requirement">用餐人員 :</label>
+                                            <div class="controls">
+                                              <span>${restaurant_record.members}</span>
+                                            </div>
+                                          </div>
+                                         
+                                          
+                                          </div> 
+                                          
+                                          <!-- Buttons -->
+                                          <div class="form-actions">
+                                             <!-- Buttons -->
+                                            <button type="submit" class="btn">Edit</button>
+                                          </div>
+                                          #{/if}
+                                      </form>
+                                             Already have an Account? <a href="/login">Login</a>
+                                    </div> 
+                                  </div>
+
+                </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page content ends -->

@@ -1,0 +1,331 @@
+#{extends 'main.html' /}
+#{set title:'實用訊息' /}
+
+<div class="block-borderless" style="height:220px; margin-bottom:10px; background-image:url(/public/images/usefulinfo/banner.jpg);"></div>
+    
+<div class="block">
+    <div class="block2">
+				<div class="items" style="width:230px; height:400px;">
+				  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+				    <tr>
+				      		<td id="bt1" style="opacity:#{if category == "traffic"}1#{/if}#{else}0.5#{/else}"  align="left" valign="bottom">
+	   		  				<img src="/public/images/line-v.png" width="12" height="23" /><a href="/Information/list/traffic"><img src="/public/images/usefulinfo/t1.gif"/></a>
+	                </td>
+				</tr> <tr>
+	        <td height="32" align="left" valign="bottom">&nbsp;</td>
+	        </tr><tr>
+				      		<td id="bt2" style="opacity:#{if category == "trip"}1#{/if}#{else}0.5#{/else}" align="left" valign="bottom">
+	          				<img src="/public/images/line-v.png" width="12" height="23" /><a href="/Information/list/trip"><img src="/public/images/usefulinfo/t2.gif"/></a>
+	                </td>
+				</tr><tr>
+	        <td height="32" align="left" valign="bottom">&nbsp;</td>
+	        </tr><tr>
+	        		<td id="bt3" style="opacity:#{if category == "qa"}1#{/if}#{else}0.5#{/else}" align="left" valign="bottom">
+	          				<img src="/public/images/line-v.png" width="12" height="23" /><a href="/Information/list/qa"><img src="/public/images/usefulinfo/t3.gif"/></a>
+	                </td>
+				</tr>
+	        <td height="32" align="left" valign="bottom">&nbsp;</td>
+	        </tr><tr>
+	        		<td id="bt4" style="opacity:#{if category == "comment"}1#{/if}#{else}0.5#{/else}" align="left" valign="bottom">
+	          				<img src="/public/images/line-v.png" width="12" height="23" /><a href="/Information/list/comment"><img src="/public/images/usefulinfo/t4.gif"/></a>
+	                </td>
+				</tr>
+			      </table>
+	      
+				</div>
+	    
+	    <div id="mainText" class="items" style="">
+		#{if category == "traffic" || category  == "trip"}
+			<div class="news-items">			
+				#{if information}
+				     	#{list information, as:'information'}
+			    
+				  		
+							<div>${information?.content.raw()}</div>
+						<br />
+						<div class="aaaaa"></div>
+					
+					
+
+					#{/list}
+				#{/if}
+				#{else}
+					目前尚無已公佈之資訊。
+				#{/else}
+			</div>
+		
+		#{/if} 
+		#{elseif category == "qa"}
+			 <script type=text/javascript>
+			 function show_hiddendiv(strHref, hidden_div){
+			 	document.getElementById(hidden_div).style.display='block';
+			 	document.getElementById(strHref).href='javascript:hidden_showdiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+				
+			 }
+			 function hidden_showdiv(strHref, hidden_div){
+			 	document.getElementById(hidden_div).style.display='none';
+			 	document.getElementById(strHref).href='javascript:show_hiddendiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+				
+			 }
+			 </script> 			
+			<div class="news-items">
+				<table width="100%" border="0" cellspacing="7" cellpadding="0">
+				  <tr>
+				    <td>
+					    <span class="style_usefulinfo">
+					    <a id=strHref_1 href="javascript:show_hiddendiv('strHref_1' ,'hidden_div_1');">
+					    		Q1:客房及湯屋有沒有隱私性的顧慮?
+					    </a>
+					    </span><br />
+					    <span style="display: none;" id=hidden_div_1>
+					    A1:客房及湯屋內窗戶裝有全反光之隔熱紙，並設有遮光度99%以上之窗簾。另外，於客房浴室內亦有中、英、日文標語提醒保障房客隱私之建議告示。
+					    </span><br />
+					    
+					    
+					    <span class="style_usefulinfo">
+					    <a id=strHref_2 href="javascript:show_hiddendiv('strHref_2' ,'hidden_div_2');">
+					    		Q2:住宿宵夜及迎賓茶點有什麼內容?
+					    </a>
+					    </span><br />
+					    <span style="display: none;" id=hidden_div_2>
+					    A2: 隨季節廚師替換菜色有所更動，宵夜以清粥小菜四菜一粥搭配為主。迎賓茶點以三樣點心及茶、咖啡為主。
+					    </span><br />
+					    
+					    
+					    <span class="style_usefulinfo">
+					    <a id=strHref_3 href="javascript:show_hiddendiv('strHref_3' ,'hidden_div_3');">
+					    		Q3:去泡湯須準備哪些物品?
+					    </a>
+					    </span><br />
+					    <span style="display: none;" id=hidden_div_3>
+					    A3:湯屋及大浴場都有提供基本備品，包括:沐浴乳、洗髮乳、潤髮乳、洗面乳、身體乳液、毛巾等，大浴場額外有提供卸妝乳、化妝水等，建議您可攜帶習慣使用的保養品即可。
+					    </span><br />
+					    
+					    
+					    <span class="style_usefulinfo">
+					    <a id=strHref_4 href="javascript:show_hiddendiv('strHref_4' ,'hidden_div_4');">
+					    		Q4:飯店是否有提供停車服務?
+					    </a>
+					    </span><br />
+					    <span style="display: none;" id=hidden_div_4>
+					    A4:您的愛車可直接交給泊車員代客泊車或自行開往飯店所屬免費停車場停車。
+					    </span><br />
+					    
+					    
+					    <span class="style_usefulinfo">
+					    <a id=strHref_5 href="javascript:show_hiddendiv('strHref_5' ,'hidden_div_5');">
+					    		Q5:可以在湯屋裡用餐嗎?
+					    </a>
+					    </span><br />
+					    <span style="display: none;" id=hidden_div_5>
+					    A5: 為顧及用餐環境與品質，本飯店用餐一律於餐廳提供餐飲服務。
+					    </span><br />
+					    
+					    
+					    <span class="style_usefulinfo">
+					    <a id=strHref_6 href="javascript:show_hiddendiv('strHref_6' ,'hidden_div_6');">
+					    		Q6:你們湯屋是露天的嗎?
+					    </a>
+					    </span><br />
+					    <span style="display: none;" id=hidden_div_6>
+					    A6: 本飯店湯屋都在室內，有對外小窗戶，分為兩種形式:景觀湯屋及湯屋套房。
+					    </span><br />
+					    
+					    
+					    <span class="style_usefulinfo">
+					    <a id=strHref_7 href="javascript:show_hiddendiv('strHref_7' ,'hidden_div_7');">
+					    		Q7:泡湯可以單人泡嗎?
+					    </a>
+					    </span><br />
+					    <span style="display: none;" id=hidden_div_7>
+					    A7: 單人使用一間湯屋是可以的，但與兩人使用一間的費用是一樣的計價，且基於安全原則，約三十分鐘會致電湯屋關心。
+					    </span><br />
+					    <br />
+					    <span style="display: none;" id=hidden_div_8>
+					    A8: 本飯店全館都是雙人房，沒有四人房或家庭房亦未提供加床的服務。
+					    </span>
+				      
+				      </td>
+				    </tr>
+				</table>
+			</div>
+
+		#{/elseif}
+		#{elseif category  == "comment"}
+			<div class="formy">
+		    		 #{form @guestbookForm(), enctype:'multipart/form-data'}
+			
+				<div>
+				<style>
+					.myTable{
+						width: 700px;
+					}
+
+					.myTable td{
+						padding: 10px;
+					}
+				</style>
+				<table class="myTable" >
+				<tr>
+				  <td style="width: 120px;">1. 連絡人 <span style="color: red">*</span></td>
+				  <td>
+					<input class="span4" style="width: 250px;" type="text"  name= "name" value="" placeholder ="填寫您的大名方便我們稱呼您" />
+					<input type="radio" name="gender" value="先生" checked/> 先生
+					<input type="radio" name="gender" value="小姐" /> 小姐
+				  </td>
+				</tr>
+				<tr>
+					<td>2. 聯絡Email <span style="color: red">*</span></td>
+				    	<td><input class="span4" style="width: 250px;" type="text"  name= "email" value="" placeholder ="填寫您的Email讓我們回覆您" /></td>
+				</tr>
+				<tr>
+					<td>3. 聯絡電話</td>
+				   	<td> <input class="span4" style="width: 250px;" type="text"  name= "phone" value="" placeholder ="可選填您的電話讓我們撥號回覆您" /></td>
+				</tr>				
+				<tr>
+					<td>4. 意見分類 <span style="color: red">*</span></td>
+					<td>					
+					#{select 'type', value:'', id:'select1'}
+						#{option 'device'}設備租借#{/option}
+						#{option 'hotel'}住房問題#{/option}
+						#{option 'spa'}溫泉問題#{/option}
+						#{option 'restaurant'}餐飲問題#{/option}
+						#{option 'traffic'}交通問題#{/option}
+                        #{option 'spa'}藝文建議#{/option}
+					#{/select}</td>
+				</tr>								
+				<tr>				
+					<td>5. 服務滿意度 <span style="color: red">*</span></td>
+					<td>
+						<select name="servicescore">
+							<option value="非常滿意">非常滿意</option>
+							<option value="滿意">滿意</option>
+							<option value="普通">普通</option>
+							<option value="不滿意">不滿意</option>
+							<option value="非常不滿意">非常不滿意</option>
+						</select>
+					</td>			    
+				
+				</tr>	
+				<tr>				
+					<td>6. 意見內容 <span style="color: red">*</span></td>
+					<td><textarea style="width: 250px; height: 150px;" name="content"></textarea></td>			    
+				
+				</tr>
+				<tr>				
+					<td>7. 回覆方式 <span style="color: red">*</span></td>
+					<td>
+						<input type="radio" name="replyway" value="Email" checked/> Email
+						<input type="radio" name="replyway" value="電話" /> 電話
+						<input type="radio" name="replyway" value="皆可" /> 皆可
+					</td>			    
+				
+				</tr>				
+				<tr>				
+					<td>8. 聯絡時間 <span style="color: red">*</span></td>
+					<td>
+						<select name="contacttime">
+							<option value="早上9：00-11：30">早上9：00-11：30</option>
+							<option value="下午13：00-17：30">下午13：00-17：30</option>
+							<option value="晚上18：00-21：30">晚上18：00-21：30</option>
+						</select>
+					</td>			    
+				
+				</tr>
+    			<tr>				
+					<td>9. 驗證碼 <span style="color: red">*</span></td>
+					<td>
+						<img src="@{Application.captcha(randomID)}" /> 
+					</td>			    
+				
+				</tr>
+				<tr>				
+					<td></td>
+					<td>
+						<input class="span4" style="width: 120px;" type="text"  name="cap" value="" placeholder ="請填入驗證碼" />	
+					    	<input type="hidden" name="randomID" value="${randomID}" />			
+					</td>			    
+				
+				</tr>
+				<input class="span3" type="hidden"  name= "device" value="pc" placeholder ="" />			
+				<input class="span3" type="hidden"  name= "lang" value="zh_TW" placeholder ="" />
+				<tr>				
+					<td><button class="btn btn-primary" type="submit" name="submit">送出</button></td>
+				</tr>
+				</table>			
+				</div>
+				
+				#{if error == "1"}
+					<script>
+						alert("驗證碼錯誤，請重新輸入！");
+					</script>
+				#{/if}
+
+				#{/form}
+			</div>
+		#{/elseif}
+	    </div>
+	    
+    </div><!--eof block2-->
+</div>
+<div class="main-footer-block"></div>
+
+<!--
+<div class="content">
+	<div class="block"></div>
+        <div class="block">
+                <div id="about_header">
+                		
+                        <div id="about-logo-2"></div>
+                </div>
+                
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                                <td>
+                                        <span class="leftfloat">
+                                        <img src="/public/images/line-v.png" alt="" width="12" height="23" />
+                                        
+					<a href="/Information/list/traffic">交通資訊</a> | 
+					<a href="/Information/list/trip">烏來觀光</a> | 
+					<a href="/Information/list/qa">常見問答</a> | 
+					<a href="/Information/list/comment">意見反應</a>
+					
+                                        </span>
+                                        <span class="rightfloat">
+                                        <img src="/public/images/line-v.png" alt="" width="12" height="23" />
+                                        <img src="/public/images/about/topic-2.png" alt="" width="211" height="28" />
+                                        </span>
+                                </td>
+                  </tr>
+                </table>
+        </div>
+
+		#{if information}
+		     	#{list information, as:'information'}
+            
+		  		<div class="block">
+				<img src="/public/images/line-v.png" alt="" width="12" height="23" />
+				${information?.title} 
+				(
+					#{if information?.type == "traffic"}交通資訊#{/if} 
+					#{elseif information?.type  == "trip"}烏來觀光#{/elseif}
+					#{elseif information?.type  == "qa"}常見問答#{/elseif}
+					#{elseif information?.type  == "comment"}意見反應#{/elseif}			
+				)
+			    	${information?.update_time?.format('yyyy/MM/dd')}
+				<table width="100%" border="0" cellpadding="0" cellspacing="10">
+					<tr>
+					    <td><div>${information?.content.raw()}</div></td>
+					</tr>
+				</table>
+				</div>
+
+			#{/list}
+		#{/if}
+		#{else}
+			目前尚無已公佈之資訊。
+		#{/else}
+      </div>  
+ 		
+
+-->

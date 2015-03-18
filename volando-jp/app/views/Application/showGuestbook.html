@@ -1,0 +1,81 @@
+#{extends 'main.html' /}
+#{set title:'客服' /}
+<link rel="stylesheet" href="/public/machome/style/bootstrap-datetimepicker.min.css">
+<script src="/public/machome/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+      $('#datepicker').datepicker();
+    </script>
+
+<!-- Page heading starts -->
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>客戶服務</h2>
+        <h4>
+		關於您的
+		#{if guestbook?.guestBookType == 'qa'}問答#{/if}
+		#{elseif guestbook?.guestBookType == 'hotel'}住房問題#{/elseif}
+		#{elseif guestbook?.guestBookType == 'spa'}溫泉問題#{/elseif}
+		#{elseif guestbook?.guestBookType == 'traffic'}交通#{/elseif}
+		#{elseif guestbook?.guestBookType == 'tour'}觀光#{/elseif}
+		#{elseif guestbook?.guestBookType == 'comment'}意見#{/elseif}
+		#{elseif guestbook?.guestBookType == 'device'}設備租借#{/elseif}
+		留言( 編號：${guestbook?.id} ) 已經送出，我們將盡快與您聯繫，謝謝。
+	</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+<div class="content">
+  <div class="container">
+    <div class="row">
+		<div class="span12">
+			<div class="formy">
+			
+			<div class="well"><label>連絡人 <span style="color: red">*</span>: ${guestbook?.name}</label>
+			</div>
+			#{if guestbook?.deviceType == 'pc'}
+
+			<div class="well"><label>聯絡Email <span style="color: red">*</span>: ${guestbook?.email}</label>
+			</div>
+
+			<div class="well"><label>聯絡電話: ${guestbook?.phone}</label>
+			</div>
+
+			#{/if}			
+
+			<div class="well"><label>意見內容 <span style="color: red">*</span></label>
+				${guestbook?.content}	    
+			</div>
+
+
+			<div class="well"><label>客服回覆 </label>
+				#{if record}
+				  #{list items:record, as:'record'}			
+					<div class="well">
+					   <p>${record.content}</p>
+					   <p>${record.email} (${record.create_time})</p>
+					</div>
+				  #{/list}
+				#{/if}       
+			</div>			
+
+			<div class="center"><button class="btn" type="button" onclick="location.href='/'">回首頁</button></div>
+			
+			
+				</div>
+			</div>
+
+			  
+			
+		</div>
+	</div>
+	</div>
+</div>

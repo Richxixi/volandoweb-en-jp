@@ -1,0 +1,79 @@
+#{extends 'main.html' /}
+#{set title:'實用訊息' /}
+
+
+<!-- Page content starts -->
+<div class="content">
+	<div class="block"></div>
+        <div class="block">
+                <div id="about_header">
+                		<div id="about-logo-1"></div>
+                        <div id="about-logo-2"></div>
+                </div>
+                
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                                <td>
+                                        <span class="leftfloat">
+                                        <img src="/public/images/line-v.png" alt="" width="12" height="23" />
+                                        
+					#{if category == "traffic"}交通資訊#{/if} 
+					#{elseif category == "trip"}烏來觀光#{/elseif}
+					#{elseif category == "qa"}常見問答#{/elseif}
+					#{elseif category == "comment"}意見反應#{/elseif}
+					#{else}未分類#{/else}
+
+                                        </span>
+                                        <span class="rightfloat">
+                                        <img src="/public/images/line-v.png" alt="" width="12" height="23" />
+                                        <img src="/public/images/about/topic-2.png" alt="" width="211" height="28" />
+                                        </span>
+                                </td>
+                  </tr>
+                </table>
+        </div>
+
+		#{if information}
+		     	#{list information, as:'information'}
+            
+		  		<div class="block">
+				<img src="/public/images/line-v.png" alt="" width="12" height="23" />
+				${information?.title}
+			    
+				<table width="100%" border="0" cellpadding="0" cellspacing="10">
+					<tr>
+					    <td><div>${information?.content.raw()}</div></td>
+					</tr>
+				</table>
+				</div>
+
+			#{/list}
+		#{/if}
+		#{else}
+			目前尚無已公佈之資訊。
+		#{/else}
+      </div>  
+  <!--		
+<div class="container">
+    <div class="row">
+		<div class="span12">
+			<div class="formy">
+			#{if information}
+		     		#{list information, as:'information'}
+			
+					<div class="well">
+						<h4>${information?.title}</h4>
+						<div>${information?.content.raw()}</div>			
+					</div>
+
+				#{/list}
+			#{/if}
+			#{else}
+				目前尚無已公佈之資訊。
+			#{/else}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+-->

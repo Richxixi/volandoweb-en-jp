@@ -1,0 +1,68 @@
+#{extends 'main.html' /}
+#{set title:'客服' /}
+<link rel="stylesheet" href="/public/machome/style/bootstrap-datetimepicker.min.css">
+<script src="/public/machome/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+      $('#datepicker').datepicker();
+    </script>
+
+<!-- Page heading starts -->
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>客戶服務</h2>
+        <h4>
+		#{if type == 'qa'}問答#{/if}
+		#{elseif type == 'hotel'}住房問題#{/elseif}
+		#{elseif type == 'spa'}溫泉問題#{/elseif}
+		#{elseif type == 'traffic'}交通#{/elseif}
+		#{elseif type == 'tour'}觀光#{/elseif}
+		#{elseif type == 'comment'}意見#{/elseif}
+	</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+<div class="content">
+  <div class="container">
+    <div class="row">
+		<div class="span12">
+			<div class="formy">
+            		 #{form @guestbookForm(), enctype:'multipart/form-data'}
+			
+			<div class="well"><label>1. 連絡人 <span style="color: red">*</span></label>
+			    <input class="span3" size="100" type="text"  name= "name" value="" placeholder ="填寫您的大名方便我們稱呼您" />
+			</div>
+
+			<div class="well"><label>2. 聯絡Email <span style="color: red">*</span></label>
+			    <input class="span3" size="200" type="text"  name= "email" value="" placeholder ="填寫您的Email讓我們回覆您" />
+			</div>
+
+			<div class="well"><label>3. 聯絡電話</label>
+			    <input class="span3" size="10" type="text"  name= "phone" value="" placeholder ="可選填您的電話讓我們撥號回覆您" />
+			</div>
+
+			<div class="well"><label>4. 意見內容 <span style="color: red">*</span></label>
+				<textarea style="width: 250px; height: 150px;" name="content"></textarea>			    
+			</div>
+			
+			<input class="span3" type="hidden"  name= "type" value="${type}" placeholder ="" />			
+			<input class="span3" type="hidden"  name= "device" value="pc" placeholder ="" />
+			<input class="span3" type="hidden"  name= "lang" value="zh_TW" placeholder ="" />
+			
+			<div class="center"><button class="btn btn-primary" type="submit" name="submit">送出</button></div>
+			
+			#{/form}
+			
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

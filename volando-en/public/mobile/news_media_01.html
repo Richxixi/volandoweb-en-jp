@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>馥蘭朵烏來渡假酒店 Volando Urai Spring SPA Resort</title>
+<link rel="stylesheet" href="css/mobile.css">
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+
+<script type=text/javascript>
+ function show_hiddendiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='block';
+ 	document.getElementById(strHref).href='javascript:hidden_showdiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+ }
+ function hidden_showdiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='none';
+ 	document.getElementById(strHref).href='javascript:show_hiddendiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+ }
+ </script>
+
+<script type="text/javascript">
+$.get("link_header.html",function(data){$("#link_header").html(data);});   
+$.get("link_footer.html",function(data){$("#link_footer").html(data);});   
+</script>
+</head>
+<body>
+
+<div id="mobile">
+
+        <div id="link_header"></div>
+        
+        <div id="show">
+        				<img src="images/news/media/media_01_1.jpg" />
+        </div>
+        
+		<div id="content-white">
+                <div class="news-content-text-block font-DGRAY-Normal">
+                             <p>想更瞭解馥蘭朵嗎?<br />
+                              感謝公視優質節目&quot;台灣心動線&quot;馥蘭朵專題報導,<br />
+                              歡迎喜愛馥蘭朵的朋友們,<br />
+                              點以下連結線上收看喔!</p>
+                  <p>*想知道更多馥蘭朵深度之旅介紹,<br />
+                  歡迎至馥蘭朵FACEBOOK粉絲專頁收看唷^^* </p>
+                            
+                <br /><br />
+                <a href="#">相關連結</a>
+                &nbsp;| &nbsp;
+                <a href="#">相關下載</a>
+                </div>
+  		</div>
+        <!--<div id="link_footer"></div>-->
+</div>
+</body>
+</html>

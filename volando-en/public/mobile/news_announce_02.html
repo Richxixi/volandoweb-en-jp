@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>馥蘭朵烏來渡假酒店 Volando Urai Spring SPA Resort</title>
+<link rel="stylesheet" href="css/mobile.css">
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+
+<script type=text/javascript>
+ function show_hiddendiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='block';
+ 	document.getElementById(strHref).href='javascript:hidden_showdiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+ }
+ function hidden_showdiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='none';
+ 	document.getElementById(strHref).href='javascript:show_hiddendiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+ }
+ </script>
+
+<script type="text/javascript">
+$.get("link_header.html",function(data){$("#link_header").html(data);});   
+$.get("link_footer.html",function(data){$("#link_footer").html(data);});   
+</script>
+</head>
+<body>
+
+<div id="mobile">
+
+        <div id="link_header"></div>
+        
+		<div id="content-white">
+                <div class="font-DGRAY-Normal">
+                        <p>為提升大浴場的整體環境品質及服務，馥蘭朵烏來將於9月1日起，調整大浴場(男、女湯)服務時間。每週四為館內維修保養日，故開放時間更改為中午12:00至晚間24:00；其他日期均正常營業(早上08:00至晚間24:00)，造成不便之處敬請見諒。<br />
+                        若有任何其他需要服務之處，請來電洽詢。</p>
+                        <p>For promoting entire environment quality and service of Kurhaus, business hour will be alternated from 1st of September.<br />
+                        Maintenance day will be on every Thursday. Opening hour adjusted from 12:00 to 24:00. Business hour (is from 8:00AM to 24:00PM) as usual rest of the day.<br />
+                        Sorry for the inconvenience we brought to you. Your patience will be highly appreciated.<br />
+                        Should you have any further inquiries, please consult with our frontline workers. Many thanks. </p>
+                        <p>お客様：こんにちは。<br />
+                        大浴場の環境品質とサービスを向上するために、ヴィランドーウライーは九月一日から大浴場(女と男)の営業時間を調整します。<br />
+                        毎週の木曜日は当ホテルの整備の日ので営業時間は午後12時から夜24時まで。<br />
+                        他の日は正常に営業しています(朝8時から夜24時まで)、<br />
+                        ご不便をご造成いたしてご了察くださいませ。</p>
+                </div>
+  		</div>
+        
+        <!--<div id="link_footer"></div>-->
+
+</div>
+
+</body>
+</html>

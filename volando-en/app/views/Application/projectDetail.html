@@ -1,0 +1,62 @@
+<script type="text/javascript">
+
+    //ImgD:要放图片的img元素，onload时传参可用this
+
+    //h:img元素的高度，像素
+
+    //w:img元素的宽度，像素
+    function autosize(ImgD, h, w) {
+        var image = new Image();
+        image.src = ImgD.src;
+        if (image.width < w && image.height < h) {
+            ImgD.width = image.width;
+            ImgD.height = image.height;
+        }
+        else {
+            if (w / h <= image.width / image.height) {
+                ImgD.width = w;
+                ImgD.height = w * (image.height / image.width);
+            }
+            else {
+                ImgD.width = h * (image.width / image.height);
+                ImgD.height = h;
+            }
+        }
+
+    }
+</script>
+ <style type="text/css">
+.news-items {
+	margin: 0px 10px 10px 0px;
+	padding: 0px 0px 0px 0px;
+	width: 100%;
+	text-align:left;
+	position:relative;
+}
+</style> 
+ #{if project}     	
+	#{list project, as:'project'}
+		<div class="news-items">
+  		
+		<span class="style_title" >
+		        <a id=strHref_${project_index} href="javascript:show_hiddendiv('strHref_${project_index}' ,'hidden_div_${project_index}');">
+                <!-- francy added -->
+                 #{if project.iconUrl!= "" &&project.iconUrl != null}
+                 <img src="${project.iconUrl == null ? '' : project.iconUrl}" onload="autosize(this,55  ,55);" align="top"/> #{/if}
+		      	  ${project?.title} <!--(${announce?.publish_time?.format('yyyy/MM/dd')}) -->
+		        </a>
+		</span>
+		
+		 <span style="display: none; margin-left:20px;" id="hidden_div_${project_index}">
+			<div class="news-content-text-block font-DGRAY-Normal">
+		                   ${project?.content.raw()}
+		        </div>
+		</span>
+
+
+		</div>
+	#{/list}
+#{/if}
+#{else}
+	目前尚無已公佈之資訊。
+#{/else}

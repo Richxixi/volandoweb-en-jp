@@ -1,0 +1,131 @@
+#{extends 'main.html' /}
+#{set title:'Restaurants - Show List' /}
+
+
+<div class="block" style="width:820px;">
+    <div class="block2">
+		#{list restaurants, as:'restaurant'}
+		  
+				<div class="items">
+                    <table width="300" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td>
+                            <img src="/public/images/line-v.png" alt="" width="12" height="23" />${restaurant?.name}
+                          </td>
+                        </tr>
+                        <tr><td height="12"></td></tr>
+                        <tr>
+                          <td><img src="/public/images/catering/p-1.png" alt="" width="300" height="200" />
+                          </td>
+                        </tr>
+                    </table>
+      		</div>
+            
+		#{/list}
+           
+            <div class="items">
+              <table width="300" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="12" align="left"></td>
+                </tr>
+                <tr>
+                  <td height="10" align="left" valign="bottom"><br />
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="32" align="left" valign="bottom">
+                            <img src="/public/images/line-v.png" alt="" width="12" height="23" /> 
+                            <a href="#"> <img src="/public/images/catering/o-1.gif" alt="" width="200" height="28" /> </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height="32" align="left" valign="bottom">
+                            <img src="/public/images/line-v.png" alt="" width="12" height="23" /> <a href="#">
+                            <img src="/public/images/catering/o-2.gif" alt="" width="200" height="28" /> </a>
+                        </td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table>
+            </div>
+  </div><!--eof block2-->
+</div>
+<div style="clear:both">&nbsp;</div>
+
+<!-- 
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left" valign="top">
+      <table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td height="10" align="center" valign="top">&nbsp;</td>
+          <td height="10" align="center" valign="top">&nbsp;</td>
+        </tr>
+        
+		#{list restaurants, as:'restaurant'}
+		   #{if restaurant_index % 2 == 1}
+		    <tr>
+			  <td height="10" align="center" valign="top">&nbsp;</td>
+			  <td height="10" align="center" valign="top">&nbsp;</td>
+			</tr>
+		    <tr>
+		   #{/if}
+			<td width="50%" align="center" valign="top"><table width="300" border="0" cellspacing="0" cellpadding="0">
+			  <tr>
+			    <td height="28" align="left" valign="middle"><img src="/public/images/line-v.png" alt="" width="12" height="23">${restaurant?.name}</td>
+			  </tr>
+			  <tr>
+			    <td height="12" align="left"></td>
+			  </tr>
+			  <tr>
+			    <td align="left"><a href="/RestaurantRecordManagement/${restaurant.id}/addrestaurantrecord"><img src="" width="300" height="200"></a></td>
+			  </tr>
+			</table>
+			  </td>
+		    #{if restaurant_index % 2 == 0}
+		    	</tr>
+		    #{/if}
+	    	#{/list}
+      
+
+            <tr>
+              <td height="200" align="left" valign="bottom"><br>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="32" align="left" valign="bottom">
+                    		<img src="/public/images/line-v.png" alt="" width="12" height="23">
+                            <a href="#" onmouseout="" onmouseover="">
+                            	溫泉專案
+			    </a>
+                     </td>
+                    </tr>
+                  <tr>
+                    <td height="32" align="left" valign="bottom">
+                    		<img src="/public/images/line-v.png" alt="" width="12" height="23">
+                            <a href="#" onmouseout="" onmouseover="">
+                            	價目表
+			    </a>
+                     </td>
+                    </tr>
+                  <tr>
+                    <td height="32" align="left" valign="bottom">
+                            <img src="/public/images/line-v.png" alt="" width="12" height="23">
+                            <a href="#" onmouseout="" onmouseover="">
+                            	線上預約
+			    </a>
+                     </td>
+                    </tr>
+                  </table></td>
+            </tr>
+          </table>
+            </td>
+        </tr>
+        <tr>
+          <td height="40" align="center" valign="top">&nbsp;</td>
+          <td height="40" align="center" valign="top">&nbsp;</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+
+-->
+

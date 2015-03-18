@@ -1,0 +1,54 @@
+#{extends 'main.html' /}
+#{set title:'會員註冊' /}<!-- Main bar -->
+<style type="text/css">
+@import url("../../../public/machome/style/style.css");
+</style>
+<div align="center">
+<div style="width:800px;">
+ <div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+      <br>
+        <h2>加入會員</h2>
+
+                  #{form @registerForm(), enctype:'multipart/form-data'}
+                    <!-- Registration form starts -->
+                                      
+                                            
+                                          <!-- Email -->
+                                          <div class="control-group">
+                                          <div class="controls">
+                                            <label class="control-label" for="email">
+                                              Email</label>
+                                            <input name="email" type="text" id="email" placeholder="帳號"><br>                                        
+                                          <!-- Password -->
+                                            <label class="control-label" for="password">會員密碼</label>
+                                              <input name="password" type="password" class="span6" id="password"><br>
+                                          <!-- Random pic-->
+                                    		  <label class="control-label" for="random_id">驗證碼 <span style="color: red">*</span></label>
+												<img src="@{Application.captcha(randomID)}" /><br>
+												<input class="span4" style="width: 120px;" type="text" name="cap" value="" placeholder ="請填入驗證碼" />	
+					    						<input type="hidden" name="randomID" value="${randomID}" /><br>
+                                          <!-- Accept box and button s-->
+                                              <label class="checkbox">
+                                                <input type="checkbox"> Accept Terms &amp; Conditions
+                                              </label>
+                                              <br>
+                                              <button type="submit" class="btn">註冊</button>
+                                              <button type="reset" class="btn">取消</button>
+                                        </div>
+									</div>
+					#{if error == "1"}
+					<script>
+						alert("驗證碼錯誤，請重新輸入！");
+					</script>
+					#{/if}
+                 #{/form}
+ 
+    </div>
+   </div>
+</div> 
+</div>
+</div>
+</div>

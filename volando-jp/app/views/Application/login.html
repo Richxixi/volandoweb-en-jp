@@ -1,0 +1,56 @@
+#{extends 'main.html' /}
+#{set title:'會員登入' /}<!-- Main bar -->
+ <div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>會員登入</h2>
+
+                  #{form @loginForm(), enctype:'multipart/form-data'}
+                    <!-- Registration form starts -->
+                                      
+                                            
+                                          <!-- Email -->
+                                          <div class="control-group">
+                                            <label class="control-label" for="email">Email</label>
+                                            <div class="controls">
+                                              <input name="email" type="text" class="span6" id="email" placeholder="帳號">
+                                            </div>
+                                          </div>
+                                          <!-- Select box -->
+                                            
+                                          <!-- Password -->
+                                          <div class="control-group">
+                                            <label class="control-label" for="password">密碼</label>
+                                            <div class="controls">
+                                              <input name="password" type="password" class="span6" id="password"><br>
+                                              <!-- Random pic-->
+                                    		  <label class="control-label" for="random_id">驗證碼 <span style="color: red">*</span></label>
+												<img src="@{Application.captcha(randomID)}" /><br>
+												<input class="span4" style="width: 120px;" type="text" name="cap" value="" placeholder ="請填入驗證碼" />	
+					    						<input type="hidden" name="randomID" value="${randomID}" /><br>
+                                            </div>
+                                          </div>
+					  
+                                          <!-- Accept box and button s-->
+                                          <div class="control-group">
+                                            <div class="controls">
+                                             
+                                              <button type="submit" class="btn">登入</button>
+                                              <button type="reset" class="btn">取消</button>
+                                            </div>
+                                          </div>
+
+
+				#{if error == "1"}
+					<script>
+						alert("帳號或密碼錯誤，請重新輸入！");
+					</script>
+				#{/if}
+                 #{/form}
+ 
+      </div>
+    </div>
+  </div> 
+</div>
+	

@@ -1,0 +1,104 @@
+#{extends 'main.html' /}
+#{set title:'馥蘭朵烏來渡假酒店 Volando Urai Spring SPA Resort - 優惠專案' /}
+
+<script type="text/javascript" src="/public/javascripts/exeImage.js"></script>
+
+<script type=text/javascript>
+ function show_hiddendiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='block';
+ 	document.getElementById(strHref).href='javascript:hidden_showdiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+	//alert("11111");
+ 	//document.getElementById("_strSpan").innerHTML="隐藏部分";
+ }
+ function hidden_showdiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='none';
+ 	document.getElementById(strHref).href='javascript:show_hiddendiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+	//alert("22222");
+ 	//document.getElementById("_strSpan").innerHTML="显示全部";
+ }
+ </script> 
+ 
+<script type="text/javascript">
+
+function SetInnerHtml(bt){
+	
+	document.getElementById("bt1").style.opacity = .5;
+	document.getElementById("bt2").style.opacity = .5;
+	document.getElementById("bt3").style.opacity = .5;
+	document.getElementById("bt"+bt).style.opacity = 1;
+	
+	switch(bt){
+		case 2:
+			$.get("/Project/list/hotel",function(data){$("#mainText").html(data);}); 
+			break;
+		case 3:
+			$.get("/Project/list/meeting",function(data){$("#mainText").html(data);}); 
+			break;
+			case 4:
+			$.get("/Project/list/hotspring",function(data){$("#mainText").html(data);}); 
+			break;
+		default://case 1
+			$.get("/Project/list/mi",function(data){$("#mainText").html(data);}); 
+	   		break;
+	}
+}
+
+$(document).ready(function(){
+	
+	SetInnerHtml(1);
+
+	
+});
+
+</script>
+
+
+<div id="contents">
+
+	<div class="block">
+            <div class="block2">
+					<div class="items" style="width:230px; height:400px;">
+					  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+					    <tr>
+					      	<td id="bt1"  align="left" valign="bottom">
+                   		  				<img src="/public/images/line-v.png" width="12" height="23" />
+                                      <a href="javascript:SetInnerHtml(1)">                                      <img src="/public/images/project/t-1.gif" width="200" height="28"/></a>
+                                </td>
+				        </tr> <tr>
+                        <td height="32" align="left" valign="bottom">&nbsp;</td>
+                        </tr><tr>
+					      		<td id="bt2" align="left" valign="bottom">
+                          				<img src="/public/images/line-v.png" width="12" height="23" /><a href="javascript:SetInnerHtml(2)">
+                                        <img src="/public/images/project/t-2.gif" width="200" height="28"/></a>
+                                </td>
+				        </tr><tr>
+        
+			<td height="32" align="left" valign="bottom">&nbsp;</td>
+                        </tr><tr>
+                        		<td id="bt3" align="left" valign="bottom">
+                          				<img src="/public/images/line-v.png" width="12" height="23" /><a href="javascript:SetInnerHtml(3)"><img src="/public/images/project/t-5.gif" width="200" height="28"/></a>
+                                </td>
+				        </tr>                        
+			<tr> <td height="32" align="left" valign="bottom">&nbsp;</td>
+                        </tr><tr>
+                        		<td id="bt4" align="left" valign="bottom">
+                          				<img src="/public/images/line-v.png" width="12" height="23" /><a href="javascript:SetInnerHtml(4)"><img src="/public/images/project/t-6.gif" width="200" height="28"/></a>
+                                </td>
+				        </tr>
+			
+
+				      </table>
+                      
+					</div>
+                    
+                    <div id="mainText" class="items" ><!--發佈主文區--></div>
+                    
+            </div><!--eof block2-->
+	</div>
+    <div class="main-footer-block"></div>
+</div>
+
+
+
+
+

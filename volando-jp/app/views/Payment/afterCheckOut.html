@@ -1,0 +1,135 @@
+#{extends 'main.html' /}
+#{set title:'Thank you.' /}
+#{set 'moreScripts'}
+<script type="text/javascript">
+    $(function(){
+        updateTotals();
+    });
+
+    $(function(){
+        $('.step li:nth-child(4)').addClass("checked");
+    })
+    function updateTotals() {
+        var itemsTotal = calculateItemsTotal();
+        $('#dev-items-total-amt').text(numberWithCommas(itemsTotal));
+    }
+
+    function calculateItemsTotal() {
+        var itemsTotal = 0;
+        $('.dev-item-sum-amt').each(function(){
+            // Remove all characters but numbers and dots
+            var itemSumAmt = Number(numberWithoutCommas($(this).text()));
+
+            itemsTotal += Number(itemSumAmt);
+        });
+        return itemsTotal;
+    }
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function numberWithoutCommas(x) {
+        return x.toString().replace(/[^0-9\.]+/g,"");
+    }
+</script>
+#{/set}
+<link rel="stylesheet" type="text/css" href="/tw/public/stylesheets/cart.css">
+
+<div class="cart">
+	<div class="page">
+        <div class="section highline">
+            <h4>您已完成訂購，訂單編號：${orderRecord?.order_id}</h4>
+        </div>
+        <div class="section ordercontent">
+            <h6>以下是您的訂單內容</h6> 
+    		<div class="cartlist">	
+    			<ul class="item">
+    				<li>品項與規格</li>
+    				<li>
+    					<span>單價</span>
+    					<span>數量</span>
+    					<span>金額</span>
+    				</li>
+    			</ul>
+    			#{list items:orderDetails, as:'orderDetail' }
+    			<ul class="list">
+    				<li class="pd_detail">
+    					<img src="${shoppingCartEndpoint.topDirectory}${orderDetail.productDetail.product_thumb}" class="pd_thumbnail">
+    					<div>
+    						<span class="pd_name">${orderDetail.productDetail.product_name}</span>
+    						<span class="format">${orderDetail.productDetail.product_spec}</span>
+    					</div>
+    				</li>
+    				<li>
+    					<span>${orderDetail.current_single_price.format('#,###,###')}</span>
+    					<span>
+    						<span>${orderDetail.quantity}</span>
+    					</span>
+    					<span class="dev-item-sum-amt">${orderDetail.current_total_amount.format('#,###,###,###')}</span>
+    				</li>
+    			</ul>
+    			#{/list}
+    			<ul class="total">
+    				<li class="">
+    					<h6>總計</h6>
+    					<span id="dev-items-total-amt" class="highline"></span>
+    				</li>
+    			</ul>
+                <ul class="orderitem userdata">
+                    <li><h4>運送方式</h4></li>
+                    <li>
+                        <label>收件姓名：</label>
+                        <span id="receiverName">${orderRecord?.receiver_first_name}</span>
+                    </li>
+                    <li>
+                        <label>市內電話：</label>
+                        <span id="receiverPhone">${orderRecord?.receiver_phone}</span>
+                    </li>
+                    <li>
+                        <label>行動電話：</label>
+                        <span id="receiverPhone1">${orderRecord?.receiver_phone1}</span>
+                    </li>
+
+                    <li>
+                        <span>${orderRecord?.shipping_contractor}</span>
+                    </li>
+                    <li>
+                        <label>收件地址：</label>
+                        <span id="receiverAddress">${orderRecord?.county?.county_name}&nbsp;${orderRecord?.to_address}</span>
+                    </li>
+                </ul>
+                
+                <ul class="orderitem userdata">
+                    <li><h4>發票資訊</h4></li>
+                    <li>
+                        <label>發票抬頭：</label>
+                        <span id="vatTitle">${orderRecord?.vat_title}</span>
+                    </li>
+                    <li>
+                        <label>統一編號：</label>
+                        <span id="vatNumber">${orderRecord?.vat_number}</span>
+                    </li>
+
+                    <li>
+                        <span id="invoiceType">
+                        #{if orderRecord?.invoice_type == "2"}
+                        二聯式
+                        #{/if}
+                        #{else}
+                        三聯式
+                        #{/else}
+                        </span>
+                    </li>
+
+                    <li>
+                        <label>寄送地址：</label>
+                        <span id="invoiceAddress">${orderRecord?.invoice_address}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+

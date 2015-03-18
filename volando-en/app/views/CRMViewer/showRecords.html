@@ -1,0 +1,99 @@
+#{extends 'main_admin.html' /}
+#{set title:'瀏覽記錄 - 瀏覽記錄列表' /}<!-- Main bar -->
+<div class="mainbar">
+
+    <!-- Page heading -->
+    <div class="page-head">
+        <h2 class="pull-left"><i class="icon-table"></i> 瀏覽記錄列表</h2>
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+            <a href="index.html"><i class="icon-home"></i> Home</a>
+            <!-- Divider -->
+            <span class="divider">/</span>
+            <a href="#" class="bread-current">瀏覽記錄列表</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+    </div>
+    <!-- Page heading ends -->
+
+    <!-- Matter -->
+
+    <div class="matter">
+        <div class="container-fluid">
+
+            <!-- Table -->
+
+            <div class="row-fluid">
+
+                <div class="span12">
+                    <div class="widget">
+
+                        <div class="widget-head">
+                            <div class="pull-left">瀏覽記錄列表</div>
+                            <div class="widget-icons pull-right">
+                                <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                                <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="widget-content">
+
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th style="width: 60px;">#</th>
+                                    <th>Email</th>
+                                    <th style="width: 120px;">Phone</th>
+                                    <th style="width: 150px;">Site</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                #{list items:records, as:'record'}
+                                <tr>
+                                    <td>${record.id}</td>
+                                    <td>${record.email}</td>
+                                    <td>${record.phone}</td>
+                                    <td>${record.site}</td>
+                                </tr>
+                                #{/list}
+
+                                </tbody>
+                            </table>
+
+                            <div class="widget-foot">
+
+                                <div class="pagination pull-right">
+                                    <ul>
+                                        <li><a href="#">Prev</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">Next</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Matter ends -->
+
+</div>
+
+<!-- Mainbar ends -->

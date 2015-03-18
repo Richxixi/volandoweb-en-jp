@@ -1,0 +1,194 @@
+#{extends 'main.html' /}
+#{set title:'Room - Show List' /}
+
+<!-- Page heading starts -->
+
+
+<div id="contents">
+	<div class="block">
+            <div class="block2">
+            
+            		<div style="width:100%; text-align:left; margin-bottom:80px; margin-left: 90px;">
+                    	將山光水色落引床沿 沿窗舞光影<br />
+                        身處其間有如倘佯在綠帶潮水中<br />
+                        置身畫境 一如會呼吸的精緻客房<br />
+                        秋初晴日 蜻蜓不時停駐窗沿<br />
+                        傍晚時分 白鷺飛過河面 輕輕劃下優美的弧線
+                    </div>
+
+		   #{list rooms, as:'room'}
+		   
+		    <div class="items">
+                            <table width="300" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tr>
+                                  <td>
+                                    <span class="title_v_line"></span><a href="/Application/${room.id}/showRoom"><span class="font-Title">${room?.name}</span></a>
+                                  </td>
+                                </tr>
+                                <tr><td height="12"></td></tr>
+                                <tr>
+                                  <td><a href="/Application/${room.id}/showRoom"><img src="${room.pic_location}" alt="" width="300" height="200" /></a>
+                                  </td>
+                                </tr>
+                            </table>
+              		</div>
+
+		    #{/list}                   
+ 
+                   
+                    
+                    <div class="items">
+                      <table width="300" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td height="28" align="left" valign="middle">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td height="207" align="left" valign="bottom"><br />
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              
+                              <tr>
+                                <td height="32" align="left" valign="bottom">
+                                    <span class="title_v_line"></span> <a href="/Project/list/hotel"><span class="font-Title">住宿專案</span></a>
+                                </td>
+                              </tr>
+                              
+                              <tr>
+                                <td height="32" align="left" valign="bottom">
+                                    <span class="title_v_line"></span> <a href="/Page/roomprice/showPage"><span class="font-Title">價目表</span></a>
+                                </td>
+                              </tr>
+                              
+                              <tr>
+                                <td height="32" align="left" valign="bottom">
+                                    <!--<span class="title_v_line"></span> <a href="/RoomRecordManagement/addroomrecord"><span class="font-Title">線上訂房</span></a>-->
+<span class="title_v_line"></span>                                 <a href="https://www.springparkhotel.com.tw/order_room/index.asp" target="new"><span class="font-Title">線上訂房</span></a></td>
+                              </tr>
+                            </table></td>
+                        </tr>
+                      </table>
+                    </div>
+	  </div><!--eof block2-->
+	</div>
+    <div class="main-footer-block"></div>
+</div>
+
+
+<!-- 
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left" valign="top">
+      <table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td height="10" align="center" valign="top">&nbsp;</td>
+          <td height="10" align="center" valign="top">&nbsp;</td>
+        </tr>
+        
+	    
+		#{list rooms, as:'room'}
+		   #{if room_index % 2 == 1}
+		    <tr>
+			  <td height="10" align="center" valign="top">&nbsp;</td>
+			  <td height="10" align="center" valign="top">&nbsp;</td>
+			</tr>
+		    <tr>
+		   #{/if}
+			<td width="50%" align="center" valign="top"><table width="300" border="0" cellspacing="0" cellpadding="0">
+			  <tr>
+			    <td height="28" align="left" valign="middle"><img src="/public/images/line-v.png" alt="" width="12" height="23"><a href="/Application/${room.id}/showRoom">${room?.name}</a></td>
+			  </tr>
+			  <tr>
+			    <td height="12" align="left"></td>
+			  </tr>
+			  <tr>
+			    <td align="left"><a href="/Application/${room.id}/showRoom"><img src="${room.pic_location}" width="300" height="200"></a></td>
+			  </tr>
+			</table>
+			  </td>
+		    #{if room_index % 2 == 0}
+		    	</tr>
+		    #{/if}
+	    	#{/list}
+      
+
+            <tr>
+              <td height="200" align="left" valign="bottom"><br>
+		 <div class="items">
+                      <table width="300" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td height="28" align="left" valign="middle">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td height="12" align="left"></td>
+                        </tr>
+                        <tr>
+                          <td height="207" align="left" valign="bottom"><br />
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="32" align="left" valign="bottom">
+                                    <img src="/public/images/line-v.png" alt="" width="12" height="23" /> 
+                                    <a href="/Project/list/hotel"> <img src="/public/images/room/sp.gif" alt="" width="200" height="28" /> </a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="32" align="left" valign="bottom">
+                                    <img src="/public/images/line-v.png" alt="" width="12" height="23" /> <a href="/Page/roomprice/showPage"><img src="/public/images/room/price2.gif" alt="" width="70" height="28"/></a><a href="#"></a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="32" align="left" valign="bottom">
+                                    <img src="/public/images/line-v.png" alt="" width="12" height="23" /> <a href="/RoomRecordManagement/addroomrecord">
+                                    <img src="/public/images/room/reserved.gif" alt="" width="200" height="28" /> </a>
+                                </td>
+                              </tr>
+                            </table></td>
+                        </tr>
+                      </table>
+                    </div>                
+            </td>
+        </tr>
+        <tr>
+          <td height="40" align="center" valign="top">&nbsp;</td>
+          <td height="40" align="center" valign="top">&nbsp;</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>Rooms</h2>
+        <h4>Room Lists</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="content">
+  <div class="container">
+    <div class="row">
+		<div class="span12">			
+			<div class="formy well">
+             		#{list rooms, as:'room'}
+			<form>
+			<a href ="">ROOM  ID: ${room?.name} </a>			
+			<div class="well"><label>房型：</label><label for="name"><a href ="/RoomRecordManagement/${room.id}/addroomrecord"><h4>${room?.name}</h4></a><img width="300" src="${room.pic_location}"></img></label></div>
+			<div class="well"><label>平日價格：</label><label for="prize_day">${room?.prize_day}</label></div>
+			<div class="well"><label>假日價格：</label><label for="prize_holigy">${room?.prize_holigy}</label></div>
+			<div class="well"><label>入住人數：</label><label for="person_num">${room?.person_num}</label></div>
+			<div class="well"><label>房間大小：</label><label for="size">${room?.size}</label></div>
+			<div class="well"><label>床型大小：</label><label for="bad_type">${room?.bad_type}</label></div>
+			
+			#{/list}
+			
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+-->
+

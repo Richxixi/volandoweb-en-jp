@@ -1,0 +1,138 @@
+#{extends 'main_admin.html' /}
+#{set title:'意見反應管理 - 意見列表' /}<!-- Main bar -->
+  	<div class="mainbar">
+
+      <!-- Page heading -->
+      <div class="page-head">
+        <h2 class="pull-left"><i class="icon-table"></i> 意見列表</h2>
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+          <a href="/"><i class="icon-home"></i> Home</a> 
+          <!-- Divider -->
+          <span class="divider">/</span> 
+          <a href="#" class="bread-current">意見列表</a>
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+      <!-- Page heading ends -->
+
+	<script type="text/javascript">
+		function deleteConfirm(id){
+			if(confirm("您確定要永久刪除此意見？")){
+				location.href="/GuestbookManagement/"+ id + "/delete";		
+			}
+		}
+	</script>	      
+
+	    <!-- Matter -->
+
+	    <div class="matter">
+        <div class="container-fluid">
+
+          <!-- Table -->
+
+            <div class="row-fluid">
+
+              <div class="span12">
+                <div class="widget">
+
+                <div class="widget-head">
+                  <div class="pull-left">意見列表</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+
+                  <div class="widget-content">
+
+                    <table class="table table-striped table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th style="width: 60px;">#</th>
+                          <th style="width: 120px;">類別</th>
+			  <th>標題</th>
+                          <th style="width: 150px;">建立時間</th>
+                          <th style="width: 60px;">處理狀態</th>
+                          <th style="width: 120px;"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+			#{if guestbook}
+			  #{list items:guestbook, as:'guestbook'}
+                        <tr>
+                          <td>${guestbook.id}</td>
+                          <td>
+				#{if guestbook.guestBookType == 'qa'}問答#{/if}
+				#{elseif guestbook.guestBookType == 'hotel'}住房問題#{/elseif}
+				#{elseif guestbook.guestBookType == 'spa'}溫泉問題#{/elseif}
+				                #{elseif guestbook.guestBookType == 'traffic'}交通問題#{/elseif}
+                #{elseif guestbook.guestBookType == 'restaurant'}餐飲問題#{/elseif}
+
+				#{elseif guestbook.guestBookType == 'tour'}觀光#{/elseif}
+				#{elseif guestbook.guestBookType == 'comment'}意見#{/elseif}
+				#{elseif guestbook.guestBookType == 'device'}設備租借#{/elseif}		
+	
+			  </td>
+			  <td><a style="display: inline-block; width: 440px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" href="/GuestbookManagement/${guestbook.id}/show">
+				#{if guestbook.deviceType == 'pc'}				
+					${guestbook.email}: 
+				#{/if}
+				#{elseif guestbook.deviceType == 'mobile'}
+					APP:				
+				#{/elseif}
+
+				 ${guestbook.content}</a>
+				 #{if guestbook.view != true}<span style="color: red">new</span>#{/if}</td>
+                          <td>#{if guestbook.create_time} ${guestbook.create_time.format('yyyy-MM-dd hh:mm:ss')}#{/if}#{else} - #{/else}</td>
+                          <td>
+				#{if guestbook.status == true}已處理#{/if}
+				#{else}未處理#{/else}
+			  </td>
+                          <td>
+				<button type="button" class="btn" onClick="location.href='/GuestbookManagement/${guestbook.id}/show'">查看</button>
+			  	<button type="button" class="btn btn-danger" onClick="deleteConfirm(${guestbook.id})">刪除</button>
+			  </td>
+
+                        </tr>
+                        #{/list}
+                        #{/if}                                                        
+
+                      </tbody>
+                    </table>
+
+                    <div class="widget-foot">
+
+                      <div class="pagination pull-right">
+                        <ul>
+                          <li><a href="#">Prev</a></li>
+                          <li><a href="#">1</a></li>
+                          <li><a href="#">2</a></li>
+                          <li><a href="#">3</a></li>
+                          <li><a href="#">4</a></li>
+                          <li><a href="#">Next</a></li>
+                        </ul>
+                      </div>
+                      <div class="clearfix"></div> 
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+		  </div>
+
+		<!-- Matter ends -->
+
+    </div>
+
+   <!-- Mainbar ends -->

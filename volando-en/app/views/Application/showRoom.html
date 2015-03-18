@@ -1,0 +1,255 @@
+#{extends 'main.html' /}
+#{set title: room?.name /}
+
+<script type="text/javascript">
+function hsrting(str){
+var s=str.replace(/\n/g,"<br />");
+return s;
+}
+</script>
+<script type="text/javascript">
+
+    //ImgD:要放图片的img元素，onload时传参可用this
+
+    //h:img元素的高度，像素
+
+    //w:img元素的宽度，像素
+    function autosize(ImgD, w, h) {
+        var image = new Image();
+        image.src = ImgD.src;
+        if (image.width < w && image.height < h) {
+            ImgD.width = image.width;
+            ImgD.height = image.height;
+        }
+        else {
+            if ((w / h) <= (image.width / image.height)) {
+                ImgD.width = w;
+                ImgD.height = w * (image.height / image.width);
+            }
+            else {
+                ImgD.width = h * (image.width / image.height);
+                ImgD.height = h;
+            }
+        }
+
+    }
+</script>
+	<div class="block">
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="left" valign="top">
+              <table width="1000" border="0" align="center" cellpadding="5" cellspacing="0">
+                <tr>
+                  <td width="800" align="left" valign="top">
+			 <div id="photo-gallery">
+                                   
+				    <div id="photo-gallery-main">
+					 #{if room.pic_location4 != "" && room.pic_location4 != null}
+						<img id="photo_main" src="${room.pic_location4}" onload="autosize(this,800,600)">
+				    	 #{/if}
+				    </div>
+                                    
+				    #{if room.pic_location4 != "" && room.pic_location4 != null}
+				    	<div id="photo-gallery-1"><a href="#"><img src="${room.pic_location4}" width="119" height="82" onmouseover="MM_swapImage('photo_main','','${room.pic_location4}',0)"></a></div>
+			            #{/if}                                    
+
+				    #{if room.pic_location5 != "" && room.pic_location5 != null}
+				    	<div id="photo-gallery-2"><a href="#"><img src="${room.pic_location5}" width="119" height="82" onmouseover="MM_swapImage('photo_main','','${room.pic_location5}',0)"></a></div>
+                                    #{/if} 
+
+				    #{if room.pic_location6 != "" && room.pic_location6 != null}
+				    	<div id="photo-gallery-3"><a href="#"><img src="${room.pic_location6}" width="119" height="82" onmouseover="MM_swapImage('photo_main','','${room.pic_location6}',0)"></a></div>
+                                    #{/if} 
+
+				    #{if room.pic_location7 != "" && room.pic_location7 != null}
+				    	<div id="photo-gallery-4"><a href="#"><img src="${room.pic_location7}" width="119" height="82" onmouseover="MM_swapImage('photo_main','','${room.pic_location7}',0)"></a></div>
+                                    #{/if} 
+
+
+				    #{if room.pic_location8 != "" && room.pic_location8 != null}
+				    	<div id="photo-gallery-5"><a href="#"><img src="${room.pic_location8}" width="119" height="82" onmouseover="MM_swapImage('photo_main','','${room.pic_location8}',0)"></a></div>
+                                    #{/if} 
+
+				    #{if room.pic_location9 != "" && room.pic_location9 != null}
+				    	<div id="photo-gallery-6"><a href="#"><img src="${room.pic_location9}" width="119" height="82" onmouseover="MM_swapImage('photo_main','','${room.pic_location9}',0)"></a></div>
+                                    #{/if} 
+				</div>			
+
+
+		  </td>
+                  <td width="200" valign="middle"><font size="+2" style="font-weight:bold">${room?.name}</font><br />
+                    <span class="font-GRAY-Normal">&nbsp;${room?.name_en}</span>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                      <tr>
+                 <!--       <td><span class="font-GRAY-Tiny">${room?.description}</span></td> -->
+                        <td><span class="font-GRAY-Tiny">${descriptionEncrypt.raw()}</span></td>
+
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                      <tr>
+                        <td height="120">&nbsp;</td>
+                      </tr>
+                    </table>                    <br />                    </td>
+                </tr>
+                <tr>
+                  <td colspan="2" align="left" valign="middle"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td height="20" colspan="2" align="right" valign="middle">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td width="680" align="left" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0">
+                        <tr>
+                          <td width="30%" class="font-Default-Big">${room?.name} ${room?.size.format('')}坪  <span class="font-DGRAY-Tiny"><br />
+                          ${room?.name_en}</span></td>
+                          <td width="70%"><span class="font-Default-Tiny">${room?.bad_type}<br />
+定價：${room?.prize_day}+10%</span></td>
+                        </tr>
+                        <tr>
+                          <td valign="top" class="font-Default-Tiny">&nbsp;</td>
+                          <td valign="top" class="font-GRAY-Tiny">&nbsp;</td>
+                        </tr>
+                      </table></td>
+                      <td align="right" valign="bottom">
+				#{if room.pic_location3 != "" && room.pic_location3 != null}		
+					<img src="${room.pic_location3}" width="310" height="200" />
+				#{/if}
+				#{else}
+					<img src="/public/images/room/room_structure.jpg" width="310" height="200" />
+				#{/else}
+
+			</td>
+                    </tr>
+                  </table></td>
+                </tr>
+                <tr>
+                 
+		<td colspan="2" align="right" valign="middle">
+                  
+                   <span class="leftfloat style5">
+                          
+                          <span class="title_v_line"></span>
+                          <span class="font-Title">
+                                <a href="/Page/roomprice/showPage">價目表</a>
+                          </span>
+                  	</span>&nbsp;&nbsp;&nbsp;
+<span class="title_v_line"></span>                                 <a href="https://www.springparkhotel.com.tw/order_room/index.asp" target="new"><span class="font-Title">線上訂房</span></a>                  	
+                         <span class="rightfloat style4">
+				 #{list rooms, as:'rooms'}                  		
+				<a #{if room.id == rooms.id}style="color:#000;"#{/if} href="/Application/${rooms.id}/showRoom">${rooms?.name}</a> | 
+                        
+				  #{/list} 
+                  	</span>
+                  
+                  </td>
+
+ 		<!--<td colspan="2" align="right" valign="middle"><img src="/public/images/line-v.png" alt="" width="12" height="23" />
+			 <a href="/application/listrooms"> <img src="/public/images/room/anotheroom.gif" alt="" width="70" height="28"/> </a>
+			 <img src="/public/images/line-v.png" alt="" width="12" height="23" /> <a href="/Page/roomprice/showPage"><img src="/public/images/room/price2.gif" alt="" width="70" height="28"/></a>
+
+			<img src="/public/images/line-v.png" alt="" width="12" height="23" /> <a href="/RoomRecordManagement/${room.id}/addroomrecord"> 立即訂房 </a>			
+			 
+		</td>-->
+			
+			                
+		</tr>
+              </table>
+              </td>
+          </tr>
+        </table>
+	</div>
+    <!--<button id="payment" onclick="$('form').submit();">線上刷卡</button>
+    <form method="POST" action="/Payment/beforeCheckOut">
+        <input type="text" name="price" style="display: none">
+        <input type="text" name="orderId" style="display: none">
+    </form>-->
+
+
+<!--
+<div class="block">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left" valign="top">
+      <table width="1000" border="0" align="center" cellpadding="5" cellspacing="0">
+        <tr>
+          <td width="800" align="left" valign="top">
+		#{if room.pic_location2 != "" && room.pic_location2 != null}		
+			<img src="${room.pic_location2}" width="800" height="643" />
+		#{/if}
+		#{else}
+			<img src="/public/images/room/photoslider.jpg" width="800" height="643" />
+	  	#{/else}
+	  </td>
+          <td width="200" valign="middle">${room?.name}<br />
+            <span class="font-GRAY-Normal">&nbsp;Volando Suite</span>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+              <tr>
+                <td><span class="font-GRAY-Tiny">${room?.description}</span></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+              <tr>
+                <td height="120">&nbsp;</td>
+              </tr>
+            </table>                    <br />                    </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="left" valign="middle"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="50" colspan="2" align="right" valign="middle">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" valign="middle"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="33%" align="left" valign="top"><span class="font-Default-Tiny">房價包含：</span></td>
+                  <td width="33%" align="left" valign="top">&nbsp;</td>
+                  <td width="33%" rowspan="2" align="left" valign="top"><span class="font-Default-Tiny">房價均已含5%營業稅，但需外加10%服務費 <br />
+                    入住時間：下午3時後；退房時間：中午12時 <br />
+                    所有訂房皆需要以匯款或信用卡確認訂房 <br />
+                    空間設計特殊，12歲以下孩童無法提供入住，敬請見諒 <br />
+                    酒店恕不接待訪客及寵物 <br />
+                    每房最多限住${room.person_num == null ? '0' : room.person_num}位(含十二歲以上之兒童)</span></td>
+                </tr>
+                <tr>
+                  <td align="left" valign="top"><span class="font-Default-Tiny">迎賓茶點 <br />
+                    ABU Cuisine 義法創意料理/<br />
+                    Siliq主廚手作料理 (晚餐二擇一)<br />
+                    活力早餐<br />
+                    客房宵夜</span></td>
+                  <td align="left" valign="top"><span class="font-Default-Tiny">免費供應Mini Bar內所有飲料(含酒精類)<br />
+                    免費無限次數使用大浴場<br />
+                    全館無線上網<br />
+                    所有房型內均備有視聽音響設備</span></td>
+                </tr>
+              </table></td>
+              <td align="right" valign="bottom">
+			#{if room.pic_location3 != "" && room.pic_location3 != null}		
+				<img src="${room.pic_location3}" width="239" height="200" />
+			#{/if}
+			#{else}
+				<img src="/public/images/room/room_structure.jpg" width="239" height="200" />
+			#{/else}
+		</td>
+            </tr>
+          </table></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right" valign="middle">
+                  <img src="/public/images/line-v.png" alt="" width="12" height="23" />
+                  <a href="/application/listrooms">
+                   <img src="/public/images/room/anotheroom.gif" width="70" height="28"/>
+                  </a>
+                  <img src="/public/images/line-v.png" alt="" width="12" height="23" />
+                  <a href="/Page/roomprice/showPage">
+                   <img src="/public/images/room/price2.gif" width="70" height="28"/>
+                  </a>
+          </td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+</table>
+</div>
+-->
+
+

@@ -1,0 +1,135 @@
+#{extends 'main_admin.html' /}
+#{set title:'資訊管理 - 資訊編輯' /}
+<script language="javascript">
+
+    $(document).ready(function() {
+
+        $('#imageform').ajaxForm( {
+            beforeSubmit: function() {
+                $(this).addClass('loading');
+                $('#uploadBox').html('<div id="progressOverlay"><div class="progress progress-striped"><div class="bar" id="progressBar" style="width: 0%;">0%</div></div></div>');
+            },
+            uploadProgress: function ( event, position, total, percentComplete ) {
+                if (percentComplete == 100) {
+                    $('#progressBar').css('width',percentComplete+'%').html('圖片上傳完成');
+                } else {
+                    $('#progressBar').css('width',percentComplete+'%').html(percentComplete+'%');
+                }
+            },
+            success : function ( html ) {
+                //Your Custom JS Code Here
+                content = "<img style='width: 200px;' src='" + html + "' />";
+                $('#uploadBox').html(content);
+                $('#pic_location').val(html);
+            }
+        });
+    });
+</script>
+<!-- Main bar -->
+<form id="imageform" method="post" enctype="multipart/form-data" action="/Application/uploader/images">
+    <input type="file" class="hide" name="imageName" id="photoimg" onchange="$(this.form).submit();"/>
+</form>
+  	<div class="mainbar">
+
+      <!-- Page heading -->
+      <div class="page-head">
+        <h2 class="pull-left"><i class="icon-home"></i> 頁面編輯</h2>
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+          <a href="/admin"><i class="icon-home"></i> Home</a>
+          <span class="divider">/</span> 
+          <a href="#" class="bread-current">頁面編輯</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+      </div>
+      <!-- Page heading ends -->
+
+
+	    <!-- Matter -->
+	 #{form  @updatePageByType(type), enctype:'multipart/form-data', id:'myForm'}
+	    <div class="matter">
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span8">
+
+		<script type="text/javascript">
+		      $(document).ready(function() {
+			$("#myCleditor").cleditor({
+			    width: 550,
+			    height: 500			
+			});
+			$.cleditor.buttons.image.uploadUrl = '/cleditor/uploader/images';
+
+		
+
+		      });
+		</script>	      
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">
+			#{if page.type == "art"}馥藝廊#{/if} 
+			#{elseif page.type == "spatime"}療程表#{/elseif}
+			#{elseif page.type == "buycourse"}加購課程#{/elseif}
+				
+			編輯
+		  </div>
+
+
+
+                    <div class="text-area">
+                        <!-- Add the "cleditor" to textarea to add CLeditor -->
+                        <textarea id="myCleditor" style="width: 500px; height: 300px;" name="content">${page?.content}</textarea>
+
+                    </div>
+
+                  </div>
+                  <div class="widget-foot">
+                    <!--Word Count : 205-->
+                  </div>
+                </div>
+              </div>  
+      
+            </div>
+
+            <!-- post sidebar -->
+
+            <div class="span4">
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">管理區</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+                    <form>
+                      <button class="btn btn-info" onClick="$('#myForm').submit();">儲存</button>
+                    </form>
+
+                  </div>
+                  <div class="widget-foot">
+                    <!-- Footer goes here -->
+                  </div>
+                </div>
+              </div>  
+
+            </div>
+
+          </div>
+        </div>
+		  </div>
+    </div>  
+		#{/form}
+		<!-- Matter ends -->
+
+    </div>
+
+   <!-- Mainbar ends -->

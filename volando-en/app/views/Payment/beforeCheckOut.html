@@ -1,0 +1,17 @@
+#{extends 'main.html' /}
+#{set title:'Wait please' /}
+
+<script>
+    window.onload=function(){
+        var auto = setTimeout(function(){ submitform() },0);
+
+        function submitform(){
+            $('form').submit();
+        }
+    }
+</script>
+<h3>資料轉換至刷卡銀行中，請稍待。</h3>
+<form method="POST" action="${auth}">
+<input style="display: none" name="URLEnc" value="${URLEnc}">
+<input style="display: none" name="merID" value="${merID}">
+    </form>

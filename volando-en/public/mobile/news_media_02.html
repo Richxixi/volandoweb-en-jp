@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>馥蘭朵烏來渡假酒店 Volando Urai Spring SPA Resort</title>
+<link rel="stylesheet" href="css/mobile.css">
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+
+<script type=text/javascript>
+ function show_hiddendiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='block';
+ 	document.getElementById(strHref).href='javascript:hidden_showdiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+ }
+ function hidden_showdiv(strHref, hidden_div){
+ 	document.getElementById(hidden_div).style.display='none';
+ 	document.getElementById(strHref).href='javascript:show_hiddendiv(\''+ strHref +'\',\'' + hidden_div + '\');';
+ }
+ </script>
+
+<script type="text/javascript">
+$.get("link_header.html",function(data){$("#link_header").html(data);});   
+$.get("link_footer.html",function(data){$("#link_footer").html(data);});   
+</script>
+</head>
+<body>
+
+<div id="mobile">
+
+        <div id="link_header"></div>
+        
+        <div id="show">
+        				<img src="images/news/media/media_02_1.jpg" />
+        </div>
+        
+		<div id="content-white">
+                <div class="news-content-text-block font-DGRAY-Normal">
+                             <p>感謝中天文茜節目-夢想驛站節目系列專題報導,<br />
+                               馥蘭朵「米靈岸湖畔音樂劇」現正熱映中喔!<br />
+                             想報名的朋友可以先睹為快~</p>
+                             <p>*快點以下連結觀看*</p>
+<br /><br />
+                <a href="#">相關連結</a>
+                &nbsp;| &nbsp;
+                <a href="#">相關下載</a>
+                </div>
+  		</div>
+        <!--<div id="link_footer"></div>-->
+</div>
+</body>
+</html>

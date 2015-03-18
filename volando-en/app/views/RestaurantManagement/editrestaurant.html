@@ -1,0 +1,77 @@
+
+
+#{extends 'main_admin.html' /}
+#{set title:'資訊管理 - 開關房' /}
+<!-- Main bar -->
+  	<div class="mainbar">
+
+      <!-- Page heading -->
+      <div class="page-head">
+        <h2 class="pull-left"><i class="icon-home"></i> 餐廳編輯</h2>
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+          <a href="/admin"><i class="icon-home"></i> Home</a>
+	  <span class="divider">/</span>  
+	  <a href="/InformationManagement/list">餐廳管理</a>          
+	<!-- Divider -->
+          <span class="divider">/</span> 
+          <a href="#" class="bread-current">餐廳編輯</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+      </div>
+      <!-- Page heading ends -->
+
+	
+
+	    <!-- Matter -->
+	
+	    <div class="matter">
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span8">
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">餐廳編號: ${restaurant?.id} 編輯</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+                    #{form @updaterestaurantbyID(id), enctype:'multipart/form-data'}
+                    	<div class="well"><label>餐廳名稱 :</label>
+							<input type="text" name="name" value="${restaurant.name == null ? '' : restaurant.name}" class="span8" placeholder="餐廳名稱">
+						</div>
+						<div class="well"><label>座位數量:</label>
+							<input type="text" name="seat_num" value="${restaurant.seat_num == null ? '' : restaurant.seat_num}" class="span8" placeholder="30">
+						</div>
+						<div class="well"><label>營業時間 :</label>
+							<input type="text" name="time" value="${restaurant.time == null ? '' : restaurant.time}" class="span8" placeholder="10:00~20:00">
+						</div>
+			
+						<div class="well"><label>描述 :</label>
+							<textarea id="description" style="width: 500px; height: 100px;" name="description">${restaurant?.description}</textarea>
+							
+						</div>
+						
+						<div class="center"><input type="submit" name="submit" value="Submit" style="width:120px; height:32px; margin-top:30px"></div>
+					#{/form}
+                   
+                  </div>
+                  <div class="widget-foot">
+                    <!--Word Count : 205-->
+                  </div>
+                </div>
+              </div>  
+            </div>
+		<!-- Matter ends -->
+
+    </div>
+
+   <!-- Mainbar ends -->

@@ -1,0 +1,218 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+
+# Admin page
+GET		/admin									Admin.index
+GET		/admin/post								Admin.post
+GET		/admin/records							Admin.records
+GET		/admin/{id}/showuser					Admin.showUser
+GET		/admin/adduser							Admin.adduser
+GET		/admin/{id}/edituser					Admin.editUser
+
+# User page
+GET		/user/login  					    Application.login
+GET		/user/register					    Application.register
+GET		/user/{id}/showuser					Application.showUser
+GET		/user/adduser						Application.adduser
+GET		/user/{id}/edituser					Application.editUser
+GET		/user/profile					    Application.profile
+
+# APIs
+GET /api/users.json                          	Application.listUsers
+GET /api/users.xml                           	Application.listUsersXml
+
+# Import Secure routes
+*       /                                       module:secure
+
+# Import CRUD routes
+*	/crud				module:crud
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
+
+GET		/CustomerManagement							CustomerManagement.index
+GET		/CustomerManagement/{id}/editcustomer						CustomerManagement.editcustomer
+GET		/CustomerManagement/addcustomer						CustomerManagement.addcustomer
+POST	/cus										CustomerManagement.updatecustomer
+GET		/CustomerManagement/records					CustomerManagement.records
+
+GET		/HotspringManagement							HotspringManagement.index
+GET		/HotspringManagement/{id}/edithotspring						HotspringManagement.edithotspring
+GET		/HotspringManagement/addhotspring						HotspringManagement.addhotspring
+GET		/HotspringManagement/{id}/deleteHotspring					HotspringManagement.deleteHotspring
+POST	/hot										HotspringManagement.updatehotspring
+
+GET		/HotspringRecordManagement							HotspringRecordManagement.index
+GET		/HotspringRecordManagement/{id}/{hotspring_id}/edithotspringrecord						HotspringRecordManagement.edithotspringrecord
+GET		/HotspringRecordManagement/{hotspring_id}/addhotspringrecord						HotspringRecordManagement.addhotspringrecordByID
+GET		/HotspringRecordManagement/addhotspringrecord						HotspringRecordManagement.addhotspringrecord
+POST	/hot_records										HotspringRecordManagement.updatehotspringrecord
+GET		/HotspringRecordManagement/{id}/showhotspringrecord						HotspringRecordManagement.showhotspringrecord
+GET		/HotspringRecordManagement/forms					HotspringRecordManagement.forms
+
+GET		/RoomManagement									RoomManagement.index
+GET		/RoomManagement/{id}/editroom					RoomManagement.editroom
+GET		/RoomManagement/addroom							RoomManagement.addroom
+GET		/RoomManagement/{id}/deleteRoom					RoomManagement.deleteRoom
+GET		/RoomManagement/listRecords                     RoomManagement.listRecords
+GET		/RoomManagement/{id}/deleteRecord               RoomManagement.deleteRecord
+POST	/room											RoomManagement.updateroom
+
+GET     /RestaurantManagement/addrestaurant			RestaurantManagement.addrestaurant
+GET		/RestaurantManagement/{id}/editrestaurant			  RestaurantManagement.editrestaurant
+GET		/RestaurantManagement/{id}/deleteRestaurant		RestaurantManagement.deleteRestaurant
+GET		/RestaurantManagement/records                     RestaurantManagement.records
+GET		/RestaurantManagement/listRecords                     RestaurantManagement.listRecords
+GET		/RestaurantManagement/{id}/deleteRecord               RestaurantManagement.deleteRecord
+POST	/restaurant											RestaurantManagement.updaterestaurantbyID
+
+GET     /MealSetManagement/addmealset			MealSetManagement.addmealset
+GET		/MealSetManagement/{id}/editmealset			  MealSetManagement.editmealset
+GET		/MealSetManagement/records                     MealSetManagement.records
+POST	/mealset											MealSetManagement.updatemealsetbyID
+
+GET		/RoomRecordManagement							RoomRecordManagement.index
+GET		/RoomRecordManagement/{id}/{room_id}/editroomrecord		RoomRecordManagement.editroomrecord
+GET		/RoomRecordManagement/{room_id}/addroomrecord	RoomRecordManagement.addroomrecordbyID
+GET		/RoomRecordManagement/addroomrecord	RoomRecordManagement.addroomrecord
+POST	/room_record									RoomRecordManagement.updateroomrecordbyID
+GET		/RoomRecordManagement/{id}/showroomrecord		RoomRecordManagement.showroomrecord
+GET		/RoomRecordManagement/forms						RoomRecordManagement.forms
+
+GET		/RestaurantRecordManagement							RestaurantRecordManagement.index
+GET		/RestaurantRecordManagement/{id}/{restaurant_id}/editrestaurantrecord						RestaurantRecordManagement.editrestaurantrecord
+GET		/RestaurantRecordManagement/{restaurant_id}/addrestaurantrecord						RestaurantRecordManagement.addrestaurantrecordByID
+GET		/RestaurantRecordManagement/addrestaurantrecord						RestaurantRecordManagement.addrestaurantrecord
+POST	/restaurant_record										RestaurantRecordManagement.updaterestaurntrecordbyID
+GET		/RestaurantRecordManagement/{id}/showrestaurantrecord						RestaurantRecordManagement.showrestaurantrecord
+GET		/RestaurantRecordManagement/forms					RestaurantRecordManagement.forms
+GET     /RestaurantRecordManagement/lists	                RestaurantRecordManagement.listrestaurants
+
+GET     /RoomCapacityManagement/editRoomCapacity/{id}	                RoomCapacityManagement.editRoomCapacity
+GET     /RoomCapacityManagement/listRooms                RoomCapacityManagement.listRooms
+POST	/RoomCapacityManagement/updateRoomCapacity	     RoomCapacityManagement.updateRoomCapacity
+GET     /RoomCapacityManagement/listRoomcapacity/{id}		 RoomCapacityManagement.listRoomcapacity
+
+GET		/TrafficRecordManagement							TrafficRecordManagement.index
+GET		/TrafficRecordManagement/{id}/{traffic_id}/edittrafficrecord		TrafficRecordManagement.edittrafficrecord
+GET		/TrafficRecordManagement/{traffic_id}/addtrafficrecord	TrafficRecordManagement.addtrafficrecord
+POST	/traffic_record									TrafficRecordManagement.updatetrafficrecordbyID
+GET		/TrafficRecordManagement/{id}/showtrafficrecord		TrafficRecordManagement.showtrafficrecord
+GET		/TrafficRecordManagement/forms	
+GET		/TrafficRecordManagement/records                     TrafficRecordManagement.records
+
+GET     /Application/lists	                    Application.listrooms
+GET     /Application/{id}/showRoom              Application.showRoom
+GET     /Application/listrestaurants	                    Application.listrestaurants
+GET     /Application/listtraffics	                    Application.listtraffics
+GET     /Application/listhotsprings	            Application.listhotsprings
+GET     /Application/{id}/showHotspring              Application.showHotspring
+
+
+GET		/TrafficManagement							TrafficManagement.index
+GET		/TrafficManagement/{id}/edittraffic						TrafficManagement.edittraffic
+GET		/TrafficManagement/addtraffic						TrafficManagement.addtraffic
+POST	/traffic										TrafficManagement.updatetrafficbyID
+GET		/TrafficManagement/{id}/showtraffic		TrafficManagement.showtraffic
+GET		/TrafficManagement/listtraffics		TrafficManagement.listtraffics
+GET		/TrafficManagement/{id}/deleteTraffic		TrafficManagement.deleteTraffic
+
+# Moon Path
+GET		/InformationManagement							InformationManagement.index
+GET		/InformationManagement/list  					InformationManagement.list
+GET		/InformationManagement/{id}/editInfo			InformationManagement.editInfo
+GET		/InformationManagement/add						InformationManagement.add
+POST	/information									InformationManagement.updateInformationByID
+GET		/Information/{id}/show           				Application.showinfo
+GET		/Information/list/{category}           			Application.listInformationAll
+GET		/InformationManagement/{id}/deleteRecord        InformationManagement.deleteRecord
+GET     /captcha                            		    Application.captcha
+
+GET		/AnnounceManagement						    	AnnounceManagement.index
+GET		/AnnounceManagement/list  					    AnnounceManagement.list
+GET		/AnnounceManagement/{id}/editInfo			    AnnounceManagement.editInfo
+GET		/AnnounceManagement/add					    	AnnounceManagement.add
+POST	/AnnounceManagement								AnnounceManagement.updateAnnounceByID
+GET		/AnnounceManagement/{id}/deleteRecord           AnnounceManagement.deleteRecord
+GET		/Announce/listAll/							    Application.listAnnounceAll
+GET		/Announce/list/{category}				        Application.listAnnounce
+
+GET		/MeetingManagement						    	MeetingManagement.index
+GET		/MeetingManagement/list  		     			MeetingManagement.list
+GET		/MeetingManagement/{id}/editInfo		    	MeetingManagement.editInfo
+GET		/MeetingManagement/add					    	MeetingManagement.add
+POST	/MeetingManagement							    MeetingManagement.updateMeetingByID
+GET		/MeetingManagement/{id}/deleteRecord            MeetingManagement.deleteRecord
+
+GET		/Meeting/list/{category}				        Application.listMeeting
+GET		/Meeting/meeting/{id}				        	Application.meetingDetail
+
+GET		/ProjectManagement						    	ProjectManagement.index
+GET		/ProjectManagement/list  		     			ProjectManagement.list
+GET		/ProjectManagement/{id}/editInfo		    	ProjectManagement.editInfo
+GET		/ProjectManagement/add					    	ProjectManagement.add
+POST	/ProjectManagement							    ProjectManagement.updateInformationByID
+GET		/ProjectManagement/{id}/deleteRecord            ProjectManagement.deleteRecord
+GET		/Project/listAll/							    Application.listProjectAll
+GET		/Project/list/{category}				        Application.listProject
+GET		/Project/project/{id}				        	Application.projectDetail
+
+GET		/PageManagement/editLifeTime	         		PageManagement.editLifeTime
+POST	/PageManagement/editLifeTimeForm         		PageManagement.editLifeTimeForm
+GET		/PageManagement/{type}/editInfo		    		PageManagement.editInfo
+POST	/PageManagement								    PageManagement.updatePageByType
+GET		/Page/{category}/showPage   	                Application.showPage
+
+
+GET		/GuestbookManagement/list                       GuestbookManagement.list
+GET		/GuestbookManagement/{id}/show                  GuestbookManagement.show
+GET		/GuestbookManagement/{id}/delete                GuestbookManagement.delete
+
+GET     /Pages/about        						    Pages.about
+GET     /Pages/about/{category}				     		Pages.about_page
+GET     /Pages/meeting        						    Pages.meeting
+GET     /Pages/meeting/{category} 					    Pages.meeting_page
+GET     /Pages/spring			 					    Pages.spring
+GET     /Pages/spring/{category} 					    Pages.spring_page
+GET     /Pages/catering			 					    Pages.catering
+GET     /Pages/catering/{category} 					    Pages.catering_page
+GET     /Pages/spa				 					    Pages.spa
+GET     /Pages/spa/{category} 					   		Pages.spa_page
+
+GET     /Application/guestbook/{type}	                Application.guestbook
+GET     /Application/guestbookMobile	                Application.guestbookMobile
+GET     /Application/guestbookList/{device}	            Application.guestbookList
+GET     /Application/showguestbook/{id}	                Application.showGuestbook
+GET     /Application/showguestbookmobile/{id}	        Application.showGuestbookMobile
+GET     /Application/downloadapp	        Application.downLoadApp
+GET     /ArtsManagement/list/{type}	                    ArtsManagement.listAll
+GET     /ArtsManagement/add/{type}	                    ArtsManagement.add
+GET     /ArtsManagement/{id}/editInfo                   ArtsManagement.editInfo
+GET     /Application/listArts    		                Application.listArts
+GET		/ArtsManagement/{id}/deleteRecord               ArtsManagement.deleteRecord
+
+POST	/cleditor/uploader/images		 		        InformationManagement.imageHandler
+POST	/Application/uploader/images		 		    Application.imageHandler
+
+# ChinaTrust Payment
+GET     /Payment/beforeCheckOut                          Payment.beforeCheckOut
+POST    /Payment/beforeCheckOut                          Payment.beforeCheckOut
+GET     /Payment/afterCheckOut                           Payment.afterCheckOut
+GET     /Payment/desc/{errDesc}                          Payment.showPaymentExceptionDesc
+GET     /Payment/code/{errCode}                          Payment.showPaymentExceptionCode
+
+GET     /CRMRecords                                      CRMViewer.showRecords
+GET     /CRMExport                                       CRMViewer.exportRecords
+
+GET     /MemberRecords                                      CRMViewer.showmember
+GET     /MemberExport                                       CRMViewer.exportmemberRecords

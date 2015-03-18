@@ -1,0 +1,256 @@
+#{extends 'main_admin.html' /}
+#{set title:'資訊管理 - 資訊編輯' /}<!-- Main bar -->
+<script language="javascript">
+
+    $(document).ready(function() {
+
+        $('#imageform').ajaxForm( {
+            beforeSubmit: function() {
+                $(this).addClass('loading');
+                $('#uploadBox').html('<div id="progressOverlay"><div class="progress progress-striped"><div class="bar" id="progressBar" style="width: 0%;">0%</div></div></div>');
+            },
+            uploadProgress: function ( event, position, total, percentComplete ) {
+                if (percentComplete == 100) {
+                    $('#progressBar').css('width',percentComplete+'%').html('圖片上傳完成');
+                } else {
+                    $('#progressBar').css('width',percentComplete+'%').html(percentComplete+'%');
+                }
+            },
+            success : function ( html ) {
+                //Your Custom JS Code Here
+                content = "<img style='width: 200px;' src='" + html + "' />";
+                $('#uploadBox').html(content);
+                $('#pic_location').val(html);
+            }
+        });
+    });
+</script>
+<form id="imageform" method="post" enctype="multipart/form-data" action="/Application/uploader/images">
+    <input type="file" class="hide" name="imageName" id="photoimg" onchange="$(this.form).submit();"/>
+</form>
+<div class="mainbar">
+
+<!-- Page heading -->
+<div class="page-head">
+    <h2 class="pull-left"><i class="icon-home"></i> 專案編輯</h2>
+
+    <!-- Breadcrumb -->
+    <div class="bread-crumb pull-right">
+        <a href="/admin"><i class="icon-home"></i> Home</a>
+        <span class="divider">/</span>
+        <a href="/ProjectManagement/list">專案管理</a>
+        <!-- Divider -->
+        <span class="divider">/</span>
+        <a href="#" class="bread-current">專案編輯</a>
+    </div>
+
+    <div class="clearfix"></div>
+
+</div>
+<!-- Page heading ends -->
+
+
+<!-- Matter -->
+#{form  @updateProjectByID(id), enctype:'multipart/form-data', id:'myForm'}
+<div class="matter">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span8">
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $("#myCleditor").cleditor({
+                            width: 500,
+                            height: 500
+                        });
+                        $.cleditor.buttons.image.uploadUrl = '/cleditor/uploader/images';
+
+                        $(".uni .radio").click(function () {
+                            if ($(this).find("span").hasClass("checked")) {
+                                $(".uni .radio input[name=type]").attr("checked", false);
+                                $(this).find("input[name=type]").attr("checked", true);
+                            }
+                        });
+
+                        $("#start_time").datetimepicker({format: 'yyyy/MM/dd'});
+                        $("#end_time").datetimepicker({format: 'yyyy/MM/dd'});
+                        $("#publish_time").datetimepicker({format: 'yyyy/MM/dd'});
+
+
+                        $(".uni .radio input[value=${project.type}]").attr("checked", true);
+                        $(".uni .radio input[value=${project.type}]").parent().addClass("checked");
+                    });
+                </script>
+
+                <div class="widget">
+                    <div class="widget-head">
+                        <div class="pull-left">專案編號 ${project?.id} 編輯</div>
+                        <div class="widget-icons pull-right">
+                            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                            <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="widget-content">
+                        <div class="padd">
+
+                            <input name="title" type="text" class="span8" placeholder="文章標題"
+                                   value="${project?.title}"/>
+                            <br/>
+                            #{if project.iconUrl!= "" &&project.iconUrl != null}
+                                <div id="oldImageBox" style="margin-bottom: 10px;">
+                                    <label>已上傳之圖片</label>
+                                    <img style="width: 200px" src="${project.iconUrl == null ? '' : project.iconUrl}" />
+                                </div>
+                            #{/if}
+                            <button class="btn" type="button" onClick="now_image_id='' ;$('#photoimg').click();">
+                                上傳圖片
+                            </button>
+                            <input type="hidden" name="pic_location" id="pic_location" value="${project.iconUrl == null ? '' : project.iconUrl}" />
+                            <div style="margin-top: 10px;" id="uploadBox">
+
+                            </div>
+                            <!--<button class="btn"><i class="icon-paper-clip"></i> 新增圖片</button>-->
+                            <div class="text-area">
+                                <!-- Add the "cleditor" to textarea to add CLeditor -->
+                                <textarea id="myCleditor" style="width: 500px; height: 300px;"
+                                          name="content">${project?.content}</textarea>
+
+                            </div>
+
+                        </div>
+                        <div class="widget-foot">
+                            <!--Word Count : 205-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- post sidebar -->
+
+            <div class="span4">
+
+                <div class="widget">
+                    <div class="widget-head">
+                        <div class="pull-left">分類與標籤</div>
+                        <div class="widget-icons pull-right">
+                            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                            <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="widget-content">
+                        <div class="padd">
+
+                      <!--      <form> -->
+
+                                <h6>類別</h6>
+                                <hr/>
+                                <div class="uni">
+                                    <label><input name="type" type='radio' value='mi'/> 米靈岸專區</label>
+                                    <label><input name="type" type='radio' value='hotel'/> 住宿專案</label>
+                                    <label><input name="type" type='radio' value='meeting'/> 會議專案</label>
+                                    <label><input name="type" type='radio' value='hotspring'/> 湯宴</label>
+                                    <label><input name="type" type='radio' value='others'/> 其他專案</label>
+                                </div>
+
+                                <hr/>
+                                <h6>專案開始時間</h6>
+
+
+                                <p>
+
+                                <div id="start_time" class="input-append date">
+                                    <span class="add-on">
+			    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+			  </span>
+                                <input name="start_time" type="text" placeholder="專案開始時間"
+                                           value="${project?.start_time?.format('yyyy/MM/dd')}">
+
+                                </div>
+                                </p>
+ <h6>專案結束時間</h6>
+                                <p>
+
+                                <div id="end_time" class="input-append date">
+                                <span class="add-on">
+			    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+			  </span>
+                                <input name="end_time" type="text" placeholder="專案結束時間"
+                                           value="${project?.end_time?.format('yyyy/MM/dd')}">
+
+                                </div>
+
+                                </p>
+
+                                <p>
+                                <h6>專案顯示時間</h6>
+
+                                <div id="publish_time" class="input-append date">
+                                    <span class="add-on">
+			    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+			  </span>
+                                    <input name="publish_time" type="text" placeholder="公告顯示時間"
+                                           value="${project?.publish_time?.format('yyyy/MM/dd')}">
+
+                                </div>
+                                </p>
+                                <hr/>
+                                <input type="hidden" name="saveAsDraft" value="yes"/>
+                                <h6>新增文章時間</h6>
+
+                                <p>#{if project.create_time}${project?.create_time.format('yyyy-MM-dd hh:mm:ss')}#{/if}#{else}
+                                    - #{/else}</p>
+                                <h6>最後更新時間</h6>
+
+                                <p>#{if project.update_time}${project?.update_time.format('yyyy-MM-dd hh:mm:ss')}#{/if}#{else}
+                                    - #{/else}</p>
+                                <h6>發布狀態</h6>
+
+                                <p>
+                                    #{if project?.isDraft == true}草稿#{/if}
+                                    #{else}已發布#{/else}
+                                </p>
+                                <hr/>
+
+                                <button type="button" class="btn"
+                                        onClick="$('input[name=saveAsDraft]').val('yes'); $('#myForm').submit();">
+                                    存成草稿
+                                </button>
+                                <button type="button" class="btn btn-info"
+                                        onClick="$('input[name=saveAsDraft]').val('no'); $('#myForm').submit();">發布
+                                </button>
+                                <button type="button" class="btn btn-danger"
+                                        onClick="deleteConfirm(${project?.id})">刪除文章
+                                </button>
+
+                          <!--  </form> -->
+
+                            <script type="text/javascript">
+                                function deleteConfirm(id) {
+                                    if (confirm("您確定要永久刪除此資料？")) {
+                                        location.href = "/ProjectManagement/" + id + "/deleteRecord";
+                                    }
+                                }
+                            </script>
+
+
+                        </div>
+                        <div class="widget-foot">
+                            <!-- Footer goes here -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+#{/form}
+<!-- Matter ends -->
+
+</div>
+
+<!-- Mainbar ends -->

@@ -1,0 +1,48 @@
+#{extends 'main.html' /}
+#{set title:'Traffic - Show List' /}
+
+<link rel="stylesheet" href="/public/machome/style/bootstrap-datetimepicker.min.css">
+<script src="/public/machome/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+      $('#datepicker').datepicker();
+    </script>
+
+<!-- Page heading starts -->
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2>Traffic</h2>
+        <h4>Traffic Lists</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+<div class="content">
+  <div class="container">
+    <div class="row">
+		<div class="span12">
+			<div class="formy well">
+             #{list traffics, as:'traffic'}
+			<form>
+			<a href ="/TrafficRecordManagement/${traffic.id}/addtrafficrecord">Traffic  ID: ${traffic?.id} </a>
+			<label for="idlabel">Traffic  ID:  </label><label for="myid">${traffic?.id}</label>
+			<div class="well"><label>起點：</label><label for="name">${traffic?.start_point}</label></div>
+			<div class="well"><label>終點：</label><label for="prize_day">${traffic?.end_point}</label></div>
+			<div class="well"><label>座位人數：</label><label for="prize_holigy">${traffic?.seat_num}</label></div>
+			<div class="well"><label>時間：</label><label for="person_num">${traffic?.time}</label></div>
+			
+			#{/list}
+			
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

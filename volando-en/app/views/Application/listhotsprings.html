@@ -1,0 +1,54 @@
+#{extends 'main.html' /}
+#{set title:'馥蘭朵烏來渡假酒店 Volando Urai Spring SPA Resort - 溫泉' /}
+
+
+<div id="contents">
+	<div class="block">
+            <div class="block2">
+            
+           <div style="width:100%; text-align:left; margin-bottom:80px; margin-left: 90px;">
+                    		Remove your clothing and shoes<br />
+                            吸進水氣裡清新的溫泉香 感覺微風輕吹拂動<br />
+                            芬揚的觀音石伴著潺潺泉水聲<br />
+                            享受悠閒寧靜的時光
+                    </div>
+            
+		#{list hotsprings, as:'hotspring'}
+		<div class="items">
+			  <table width="300" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tr>
+                                  <td>
+                                    <span class="title_v_line"></span><a href="/Application/${hotspring.id}/showHotspring"><span class="font-Title">${hotspring.name}</span></a>
+                                  </td>
+                                </tr>
+                                <tr><td height="12"></td></tr>
+                                <tr>
+                                  <td><a href="/Application/${hotspring.id}/showHotspring"><img src="${hotspring.pic_location}" alt="" width="300" height="200" /></a>
+                                  </td>
+                                </tr>
+                            </table>
+                           
+			 
+              		</div>
+              	#{/list}
+                    <div class="items">
+                      <table width="300" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+				<td height="28" align="left" valign="middle"><span class="title_v_line"></span> <a href="/Project/list/hotspring"><span class="font-Title">湯宴專案</span></a></td>                          
+                        </tr>
+                        <tr>
+
+                        </tr>
+                        <!--
+                        <tr>
+                          <td height="32" align="left" valign="bottom"><img src="/public/images/line-v.png" alt="" width="12" height="23" /> <a href="#"> <img src="/public/images/spring/t-3.gif" alt="" width="200" height="28" /></a></td>
+                        </tr>-->
+                      </table>
+                    </div>
+	  </div><!--eof block2-->
+	</div>
+    <div class="main-footer-block"></div>
+</div>
+
+
+
