@@ -50,7 +50,7 @@
 					#{/list}
 				#{/if}
 				#{else}
-					目前尚無已公佈之資訊。
+					Currently no information has been released of
 				#{/else}
 			</div>
 		
@@ -163,60 +163,101 @@
 						padding: 10px;
 					}
 				</style>
-				<table width="667" border="1">
-				  <tbody>
-				    <tr>
-				      <td width="657"><p>Your comments are important to us. Please leave your comments</p>
-			          <p>and one of our specialists will contact you.</p>
-			          <p>You may also contact us via the email for customer service: fo@volandourai.com.tw</p></td>
-			        </tr>
-			      </tbody>
-				  </table>
-				<table width="667" border="1">
-				  <tbody>
-				    <tr>
-				      <td width="145">Topic</td>
-				      <td width="506">Accommodation/Hot  Spring/SPA/Dining/Meeting/Others</td>
-			        </tr>
-				    <tr>
-				      <td>Guest Name</td>
-				      <td>&nbsp;</td>
-			        </tr>
-				    <tr>
-				      <td>Phone Number</td>
-				      <td>&nbsp;</td>
-			        </tr>
-				    <tr>
-				      <td>E-mail</td>
-				      <td>&nbsp;</td>
-			        </tr>
-				    <tr>
-				      <td>Service Satisfaction</td>
-				      <td>&nbsp;</td>
-			        </tr>
-				    <tr>
-				      <td>Content</td>
-				      <td>&nbsp;</td>
-			        </tr>
-				    <tr>
-				      <td>Reply Method </td>
-				      <td>Telephone/E-Mail/All </td>
-			        </tr>
-				    <tr>
-				      <td>Contact Time</td>
-				      <td>&nbsp;</td>
-			        </tr>
-				    <tr>
-				      <td>Verification Code </td>
-				      <td>&nbsp;</td>
-			        </tr>
-			      </tbody>
-				  </table>
+				<table class="myTable" >
+				<tr>
+				  <td style="width: 120px;">1. Guest Name <span style="color: red">*</span></td>
+				  <td>
+					<input class="span4" style="width: 250px;" type="text"  name= "name" value="" placeholder ="Fill in your name to help us call you" />
+					<input type="radio" name="gender" value="先生" checked/>
+					 Mr.
+				   <input type="radio" name="gender" value="小姐" /> 
+					Miss</td>
+				</tr>
+				<tr>
+					<td>2. E-mail <span style="color: red">*</span></td>
+				    	<td><input class="span4" style="width: 250px;" type="text"  name= "email" value="" placeholder ="Enter your Email us get back to you" /></td>
+				</tr>
+				<tr>
+					<td>3. Phone Number</td>
+				   	<td> <input class="span4" style="width: 250px;" type="text"  name= "phone" value="" placeholder ="Optional fill your phone let you dial reply" /></td>
+				</tr>				
+				<tr>
+					<td>4. Topic <span style="color: red">*</span></td>
+					<td>					
+					#{select 'type', value:'', id:'select1'}
+						#{option 'device'}Accommodation#{/option}
+						#{option 'hotel'}Hot Spring#{/option}
+						#{option 'spa'}SPA#{/option}
+						#{option 'restaurant'}Dining#{/option}
+						#{option 'traffic'}Meeting#{/option}
+                        #{option 'spa'}Others#{/option}
+					#{/select}</td>
+				</tr>								
+				<tr>				
+					<td>5. Service Satisfaction<span style="color: red">*</span></td>
+					<td>
+						<select name="servicescore">
+							<option value="非常滿意">Very satisfied</option>
+							<option value="滿意">Satisfaction</option>
+							<option value="普通">General</option>
+							<option value="不滿意">Dissatisfied</option>
+							<option value="非常不滿意">Very dissatisfied</option>
+						</select>
+					</td>			    
+				
+				</tr>	
+				<tr>				
+					<td>6. Content <span style="color: red">*</span></td>
+					<td><textarea style="width: 250px; height: 150px;" name="content"></textarea></td>			    
+				
+				</tr>
+				<tr>				
+					<td>7. Reply Method <span style="color: red">*</span></td>
+				  <td>
+						<input type="radio" name="replyway" value="Email" checked/> Email
+						<input type="radio" name="replyway" value="電話" />
+						Telephone
+						<input type="radio" name="replyway" value="皆可" />
+						All </td>			    
+				
+				</tr>				
+				<tr>				
+					<td>8. Contact Time <span style="color: red">*</span></td>
+					<td>
+						<select name="contacttime">
+							<option value="早上9：00-11：30">am9：00-11：30</option>
+							<option value="下午13：00-17：30">pm1：00-5：30</option>
+							<option value="晚上18：00-21：30">pm6：00-9：30</option>
+						</select>
+					</td>			    
+				
+				</tr>
+    			<tr>				
+					<td>9. Verification Code <span style="color: red">*</span></td>
+					<td>
+						<img src="@{Application.captcha(randomID)}" /> 
+					</td>			    
+				
+				</tr>
+				<tr>				
+					<td></td>
+					<td>
+						<input class="span4" style="width: 120px;" type="text"  name="cap" value="" placeholder ="Please enter the verification code" />	
+					    	<input type="hidden" name="randomID" value="${randomID}" />			
+					</td>			    
+				
+				</tr>
+				<input class="span3" type="hidden"  name= "device" value="pc" placeholder ="" />			
+				<input class="span3" type="hidden"  name= "lang" value="zh_TW" placeholder ="" />
+				<tr>				
+					<td><button class="btn btn-primary" type="submit" name="submit">Send</button></td>
+				</tr>
+				</table>			
 				</div>
 				
 				#{if error == "1"}
 					<script>
-						alert("驗證碼錯誤，請重新輸入！");
+						alert("Verification code error, please re-enter!");
 					</script>
 				#{/if}
 
